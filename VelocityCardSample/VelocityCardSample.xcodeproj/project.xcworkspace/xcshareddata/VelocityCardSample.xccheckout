@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>22DD26D7-7BBB-4F97-81F4-E068A691D06B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>VelocityCardSample</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>54ae5cb6-10a5-f947-8185-ef4a9f970bf7++5076</key>
+		<string>https://chetusvn.chetu.com:8443/svn/NorthAmericanBancard-P1/iOS%252525252525252525252525252525252525252525252520Library</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>VelocityCardSample/VelocityCardSample.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>54ae5cb6-10a5-f947-8185-ef4a9f970bf7++5076</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>54ae5cb6-10a5-f947-8185-ef4a9f970bf7++5076</key>
+		<string>https://chetusvn.chetu.com:8443/svn/NorthAmericanBancard-P1</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://chetusvn.chetu.com:8443/svn/NorthAmericanBancard-P1/iOS%252525252525252525252525252525252525252525252520Library/VelocityCardSample/VelocityCardSample.xcodeproj</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>54ae5cb6-10a5-f947-8185-ef4a9f970bf7++5076</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>54ae5cb6-10a5-f947-8185-ef4a9f970bf7++5076</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOS%20Library</string>
+		</dict>
+	</array>
+</dict>
+</plist>
