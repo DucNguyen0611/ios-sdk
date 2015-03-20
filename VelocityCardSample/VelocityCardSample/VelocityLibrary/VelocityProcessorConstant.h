@@ -10,9 +10,9 @@
 #define VelocityCardSample_VelocityProcessorConstant_h
 
 #endif
-    //Base TestURL.
-#define kServer_Test_Url @"https://api.cert.nabcommerce.com/REST/2.0.18/"
-#define kServer_Url      @"https://api.nabcommerce.com/REST/2.0.18/UMP/"
+
+#define kServer_Test_Url @"https://api.cert.nabcommerce.com/REST/2.0.18/"//Base TestURL.
+#define kServer_Url      @"https://api.nabcommerce.com/REST/2.0.18/"//base url
 #define kAuthorization   @"Authorization"
 #define kidentityToken   @"identityToken :"
 #define kErrorResponse   @"ErrorResponse"

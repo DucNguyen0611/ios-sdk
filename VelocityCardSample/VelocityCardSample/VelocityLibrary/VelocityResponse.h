@@ -55,10 +55,28 @@
 @property (strong,nonatomic) NSString *operation;
 @property (strong,nonatomic) NSString *reason;
 @property (strong,nonatomic) NSString *ruleMessage;
-@end
+@property (strong,nonatomic) NSString *netAmount;
 
+@property (strong,nonatomic) NSString *count;
+@property (strong,nonatomic) NSString *httpCode;
+@end
+/**
+ *  methods to get values inserted in modal class
+ */
 @interface VelocityResponseObjectHandlers : NSObject
+/**
+ *  to get vaues in othe class
+ *
+ *  @return velocity response object
+ */
 +(VelocityResponse *)getModelObject;
+/**
+ *  to set values in the modal class
+ *
+ *  @param id
+ *
+ *  @return velocityResponse
+ */
 +(VelocityResponse*)setModelObject:(id )obj;
 
 

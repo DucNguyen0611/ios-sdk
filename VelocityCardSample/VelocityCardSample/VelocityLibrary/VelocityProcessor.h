@@ -5,11 +5,16 @@
 //  Created by Chetu on 1/19/15.
 //  Copyright (c) 2015 NorthAmericanBancard. All rights reserved.
 //
-
+/**
+ * Main Velocity processor class of libraray
+ *
+ * 
+ */
 #import <Foundation/Foundation.h>
 #import "VelocityProcessorSignOn.h"
 #import "VelocityProcessorAuthorizeTransaction.h"
 #import "VelocityProcessorAuthWithToken.h"
+#import "VelocityProcessorCapture.h"
 #import "Address.h"
 #import "AuthorizeTransaction.h"
 #import "AVSData.h"
@@ -29,34 +34,86 @@
 #import "Transaction.h"
 #import "TransactionData.h"
 #import "VelocityProcessorAuthWAndWOCapture.h"
+#import "VelocityProcessorVoid.h"
+#import "VelocityProcessorAdjust.h"
+#import "VelocityProcessorReturnByID.h"
+#import "VelocityProcessorReturnUnlinked.h"
 @protocol VelocityProcessorDelegate<NSObject>
 @required
+//delegate method for successful transaction
 -(void)VelocityProcessorFinishedWithSuccess:(id )successAny;
+//delegate method for Failed transaction
 -(void)VelocityProcessorFailedWithErrorMessage:(id )failedAny;
 @end
 
-@interface VelocityProcessor : NSObject<VelocityProcessorSignOnDelegate,VelocityProcessorAuthTXDelegate,VelocityProcessorAuthWTokenDelegate,VelocityProcessorAuthNCaptureWAndWOTokenDelegate>{
+@interface VelocityProcessor : NSObject<VelocityProcessorSignOnDelegate,VelocityProcessorAuthTXDelegate,VelocityProcessorAuthWTokenDelegate,VelocityProcessorAuthNCaptureWAndWOTokenDelegate,VelocityProcessorCaptureDelegate,VelocityProcessorVoidDelegate,VelocityProcessorAdjustDelegate,VelocityProcessorReturnByIdDelegate,VelocityProcessorReturnUnLinkedDelegate>{
   
 }
-@property (copy,nonatomic) NSString *vPIdentityToken;
-@property (copy,nonatomic) NSString *vPAppProfileId;
-@property (copy,nonatomic) NSString *vPMerchantProfileId;
-@property (copy,nonatomic) NSString *vPWorkflowId;
-@property (copy,nonatomic) NSString *vPSessionToken;
+@property (strong,nonatomic) NSString *vPIdentityToken;
+@property (strong,nonatomic) NSString *vPAppProfileId;
+@property (strong,nonatomic) NSString *vPMerchantProfileId;
+@property (strong,nonatomic) NSString *vPWorkflowId;
+@property (strong,nonatomic) NSString *vPSessionToken;
 @property  BOOL vPIsTestAccount;
 @property BOOL vPIsAuthWithPaymentDataToken;
-@property (copy,nonatomic) NSString *vPPaymentAccountDataToken;
+@property (strong,nonatomic) NSString *vPPaymentAccountDataToken;
 @property (strong,nonatomic) VelocityProcessorSignOn *obj;
 
 @property (nonatomic, strong) id <VelocityProcessorDelegate> delegate;
 
     //Func for passing inital parameters to lib
-- (void) initWith:(NSString *)identityToken forAppProfileId:(NSString *)appProfileId forMerchantProfileId:(NSString *)merchantProfileId forWorkflowId:(NSString *)workflowId andType:(BOOL )isTestAccount;
--(void)signOnWithIdentityToken;
--(void)verifyWithSessionToken;
--(void)createCardToken;
--(void)authorizeWithPaymentAccountDataToken;
+/**
+ *  intialize velocity processor object with these parameter
+ *
+ *  @param identityToken
+ *  @param appProfileId
+ *  @param merchantProfileId
+ *  @param workflowId
+ *  @param isTestAccount
+ *
+ *  @return velocity processor object
+ */
+- (VelocityProcessor *) initWith:(NSString *)identityToken forAppProfileId:(NSString *)appProfileId forMerchantProfileId:(NSString *)merchantProfileId forWorkflowId:(NSString *)workflowId andSessionToken:(NSString *)sessiontoken andType:(BOOL )isTestAccount;
+// method for user
+/**
+ *  method for calling sign on on the basis of bool value input
+        if true call sign on else call verify method
+ *
+ *  @param isSignOn bool variable
+ */
+-(void)createCardTokenIsOnlySignOn:(BOOL)isSignOn;//used for calling sign on method
+/**
+ *  Call authorise with token and authorise without token method on the basis of bool value input if bool value == true then call auth with token otherwise call auth without token
+ *
+ *  @param isWithToken bool value
+ */
 -(void)authoriseWToken:(BOOL)isWithToken;
--(void)authAndCapture;
+/**
+ *  Call auth and capture method on the basis of bool value input if true it will call with token method and if false it will call without token method
+ *
+ *  @param isAuthNCaptureWithToken bool value
+ */
 -(void)authNCaptureWithToken:(BOOL)isAuthNCaptureWithToken;
+/**
+ *  Call capture method for capturing transaction
+ */
+-(void)captureTransaction;
+/**
+ *  Call void or undo method
+ */
+-(void)voidORundoTransaction;
+/**
+ *  Call adjust method to adjust transaction
+ */
+-(void)adjustAmount;
+/**
+ *  Call return by id method
+ */
+-(void)returnById;
+/**
+ *  call sign on method and directly after calling sign on directly call returnunlinked without token method
+ *  call returned unlinked method with token if bool value is true else call without token
+ *  @param isWithToken i
+ */
+-(void)returnUnlinkedisWithToken:(BOOL)isWithToken;
 @end

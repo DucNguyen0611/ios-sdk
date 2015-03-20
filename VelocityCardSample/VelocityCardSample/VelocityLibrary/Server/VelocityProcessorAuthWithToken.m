@@ -12,16 +12,75 @@
 #import "XMLReader.h"
 #import "ErrorPaymentResponse.h"
 #import "BankcardTransactionResponsePro.h"
-
+#import "Reachability.h"
 @implementation VelocityProcessorAuthWithToken{
     ErrorPaymentResponse *errObj;
     BankcardTransactionResponsePro *banCardObj;
     VelocityPaymentTransaction *PaymentObj;
 }
+/**
+ *  check networ connectivity
+ *
+ *  @return Bool value, true for connected
+ */
+-(BOOL)CheckNetworConnectivity
+{
+    BOOL isNetworkActive;
+    
+    
+    NetworkStatus reach = [[Reachability reachabilityForInternetConnection] currentReachabilityStatus];
+    
+    //    isNetworkActive=NO;
+    
+    switch (reach) {
+            
+        case NotReachable:
+            isNetworkActive=NO;
+            break;
+            
+        case ReachableViaWiFi:
+            isNetworkActive=YES;
+            break;
+            
+        case ReachableViaWWAN:
+            isNetworkActive=YES;
+            break;
+            
+        default:
+            isNetworkActive=NO;
+            break;
+    }
+    
+    return isNetworkActive;
+}
+/**
+ *  service call for Auth with token method
+ *
+ *  @param appProfileID
+ *  @param merchantID
+ *  @param workDFlowID
+ *  @param sessionToken
+ *  @param isTestAccount
+ *  @param isWithToken
+ *  @param addressObj
+ *  @param authTxObj
+ *  @param avsObj
+ *  @param billingDataObj
+ *  @param cardDataObj
+ *  @param cardholderObj
+ *  @param cardsecurityObj
+ *  @param customerDataObj
+ *  @param ecommerceObj
+ *  @param reportingDataObj
+ *  @param trnderDataObj
+ *  @param track1dataObj
+ *  @param transactionObj
+ *  @param transectionDataObj
+ */
 -(void)authorizeWithTokenAndAppprofileid:(NSString *)appProfileID andMerchentID:(NSString *)merchantID andWorkFlowID:(NSString *)workDFlowID andSessionToken:(NSString *)sessionToken andIsTestAccount:(BOOL)isTestAccount andIsWithToken:(BOOL)isWithToken withModalObjectsAddress:(Address *)addressObj authoriseTransaction:(AuthorizeTransaction *)authTxObj andAvsData:(AVSData *)avsObj andBillingData:(BillingData *)billingDataObj and:(CardData *)cardDataObj and:(CardHolderName *)cardholderObj and:(CardSecurityData *)cardsecurityObj and:(CustomerData *)customerDataObj and:(ECommerceSecurityData *)ecommerceObj and:(ReportingData*)reportingDataObj and:(TenderData *)trnderDataObj and:(Track1Data *)track1dataObj and:(Transaction *)transactionObj and:(TransactionData *)transectionDataObj{
     
 
-//-(void)authorizeWithTokenAndAppprofileid:(NSString *)appProfileID andMerchentID:(NSString *)merchantID andWorkFlowID:(NSString *)workDFlowID andSessionToken:(NSString *)sessionToken andPaymentAccountDataToken:(NSString *)paymentDataToken andIsTestAccount:(BOOL)isTestAccount{
+if ([self CheckNetworConnectivity] == YES) {
     NSString *newStr = [sessionToken substringWithRange:NSMakeRange(1, [sessionToken length] - 2)];
     
     
@@ -41,17 +100,17 @@
             xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns2:BillingData>\n"]];
     
     
-                xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns2:Name i:nil=\"true\"/>\n"]];
+                xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns2:Name i:nil=\"true\">%@</ns2:Name>\n",PaymentObj.cardholderName]];
                 //address class starts
                 xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns2:Address>\n"]];
 
                         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns2:Street1>%@</ns2:Street1>\n",PaymentObj.street]];
 
-                        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns2:Street2 i:nil=\"true\"/>\n"]];
+                        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns2:Street2 i:nil=\"true\">%@</ns2:Street2>\n",PaymentObj.street2]];
                        // xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns2:Street2></ns2:Street2>\n"]];
                         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns2:City>%@</ns2:City>\n",PaymentObj.city]];
     
-                        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns2:StateProvince>CO</ns2:StateProvince>\n"]];
+                        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns2:StateProvince>%@</ns2:StateProvince>\n",PaymentObj.stateProvince]];
 
                         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns2:PostalCode>%@</ns2:PostalCode>\n",PaymentObj.postalCode]];
 
@@ -62,15 +121,15 @@
     
             xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns2:BusinessName>%@</ns2:BusinessName>\n",PaymentObj.businnessName]];
     
-            xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns2:Phone i:nil=\"true\"/>\n"]];
+            xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns2:Phone i:nil=\"true\">%@</ns2:Phone>\n",PaymentObj.phone]];
     
-            xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns2:Fax i:nil=\"true\"/>\n"]];
-            xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns2:Email i:nil=\"true\"/>\n"]];
+            xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns2:Fax i:nil=\"true\">%@</ns2:Fax>\n",PaymentObj.fax]];
+            xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns2:Email i:nil=\"true\">%@</ns2:Email>\n",PaymentObj.email]];
         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"</ns2:BillingData>\n"]];
             //billing data finishrd
         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns2:CustomerId>%@</ns2:CustomerId>\n",PaymentObj.CustomerId]];
-        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns2:CustomerTaxId i:nil=\"true\"/>\n"]];
-        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns2:ShippingData i:nil=\"true\"/>\n"]];
+        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns2:CustomerTaxId i:nil=\"true\">%@</ns2:CustomerTaxId>\n",PaymentObj.customerTaxId]];
+        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns2:ShippingData i:nil=\"true\">%@</ns2:ShippingData>\n",PaymentObj.shippingData]];
     xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"</ns2:CustomerData>\n"]];
     //customer class data end
     //reporting data starts
@@ -91,17 +150,17 @@
         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns4:PaymentAccountDataToken xmlns:ns4=\"%@\" i:nil=\"true\"/>\n",kXml_Base_Url]];
     
     
-        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns5:SecurePaymentAccountData xmlns:ns5=\"%@\" i:nil=\"true\"/>\n",kXml_Base_Url]];
-        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns6:EncryptionKeyId xmlns:ns6=\"%@\" i:nil=\"true\"/>\n",kXml_Base_Url]];
-        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns7:SwipeStatus xmlns:ns7=\"%@\" i:nil=\"true\"/>\n",kXml_Base_Url]];
+        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns5:SecurePaymentAccountData xmlns:ns5=\"%@\" i:nil=\"true\">%@</ns5:SecurePaymentAccountData>\n",kXml_Base_Url,PaymentObj.securePaymentAccountData]];
+        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns6:EncryptionKeyId xmlns:ns6=\"%@\" i:nil=\"true\">%@</ns6:EncryptionKeyId>\n",kXml_Base_Url,PaymentObj.encryptionKeyId]];
+        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns7:SwipeStatus xmlns:ns7=\"%@\" i:nil=\"true\">%@</ns7:SwipeStatus>\n",kXml_Base_Url,PaymentObj.swipeStatus]];
     if (isWithToken)
-        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:EcommerceSecurityData i:nil=\"true\"/>\n"]];        //card data starts
+        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:EcommerceSecurityData i:nil=\"true\">%@</ns1:EcommerceSecurityData>\n",PaymentObj.ecommerceSecurityData]];        //card data starts
     if (isWithToken) {
         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CardData>\n"]];
-        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CardType i:nil=\"true\"/>\n"]];
-        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:PAN i:nil=\"true\"/>\n"]];
-        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:Expire i:nil=\"true\"/>\n"]];
-        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:Track1Data  i:nil=\"true\"/>\n"]];
+        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CardType i:nil=\"true\">%@</ns1:CardType>\n",PaymentObj.cardType]];
+        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:PAN i:nil=\"true\">%@</ns1:PAN>\n",PaymentObj.panNumber]];
+        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:Expire i:nil=\"true\">%@</ns1:Expire>\n",PaymentObj.expiryDate]];
+        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:Track1Data  i:nil=\"true\">%@</ns1:Track1Data>\n",PaymentObj.track1Data]];
         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@" </ns1:CardData>\n"]];
     }
     else{
@@ -123,29 +182,29 @@
         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns9:CurrencyCode xmlns:ns9=\"%@\">%@</ns9:CurrencyCode>\n",kXml_Base_Url,PaymentObj.currencyCode]];
         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns10:TransactionDateTime xmlns:ns10=\"%@\">%@</ns10:TransactionDateTime>\n",kXml_Base_Url,PaymentObj.transactionDateTime]];
         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns11:CampaignId xmlns:ns11=\"%@\" i:nil=\"true\"/>\n",kXml_Base_Url]];
-        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"    <ns12:Reference xmlns:ns12=\"%@\">xyt</ns12:Reference>\n",kXml_Base_Url]];
+        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"    <ns12:Reference xmlns:ns12=\"%@\">%@</ns12:Reference>\n",kXml_Base_Url,PaymentObj.reportingDataReference]];
         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:AccountType>%@</ns1:AccountType>\n",PaymentObj.accountType]];
-        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:ApprovalCode i:nil=\"true\"/>\n"]];
+        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:ApprovalCode i:nil=\"true\">%@</ns1:ApprovalCode>\n",PaymentObj.approvalCode]];
         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CashBackAmount>%@</ns1:CashBackAmount>\n",PaymentObj.cashBackAmount]];
-    xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"    <ns1:CustomerPresent>%@</ns1:CustomerPresent>\n",PaymentObj.customerPresent]];
+    xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CustomerPresent>%@</ns1:CustomerPresent>\n",PaymentObj.customerPresent]];
         //xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CustomerPresent>Present</ns1:CustomerPresent>\n"]];
         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:EmployeeId>%@</ns1:EmployeeId>\n",PaymentObj.employeeId]];
         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:EntryMode>%@</ns1:EntryMode>\n",PaymentObj.entryMode]];
         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:GoodsType>%@</ns1:GoodsType>\n",PaymentObj.goodsType]];
         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:IndustryType>%@</ns1:IndustryType>\n",PaymentObj.industryType]];
-        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:InternetTransactionData i:nil=\"true\"/>\n"]];
+        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:InternetTransactionData i:nil=\"true\">%@</ns1:InternetTransactionData>\n",PaymentObj.internetTransactionData]];
         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:InvoiceNumber>%@</ns1:InvoiceNumber>\n",PaymentObj.invoiceNumber]];
         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:OrderNumber>%@</ns1:OrderNumber>\n",PaymentObj.orderNumber]];
-        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:IsPartialShipment>false</ns1:IsPartialShipment>\n"]];
-        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:SignatureCaptured>false</ns1:SignatureCaptured>\n"]];
+        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:IsPartialShipment>%u</ns1:IsPartialShipment>\n",PaymentObj.isPartialShipment]];
+        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:SignatureCaptured>%u</ns1:SignatureCaptured>\n",PaymentObj.isSignatureCaptured]];
         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:FeeAmount>0.0</ns1:FeeAmount>\n"]];
-        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:TerminalId i:nil=\"true\"/>\n"]];
+        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:TerminalId i:nil=\"true\">%@</ns1:TerminalId>\n",PaymentObj.terminalID]];
         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:LaneId i:nil=\"true\"/>\n"]];
         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:TipAmount>0.0</ns1:TipAmount>\n"]];
-        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:BatchAssignment i:nil=\"true\"/>\n"]];
-        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:PartialApprovalCapable>NotSet</ns1:PartialApprovalCapable>\n"]];
-        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:ScoreThreshold i:nil=\"true\"/>\n"]];
-        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:IsQuasiCash>false</ns1:IsQuasiCash>\n"]];
+        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:BatchAssignment i:nil=\"true\">%@</ns1:BatchAssignment>\n",PaymentObj.batchID]];
+        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:PartialApprovalCapable>%@</ns1:PartialApprovalCapable>\n",PaymentObj.partialApprovalCapable]];
+        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:ScoreThreshold i:nil=\"true\">%@</ns1:ScoreThreshold>\n",PaymentObj.scoreThreshold]];
+        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:IsQuasiCash>%u</ns1:IsQuasiCash>\n",PaymentObj.isQuasiCash]];
     xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"</ns1:TransactionData>\n"]];
     //transaction data ends
     xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"</Transaction>\n"]];
@@ -187,7 +246,7 @@
                                           NSDictionary * dict = [NSDictionary dictionaryWithDictionary:[XMLReader dictionaryForXMLString:theXML error:nil]];
                                           NSArray *dictNameArray =[dict allKeys];
                                           
-                                          
+                                         //Parsing response
                                           if(error==nil && theXML.length>0){
                                               
                                               
@@ -202,7 +261,7 @@
                                                   else{
                                                       banCardObj= [ResponseObjecthandler getModelObjectWithDic:dict];
                                                       banCardObj.statusCodeHttpResponse =httpCode;
-                                                      
+                                                                                                PaymentObj.transectionID =banCardObj.transactionId;
                                                       NSLog(@"bancard objects ****%@",banCardObj);
                                                       [self.delegate performSelector:@selector(VelocityProcessorAuthWTokenServerRequestFinishedWithSuccess:) withObject:banCardObj];
                                                   }
@@ -222,6 +281,17 @@
     
     
     [dataTask resume];
-
 }
+else{
+    [self.delegate performSelector:@selector(VelocityProcessorAuthAuthWTokenServerRequestFailedWithErrorMessage:) withObject:@"Network Error!!"];
+}
+ 
+}
+
+//ssl verification
+- (void)URLSession:(NSURLSession *)session didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
+ completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential *credential))completionHandler{
+    completionHandler(NSURLSessionAuthChallengeUseCredential, [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust]);
+}
+
 @end

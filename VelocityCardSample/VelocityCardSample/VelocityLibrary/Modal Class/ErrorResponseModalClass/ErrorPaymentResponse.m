@@ -5,7 +5,9 @@
 //  Created by Chetu on 29/01/15.
 //  Copyright (c) 2015 NorthAmericanBancard. All rights reserved.
 //
-
+/**
+ *  this class holds the values comming  in error response
+ */
 #import "ErrorPaymentResponse.h"
 
 @implementation ErrorPaymentResponse
@@ -14,14 +16,31 @@
 
 static ErrorPaymentResponse *errResponseObj;
 @implementation ErrorObjecthandler
+/**
+ *  initialise modal class object here
+ */
 +(void)initialize{
     errResponseObj = [[ErrorPaymentResponse alloc]init];
 }
+/**
+ *  For setting values in modal class
+ *
+ *  @param  class
+ *
+ *  @return object
+ */
 +(void)setModelObject:(ErrorPaymentResponse *)obj{
     errResponseObj=obj;
     
     
 }
+/**
+ *  For getting values from modal class
+ *
+ *  @param  class
+ *
+ *  @return object
+ */
 +(ErrorPaymentResponse *)getModelObjectWithDic:(NSDictionary *)dict{
 
     errResponseObj.errorId = [[dict objectForKey:@"ErrorResponse"] objectForKey:@"ErrorId"];
@@ -38,7 +57,13 @@ static ErrorPaymentResponse *errResponseObj;
     
     return errResponseObj;
 }
-
+/**
+ *  For getting values from modal class
+ *
+ *  @param  class
+ *
+ *  @return object
+ */
 +(ErrorPaymentResponse *)getmainObj{
     return errResponseObj;
 }

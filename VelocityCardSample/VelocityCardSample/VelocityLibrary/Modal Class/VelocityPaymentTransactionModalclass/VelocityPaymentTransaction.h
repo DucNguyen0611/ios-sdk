@@ -50,12 +50,48 @@
 @property (strong,nonatomic) NSString *FeeAmount;
 @property (strong,nonatomic) NSString *tipAmount;
 @property (strong,nonatomic) NSString *accountType;
-
+@property (strong,nonatomic) NSString *transectionID;
+@property (strong,nonatomic) NSString *keySerialNumber;
+@property (strong,nonatomic) NSString *identificationInformation;
+@property (strong,nonatomic) NSString *ecommerceSecurityData;
+@property (strong,nonatomic) NSString *track1Data;
+@property (strong,nonatomic) NSString *street2;
+@property (strong,nonatomic) NSString *fax;
+@property (strong,nonatomic) NSString *customerTaxId;
+@property (strong,nonatomic) NSString *shippingData;
+@property (strong,nonatomic) NSString *securePaymentAccountData;
+@property (strong,nonatomic) NSString *encryptionKeyId;
+@property (strong,nonatomic) NSString *swipeStatus;
+@property (strong,nonatomic) NSString *approvalCode;
+@property (strong,nonatomic) NSString *internetTransactionData;
+@property BOOL isPartialShipment;
+@property BOOL isSignatureCaptured;
+@property (strong,nonatomic) NSString *terminalID;
+@property (strong,nonatomic) NSString *batchID;
+@property (strong,nonatomic) NSString *partialApprovalCapable;
+@property (strong,nonatomic) NSString *scoreThreshold;
+@property BOOL isQuasiCash;
+@property (strong,nonatomic) NSString *differenceData;
 @end
 
 
 @interface PaymentObjecthandler : NSObject
+/**
+ *  to get values from the modal class call
+ *
+ *
+ *
+ *  @return object
+ */
+
 +(VelocityPaymentTransaction *)getModelObject;
+/**
+ *  set  values in the modal class using this method
+ *
+ *  @return object of modal class
+ */
+
+
 +(void)setModelObject:(VelocityPaymentTransaction *)obj;
 
 

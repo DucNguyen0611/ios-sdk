@@ -5,7 +5,9 @@
 //  Created by Chetu on 1/19/15.
 //  Copyright (c) 2015 NorthAmericanBancard. All rights reserved.
 //
-
+/**
+ *  This class holds the merchent information 
+ */
 #ifndef VelocityCardSample_VelocityConstant_h
 #define VelocityCardSample_VelocityConstant_h
 
@@ -25,3 +27,4 @@
 #define KWorkflowId  @"2317000001"
     //for test account yes and for production no
 #define kisTestAccountBOOL YES
+#define kConstantNil @"i:nil=\"true\""

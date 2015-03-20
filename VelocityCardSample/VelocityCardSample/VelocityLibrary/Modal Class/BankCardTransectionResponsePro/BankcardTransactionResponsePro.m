@@ -5,49 +5,12 @@
 //  Created by Chetu on 27/01/15.
 //  Copyright (c) 2015 NorthAmericanBancard. All rights reserved.
 //
-
+/**
+ *  this class is used to hold values Comming in the sucess response of requests
+ */
 #import "BankcardTransactionResponsePro.h"
 
 @implementation BankcardTransactionResponsePro
-//@synthesize status;
-//@synthesize statusCode;
-//@synthesize statusMessage;
-//@synthesize transactionId;
-//@synthesize originatorTransactionId;
-//@synthesize serviceTransactionId;
-////@synthesize serviceTransactionDateTime;
-//@synthesize captureState;
-//@synthesize transactionState;
-//@synthesize acknowledged;
-//@synthesize prepaidCard;
-//@synthesize reference;
-//@synthesize amount;
-//@synthesize cardType;
-//@synthesize feeAmount;
-//@synthesize approvalCode;
-//@synthesize aVSResult;
-//@synthesize batchId;
-//@synthesize cVResult;
-//@synthesize cardLevel;
-//@synthesize downgradeCode;
-//@synthesize maskedPAN;
-//@synthesize paymentAccountDataToken ;
-//@synthesize retrievalReferenceNumber;
-//@synthesize adviceResponse;
-//@synthesize commercialCardResponse;
-//@synthesize returnedACI;
-//@synthesize statusHttpResponse;
-//@synthesize statusCodeHttpResponse;
-//@synthesize orderId;
-//@synthesize settlementDate;
-//@synthesize finalBalance;
-//@synthesize cashBackAmount;
-//- (id)initWithResponseDict:(NSDictionary *)dict {
-//    if (self = [super init]) {
-//       
-//    }
-//    return self;
-//}
 
 @end
 @implementation  ServiceTransactionDateTime
@@ -59,14 +22,25 @@
 
 static BankcardTransactionResponsePro *responseObj;
 @implementation ResponseObjecthandler
+/**
+ *  initialise modal class object here
+ */
 +(void)initialize{
     responseObj = [[BankcardTransactionResponsePro alloc]init];
 }
+
 +(BankcardTransactionResponsePro *)getModelObject{
     
     return responseObj;
     
 }
+/**
+ *  For setting values in modal class
+ *
+ *  @param  class
+ *
+ *  @return object
+ */
 +(BankcardTransactionResponsePro *)getModelObjectWithDic:(NSDictionary*)dict{
     responseObj.status = [[dict objectForKey:@"BankcardTransactionResponsePro"] objectForKey:@"Status"];
     responseObj.statusCode = [[dict objectForKey:@"BankcardTransactionResponsePro"] objectForKey:@"StatusCode"];
@@ -108,6 +82,13 @@ static BankcardTransactionResponsePro *responseObj;
     responseObj.cashBackAmount = [[dict objectForKey:@"BankcardTransactionResponsePro"] objectForKey:@"CashBackAmount"];
     return responseObj;
 }
+/**
+ *  For getting values from modal class
+ *
+ *  @param  class
+ *
+ *  @return object
+ */
 +(BankcardTransactionResponsePro *)getmainObj{
     return responseObj;
 }

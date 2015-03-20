@@ -5,7 +5,9 @@
 //  Created by Chetu on 21/01/15.
 //  Copyright (c) 2015 NorthAmericanBancard. All rights reserved.
 //
-
+/**
+ *  this class is used for requesting signOn method
+ */
 #import "VelocityProcessorSignOn.h"
 #import "VelocityProcessorConstant.h"
 #import "Reachability.h"
@@ -71,7 +73,9 @@ static VelocityProcessorSignOn *scService = nil;
  */
 
 -(void)signOnWithIdentityToken:(NSString*)identityToken :(BOOL)isTestAccount;{
-    
+    /**
+     *  check network connectivity
+     */
     if ([self CheckNetworConnectivity]==YES) {
 NSString *appendedString=[identityToken stringByAppendingString:@" : "];
 NSData *tokenData = [appendedString dataUsingEncoding:NSUTF8StringEncoding];
@@ -89,7 +93,7 @@ NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultCo
 NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
 
 [urlRequest setHTTPMethod:NSLocalizedString(@"GET", nil)];
-//[urlRequest addValue:NSLocalizedString(@"application/x-www-form-urlencoded", nil) forHTTPHeaderField:NSLocalizedString(@"Content-Type", nil)];
+
 [urlRequest addValue:NSLocalizedString(@"application/json",nil) forHTTPHeaderField:NSLocalizedString(@"Accept",nil)];
 [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
 [urlRequest setValue:[NSString stringWithFormat:@"Basic %@",stringBase64] forHTTPHeaderField:kAuthorization];
@@ -98,67 +102,30 @@ NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest
                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
                                   
                                   {
-                                      
-                                    //  NSLog(@"Server Responce =%@ \n Error =%@", response, error);
-                                      
-                                      NSString *responseStr=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                    //  NSLog(@"REsponseStr=%@",responseStr);
-                                      
+                                    NSString *responseStr=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                                       if(error==nil && responseStr.length>0)
                                       {
-                                          
-                                          
                                           if(self.delegate != nil && ([self.delegate conformsToProtocol:@protocol(VelocityProcessorSignOnDelegate)]))
                                           {
-                                        
-                                                  [self.delegate performSelector:@selector(VelocityProcessorSignOnServerRequestFinishedWithSuccess:) withObject:responseStr];
                                               
+                                                  [self.delegate performSelector:@selector(VelocityProcessorSignOnServerRequestFinishedWithSuccess:) withObject:responseStr];
                                           }
-                                          
                                       }
                                       else
                                       {
-                                          
-                                          [self.delegate performSelector:@selector(VelocityProcessorSignOnServerRequestFailedWithErrorMessage:) withObject:error];
-                                          
-                                          
+                                          [self.delegate performSelector:@selector(VelocityProcessorSignOnServerRequestFailedWithErrorMessage:) withObject:@"Server Error"];
                                       }
                                   }];
 [dataTask resume];
     }
+    /**
+     *  if Network fails
+     */
     else{
-        
-        [[[UIAlertView alloc]initWithTitle:@"Error" message:@"Please connect to a network" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
+        [self.delegate performSelector:@selector(VelocityProcessorSignOnServerRequestFailedWithErrorMessage:) withObject:@"Network Error!!"];
     }
 }
-#pragma  mark-NSURLSession Delegates.
-    
-    - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didBecomeDownloadTask:(NSURLSessionDownloadTask *)downloadTask
-    {
-        
-    }
-    
-    - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data
-    {
-        
-    }
-    - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didResumeAtOffset:(int64_t)fileOffset expectedTotalBytes:(int64_t)expectedTotalBytes
-    {
-        
-    }
-    
-    - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite
-    {
-        // float progress = (double)totalBytesWritten / (double)totalBytesExpectedToWrite;
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-        });
-    }
-    
-    -(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location{
-        
-    }
+
 /*!
  *  @author sumit suman, 15-01-23 18:01:05
  *

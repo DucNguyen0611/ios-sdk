@@ -14,13 +14,13 @@
 -(void)VelocityProcessorSignOnServerRequestFailedWithErrorMessage:(NSString *)failed;
 @end
 
-@interface VelocityProcessorSignOn :NSObject<NSURLSessionTaskDelegate,NSURLSessionDownloadDelegate,NSURLSessionDelegate,NSURLSessionDataDelegate>
+@interface VelocityProcessorSignOn :NSObject<NSURLSessionTaskDelegate,NSURLSessionDataDelegate>
 {
   NSMutableData *responseData;
     
 }
 
-@property (nonatomic, strong) id <VelocityProcessorSignOnDelegate> delegate;
+@property (nonatomic, weak) id <VelocityProcessorSignOnDelegate> delegate;
 
 
 -(id)initServer;

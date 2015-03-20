@@ -12,12 +12,73 @@
 #import "XMLReader.h"
 #import "ErrorPaymentResponse.h"
 #import "BankcardTransactionResponsePro.h"
+#import "Reachability.h"
 @implementation VelocityProcessorAuthWAndWOCapture{
     ErrorPaymentResponse *errObj;
     BankcardTransactionResponsePro *banCardObj;
     VelocityPaymentTransaction *PaymentObj;
 }
+/**
+ *  check network status
+ *
+ *  @return true for connected
+ */
+-(BOOL)CheckNetworConnectivity
+{
+    BOOL isNetworkActive;
+    
+    
+    NetworkStatus reach = [[Reachability reachabilityForInternetConnection] currentReachabilityStatus];
+    
+    //    isNetworkActive=NO;
+    
+    switch (reach) {
+            
+        case NotReachable:
+            isNetworkActive=NO;
+            break;
+            
+        case ReachableViaWiFi:
+            isNetworkActive=YES;
+            break;
+            
+        case ReachableViaWWAN:
+            isNetworkActive=YES;
+            break;
+            
+        default:
+            isNetworkActive=NO;
+            break;
+    }
+    
+    return isNetworkActive;
+}
+/**
+ *  Call service for Auth And Capture With And without token
+ *
+ *  @param appProfileID
+ *  @param merchantID         
+ *  @param workDFlowID
+ *  @param sessionToken
+ *  @param isTestAccount
+ *  @param isWithToken
+ *  @param addressObj
+ *  @param authTxObj
+ *  @param avsObj
+ *  @param billingDataObj
+ *  @param cardDataObj
+ *  @param cardholderObj
+ *  @param cardsecurityObj
+ *  @param customerDataObj
+ *  @param ecommerceObj
+ *  @param reportingDataObj
+ *  @param trnderDataObj
+ *  @param track1dataObj
+ *  @param transactionObj
+ *  @param transectionDataObj
+ */
 -(void)authorizeAndCaptureWithTokenAndAppprofileid:(NSString *)appProfileID andMerchentID:(NSString *)merchantID andWorkFlowID:(NSString *)workDFlowID andSessionToken:(NSString *)sessionToken andIsTestAccount:(BOOL)isTestAccount andIsWithToken:(BOOL)isWithToken withModalObjectsAddress:(Address *)addressObj authoriseTransaction:(AuthorizeTransaction *)authTxObj andAvsData:(AVSData *)avsObj andBillingData:(BillingData *)billingDataObj and:(CardData *)cardDataObj and:(CardHolderName *)cardholderObj and:(CardSecurityData *)cardsecurityObj and:(CustomerData *)customerDataObj and:(ECommerceSecurityData *)ecommerceObj and:(ReportingData*)reportingDataObj and:(TenderData *)trnderDataObj and:(Track1Data *)track1dataObj and:(Transaction *)transactionObj and:(TransactionData *)transectionDataObj{
+    if ([self CheckNetworConnectivity ]== YES) {
     NSString *newStr = [sessionToken substringWithRange:NSMakeRange(1, [sessionToken length] - 2)];
     
     
@@ -126,7 +187,6 @@
     xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:ApprovalCode i:nil=\"true\"/>\n"]];
     xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CashBackAmount>%@</ns1:CashBackAmount>\n",PaymentObj.cashBackAmount]];
     xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"    <ns1:CustomerPresent>%@</ns1:CustomerPresent>\n",PaymentObj.customerPresent]];
-    //xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CustomerPresent>Present</ns1:CustomerPresent>\n"]];
     xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:EmployeeId>%@</ns1:EmployeeId>\n",PaymentObj.employeeId]];
     xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:EntryMode>%@</ns1:EntryMode>\n",PaymentObj.entryMode]];
     xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:GoodsType>%@</ns1:GoodsType>\n",PaymentObj.goodsType]];
@@ -150,17 +210,13 @@
     // tansaction ends
     xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"</AuthorizeAndCaptureTransaction>"]];
     //authorization ends
-    
     NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
-    
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration:sessionConfig delegate:self delegateQueue:[NSOperationQueue mainQueue]];
     NSURL *url;
     if (isTestAccount)
         url = [NSURL URLWithString:[NSString stringWithFormat:@"%@Txn/%@",kServer_Test_Url,workDFlowID]];
-    
     else
         url= [NSURL URLWithString:[NSString stringWithFormat:@"%@Txn/%@",kServer_Url,workDFlowID]];
-    
     
     NSMutableURLRequest *urlReq = [[NSMutableURLRequest alloc]initWithURL:url];
     [urlReq setTimeoutInterval:30];
@@ -171,8 +227,6 @@
     [urlReq setValue:@"application/xml" forHTTPHeaderField:@"Content-Type"];
     [urlReq setValue:[NSString stringWithFormat:@"Basics %@",stringBase64] forHTTPHeaderField:kAuthorization];
     
-    
-    //   NSURLSessionDataTask *dataTask = [defaultSession dataTaskWithRequest:urlReq];
     NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlReq
                                                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
                                       
@@ -185,7 +239,9 @@
                                           NSDictionary * dict = [NSDictionary dictionaryWithDictionary:[XMLReader dictionaryForXMLString:theXML error:nil]];
                                           NSArray *dictNameArray =[dict allKeys];
                                           
-                                          
+                                          /**
+                                           *  parsing response
+                                           */
                                           if(error==nil && theXML.length>0){
                                               
                                               
@@ -200,7 +256,7 @@
                                                   else{
                                                       banCardObj= [ResponseObjecthandler getModelObjectWithDic:dict];
                                                       banCardObj.statusCodeHttpResponse =httpCode;
-                                                      
+
                                                       NSLog(@"bancard objects ****%@",banCardObj);
                                                       [self.delegate performSelector:@selector(VelocityProcessorAuthNCaptureWTokenServerRequestFinishedWithSuccess:) withObject:banCardObj];
                                                   }
@@ -221,6 +277,16 @@
     
     [dataTask resume];
 
-    
+    }
+    else{
+        [self.delegate performSelector:@selector(VelocityProcessorAuthNCaptureWTokenServerRequestFailedWithErrorMessage:) withObject:@"Network Error!!"];
+    }
+
 }
+//ssl verification
+- (void)URLSession:(NSURLSession *)session didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
+ completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential *credential))completionHandler{
+    completionHandler(NSURLSessionAuthChallengeUseCredential, [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust]);
+}
+
 @end

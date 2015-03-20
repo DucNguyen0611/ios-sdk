@@ -52,8 +52,32 @@
 @end
 
 @interface ResponseObjecthandler : NSObject
+/**
+ *  to set values in the modal class call this method with dictionary
+ *
+ *  @param nsdictionary type
+ *
+ *  @return object
+ */
+
 +(BankcardTransactionResponsePro *)getModelObjectWithDic:(NSDictionary*)dict;
+/**
+ *  to set values in the modal class call this method
+ *
+ *
+ *
+ *  @return object
+ */
+
 +(BankcardTransactionResponsePro *)getModelObject;
+/**
+ *  to get values from  modal class
+ *
+ *
+ *
+ *  @return object
+ */
+
 +(BankcardTransactionResponsePro *)getmainObj;
 
 @end

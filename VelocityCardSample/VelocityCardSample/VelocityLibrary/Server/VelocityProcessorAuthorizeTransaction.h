@@ -14,5 +14,5 @@
 @end
 @interface VelocityProcessorAuthorizeTransaction : NSObject<NSURLSessionTaskDelegate,NSURLSessionDataDelegate>
 -(void)verifySessionTokenInXML:(NSString*)sessionToken forAppProfileId:(NSString *)appProfileId forMerchantProfileId:(NSString *)merchantProfileId forWorkflowId:(NSString *)workflowId andType:(BOOL )isTestAccount;
-@property (nonatomic, strong) id <VelocityProcessorAuthTXDelegate> delegate;
+@property (nonatomic, weak) id <VelocityProcessorAuthTXDelegate> delegate;
 @end

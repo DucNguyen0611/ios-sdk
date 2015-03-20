@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3AEB19E61A6D389500FD188D /* VelocityProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB19E51A6D389500FD188D /* VelocityProcessor.m */; };
 		3AEB19EA1A6D3D4F00FD188D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB19E91A6D3D4F00FD188D /* MBProgressHUD.m */; };
-		3AEB19EF1A6D6ACC00FD188D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB19EC1A6D6ACC00FD188D /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3AF1AB681A69320600D18388 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1AB671A69320600D18388 /* main.m */; };
 		3AF1AB711A69320600D18388 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AF1AB6F1A69320600D18388 /* Main.storyboard */; };
 		3AF1AB731A69320600D18388 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AF1AB721A69320600D18388 /* Images.xcassets */; };
@@ -35,16 +34,22 @@
 		796CC1511A8375D000C5D277 /* ReportingData.m in Sources */ = {isa = PBXBuildFile; fileRef = 796CC1501A8375D000C5D277 /* ReportingData.m */; };
 		796CC1541A838B5900C5D277 /* BillingData.m in Sources */ = {isa = PBXBuildFile; fileRef = 796CC1531A838B5900C5D277 /* BillingData.m */; };
 		796CC1571A838DCF00C5D277 /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 796CC1561A838DCF00C5D277 /* Address.m */; };
+		798959B81A8A3940007A9EDB /* BancardCaptureResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 798959B71A8A3940007A9EDB /* BancardCaptureResponse.m */; };
 		798987FF1A7F827F00C52494 /* VelocityProcessorAuthWithToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 798987FE1A7F827F00C52494 /* VelocityProcessorAuthWithToken.m */; };
-		798988031A7F838D00C52494 /* AuthWithTokenModalClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 798988021A7F838D00C52494 /* AuthWithTokenModalClass.m */; };
 		798CF9721A6FA9530047B51B /* VelocityProcessorSignOn.m in Sources */ = {isa = PBXBuildFile; fileRef = 798CF9711A6FA9530047B51B /* VelocityProcessorSignOn.m */; };
 		799870F41A7B8D39005D4508 /* ResponseViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 799870F31A7B8D39005D4508 /* ResponseViewViewController.m */; };
 		799870F71A7BBD0F005D4508 /* VelocityResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 799870F61A7BBD0F005D4508 /* VelocityResponse.m */; };
+		79A6D8F61A8B62DD00A22BE5 /* VelocityProcessorVoid.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A6D8F51A8B62DD00A22BE5 /* VelocityProcessorVoid.m */; };
+		79A6D8F91A8B633600A22BE5 /* VelocityProcessorAdjust.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A6D8F81A8B633600A22BE5 /* VelocityProcessorAdjust.m */; };
 		79AF87B51A7A93CB00266230 /* ErrorPaymentResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 79AF87B41A7A93CB00266230 /* ErrorPaymentResponse.m */; };
-		79B00CDF1A77DB6900EA4AE1 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B00CDE1A77DB6900EA4AE1 /* XMLReader.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		79B00CE61A78046D00EA4AE1 /* BankcardTransactionResponsePro.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B00CE51A78046D00EA4AE1 /* BankcardTransactionResponsePro.m */; };
 		79B00CEA1A78048D00EA4AE1 /* VelocityPaymentTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B00CE91A78048D00EA4AE1 /* VelocityPaymentTransaction.m */; };
 		79B1F28E1A88BB9100EE4543 /* VelocityProcessorAuthWAndWOCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B1F28D1A88BB9100EE4543 /* VelocityProcessorAuthWAndWOCapture.m */; };
+		79B1F4AB1A89003100EE4543 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B1F4AA1A89003100EE4543 /* XMLReader.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		79B1F4B21A89033E00EE4543 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B1F4B11A89033E00EE4543 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		79B1F4B51A8912CB00EE4543 /* VelocityProcessorCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B1F4B41A8912CB00EE4543 /* VelocityProcessorCapture.m */; };
+		79C110731A8CCF730094F0A8 /* VelocityProcessorReturnByID.m in Sources */ = {isa = PBXBuildFile; fileRef = 79C110721A8CCF730094F0A8 /* VelocityProcessorReturnByID.m */; };
+		79C110761A8CCF9F0094F0A8 /* VelocityProcessorReturnUnlinked.m in Sources */ = {isa = PBXBuildFile; fileRef = 79C110751A8CCF9F0094F0A8 /* VelocityProcessorReturnUnlinked.m */; };
 		79CD59351A71402B008A7BCC /* VelocityProcessorAuthorizeTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CD59341A71402B008A7BCC /* VelocityProcessorAuthorizeTransaction.m */; };
 /* End PBXBuildFile section */
 
@@ -65,8 +70,6 @@
 		3AEB19E51A6D389500FD188D /* VelocityProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelocityProcessor.m; sourceTree = "<group>"; };
 		3AEB19E81A6D3D4F00FD188D /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		3AEB19E91A6D3D4F00FD188D /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		3AEB19EB1A6D6ACC00FD188D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = VelocityCardSample/VelocityLibrary/Reachability.h; sourceTree = SOURCE_ROOT; };
-		3AEB19EC1A6D6ACC00FD188D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = VelocityCardSample/VelocityLibrary/Reachability.m; sourceTree = SOURCE_ROOT; };
 		3AF1AB621A69320600D18388 /* VelocityCardSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VelocityCardSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AF1AB661A69320600D18388 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AF1AB671A69320600D18388 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -116,26 +119,38 @@
 		796CC1531A838B5900C5D277 /* BillingData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillingData.m; sourceTree = "<group>"; };
 		796CC1551A838DCF00C5D277 /* Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Address.h; sourceTree = "<group>"; };
 		796CC1561A838DCF00C5D277 /* Address.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Address.m; sourceTree = "<group>"; };
+		798959B61A8A3940007A9EDB /* BancardCaptureResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BancardCaptureResponse.h; sourceTree = "<group>"; };
+		798959B71A8A3940007A9EDB /* BancardCaptureResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BancardCaptureResponse.m; sourceTree = "<group>"; };
 		798987FD1A7F827F00C52494 /* VelocityProcessorAuthWithToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityProcessorAuthWithToken.h; sourceTree = "<group>"; };
 		798987FE1A7F827F00C52494 /* VelocityProcessorAuthWithToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelocityProcessorAuthWithToken.m; sourceTree = "<group>"; };
-		798988011A7F838D00C52494 /* AuthWithTokenModalClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthWithTokenModalClass.h; sourceTree = "<group>"; };
-		798988021A7F838D00C52494 /* AuthWithTokenModalClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthWithTokenModalClass.m; sourceTree = "<group>"; };
 		798CF9701A6FA9530047B51B /* VelocityProcessorSignOn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityProcessorSignOn.h; sourceTree = "<group>"; };
 		798CF9711A6FA9530047B51B /* VelocityProcessorSignOn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelocityProcessorSignOn.m; sourceTree = "<group>"; };
 		799870F21A7B8D39005D4508 /* ResponseViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseViewViewController.h; sourceTree = "<group>"; };
 		799870F31A7B8D39005D4508 /* ResponseViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseViewViewController.m; sourceTree = "<group>"; };
 		799870F51A7BBD0F005D4508 /* VelocityResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityResponse.h; sourceTree = "<group>"; };
 		799870F61A7BBD0F005D4508 /* VelocityResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelocityResponse.m; sourceTree = "<group>"; };
+		79A6D8F41A8B62DD00A22BE5 /* VelocityProcessorVoid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityProcessorVoid.h; sourceTree = "<group>"; };
+		79A6D8F51A8B62DD00A22BE5 /* VelocityProcessorVoid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelocityProcessorVoid.m; sourceTree = "<group>"; };
+		79A6D8F71A8B633600A22BE5 /* VelocityProcessorAdjust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityProcessorAdjust.h; sourceTree = "<group>"; };
+		79A6D8F81A8B633600A22BE5 /* VelocityProcessorAdjust.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelocityProcessorAdjust.m; sourceTree = "<group>"; };
 		79AF87B31A7A93CB00266230 /* ErrorPaymentResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorPaymentResponse.h; sourceTree = "<group>"; };
 		79AF87B41A7A93CB00266230 /* ErrorPaymentResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorPaymentResponse.m; sourceTree = "<group>"; };
-		79B00CDD1A77DB6900EA4AE1 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
-		79B00CDE1A77DB6900EA4AE1 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
 		79B00CE41A78046D00EA4AE1 /* BankcardTransactionResponsePro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankcardTransactionResponsePro.h; sourceTree = "<group>"; };
 		79B00CE51A78046D00EA4AE1 /* BankcardTransactionResponsePro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankcardTransactionResponsePro.m; sourceTree = "<group>"; };
 		79B00CE81A78048D00EA4AE1 /* VelocityPaymentTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityPaymentTransaction.h; sourceTree = "<group>"; };
 		79B00CE91A78048D00EA4AE1 /* VelocityPaymentTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelocityPaymentTransaction.m; sourceTree = "<group>"; };
 		79B1F28C1A88BB9100EE4543 /* VelocityProcessorAuthWAndWOCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityProcessorAuthWAndWOCapture.h; sourceTree = "<group>"; };
 		79B1F28D1A88BB9100EE4543 /* VelocityProcessorAuthWAndWOCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelocityProcessorAuthWAndWOCapture.m; sourceTree = "<group>"; };
+		79B1F4A91A89003100EE4543 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
+		79B1F4AA1A89003100EE4543 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
+		79B1F4B01A89033E00EE4543 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		79B1F4B11A89033E00EE4543 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		79B1F4B31A8912CB00EE4543 /* VelocityProcessorCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityProcessorCapture.h; sourceTree = "<group>"; };
+		79B1F4B41A8912CB00EE4543 /* VelocityProcessorCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelocityProcessorCapture.m; sourceTree = "<group>"; };
+		79C110711A8CCF730094F0A8 /* VelocityProcessorReturnByID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityProcessorReturnByID.h; sourceTree = "<group>"; };
+		79C110721A8CCF730094F0A8 /* VelocityProcessorReturnByID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelocityProcessorReturnByID.m; sourceTree = "<group>"; };
+		79C110741A8CCF9F0094F0A8 /* VelocityProcessorReturnUnlinked.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityProcessorReturnUnlinked.h; sourceTree = "<group>"; };
+		79C110751A8CCF9F0094F0A8 /* VelocityProcessorReturnUnlinked.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelocityProcessorReturnUnlinked.m; sourceTree = "<group>"; };
 		79CD59331A71402B008A7BCC /* VelocityProcessorAuthorizeTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityProcessorAuthorizeTransaction.h; sourceTree = "<group>"; };
 		79CD59341A71402B008A7BCC /* VelocityProcessorAuthorizeTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelocityProcessorAuthorizeTransaction.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,7 +176,7 @@
 		3AEB19CF1A6D171F00FD188D /* VelocityLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				79B00CDC1A77DB6900EA4AE1 /* XML Parser */,
+				79B1F4A81A89003100EE4543 /* XML Parser */,
 				798CF97D1A6FF7140047B51B /* Modal Class */,
 				798CF9671A6FA4400047B51B /* Reachability */,
 				798CF9681A6FA4400047B51B /* Server */,
@@ -291,20 +306,20 @@
 			path = Sub_Modal_Obj_Class;
 			sourceTree = "<group>";
 		};
-		798988001A7F833C00C52494 /* AuthWithTokenModalClass */ = {
+		798959B51A8A391B007A9EDB /* BancardCaptureResponseModalClass */ = {
 			isa = PBXGroup;
 			children = (
-				798988011A7F838D00C52494 /* AuthWithTokenModalClass.h */,
-				798988021A7F838D00C52494 /* AuthWithTokenModalClass.m */,
+				798959B61A8A3940007A9EDB /* BancardCaptureResponse.h */,
+				798959B71A8A3940007A9EDB /* BancardCaptureResponse.m */,
 			);
-			path = AuthWithTokenModalClass;
+			path = BancardCaptureResponseModalClass;
 			sourceTree = "<group>";
 		};
 		798CF9671A6FA4400047B51B /* Reachability */ = {
 			isa = PBXGroup;
 			children = (
-				3AEB19EB1A6D6ACC00FD188D /* Reachability.h */,
-				3AEB19EC1A6D6ACC00FD188D /* Reachability.m */,
+				79B1F4B01A89033E00EE4543 /* Reachability.h */,
+				79B1F4B11A89033E00EE4543 /* Reachability.m */,
 			);
 			path = Reachability;
 			sourceTree = "<group>";
@@ -320,6 +335,16 @@
 				798987FE1A7F827F00C52494 /* VelocityProcessorAuthWithToken.m */,
 				79B1F28C1A88BB9100EE4543 /* VelocityProcessorAuthWAndWOCapture.h */,
 				79B1F28D1A88BB9100EE4543 /* VelocityProcessorAuthWAndWOCapture.m */,
+				79B1F4B31A8912CB00EE4543 /* VelocityProcessorCapture.h */,
+				79B1F4B41A8912CB00EE4543 /* VelocityProcessorCapture.m */,
+				79A6D8F41A8B62DD00A22BE5 /* VelocityProcessorVoid.h */,
+				79A6D8F51A8B62DD00A22BE5 /* VelocityProcessorVoid.m */,
+				79A6D8F71A8B633600A22BE5 /* VelocityProcessorAdjust.h */,
+				79A6D8F81A8B633600A22BE5 /* VelocityProcessorAdjust.m */,
+				79C110711A8CCF730094F0A8 /* VelocityProcessorReturnByID.h */,
+				79C110721A8CCF730094F0A8 /* VelocityProcessorReturnByID.m */,
+				79C110741A8CCF9F0094F0A8 /* VelocityProcessorReturnUnlinked.h */,
+				79C110751A8CCF9F0094F0A8 /* VelocityProcessorReturnUnlinked.m */,
 			);
 			path = Server;
 			sourceTree = "<group>";
@@ -327,8 +352,8 @@
 		798CF97D1A6FF7140047B51B /* Modal Class */ = {
 			isa = PBXGroup;
 			children = (
+				798959B51A8A391B007A9EDB /* BancardCaptureResponseModalClass */,
 				796BF0001A82685D00D787FF /* Sub_Modal_Obj_Class */,
-				798988001A7F833C00C52494 /* AuthWithTokenModalClass */,
 				79AF87B21A7A938C00266230 /* ErrorResponseModalClass */,
 				79B00CE71A78048D00EA4AE1 /* VelocityPaymentTransactionModalclass */,
 				79B00CE31A78046D00EA4AE1 /* BankCardTransectionResponsePro */,
@@ -344,15 +369,6 @@
 			);
 			path = ErrorResponseModalClass;
 			sourceTree = "<group>";
-		};
-		79B00CDC1A77DB6900EA4AE1 /* XML Parser */ = {
-			isa = PBXGroup;
-			children = (
-				79B00CDD1A77DB6900EA4AE1 /* XMLReader.h */,
-				79B00CDE1A77DB6900EA4AE1 /* XMLReader.m */,
-			);
-			path = "XML Parser";
-			sourceTree = SOURCE_ROOT;
 		};
 		79B00CE31A78046D00EA4AE1 /* BankCardTransectionResponsePro */ = {
 			isa = PBXGroup;
@@ -370,6 +386,15 @@
 				79B00CE91A78048D00EA4AE1 /* VelocityPaymentTransaction.m */,
 			);
 			path = VelocityPaymentTransactionModalclass;
+			sourceTree = "<group>";
+		};
+		79B1F4A81A89003100EE4543 /* XML Parser */ = {
+			isa = PBXGroup;
+			children = (
+				79B1F4A91A89003100EE4543 /* XMLReader.h */,
+				79B1F4AA1A89003100EE4543 /* XMLReader.m */,
+			);
+			path = "XML Parser";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -476,30 +501,35 @@
 				796BF0161A82696500D787FF /* AVSData.m in Sources */,
 				796CC1571A838DCF00C5D277 /* Address.m in Sources */,
 				3AF1AB8D1A69336B00D18388 /* VelocityCardSampleViewController.m in Sources */,
-				79B00CDF1A77DB6900EA4AE1 /* XMLReader.m in Sources */,
 				796BF0271A826B1E00D787FF /* TenderData.m in Sources */,
 				796BF0171A82696500D787FF /* CardData.m in Sources */,
 				3AF1AB931A6933E900D18388 /* VelocityCardSampleAppDelegate.m in Sources */,
 				796BF01C1A82696500D787FF /* IdentificationInformation.m in Sources */,
 				3AF1AB681A69320600D18388 /* main.m in Sources */,
 				796BF0291A826B1E00D787FF /* Transaction.m in Sources */,
+				79A6D8F91A8B633600A22BE5 /* VelocityProcessorAdjust.m in Sources */,
 				799870F71A7BBD0F005D4508 /* VelocityResponse.m in Sources */,
 				79CD59351A71402B008A7BCC /* VelocityProcessorAuthorizeTransaction.m in Sources */,
-				798988031A7F838D00C52494 /* AuthWithTokenModalClass.m in Sources */,
 				798987FF1A7F827F00C52494 /* VelocityProcessorAuthWithToken.m in Sources */,
 				3AEB19E61A6D389500FD188D /* VelocityProcessor.m in Sources */,
 				798CF9721A6FA9530047B51B /* VelocityProcessorSignOn.m in Sources */,
 				796BF0181A82696500D787FF /* CardHolderName.m in Sources */,
 				796BF0191A82696500D787FF /* CardSecurityData.m in Sources */,
 				796BF01B1A82696500D787FF /* Email.m in Sources */,
-				3AEB19EF1A6D6ACC00FD188D /* Reachability.m in Sources */,
+				79A6D8F61A8B62DD00A22BE5 /* VelocityProcessorVoid.m in Sources */,
+				798959B81A8A3940007A9EDB /* BancardCaptureResponse.m in Sources */,
 				79B1F28E1A88BB9100EE4543 /* VelocityProcessorAuthWAndWOCapture.m in Sources */,
+				79C110731A8CCF730094F0A8 /* VelocityProcessorReturnByID.m in Sources */,
+				79B1F4B51A8912CB00EE4543 /* VelocityProcessorCapture.m in Sources */,
 				796BF02A1A826B1E00D787FF /* TransactionData.m in Sources */,
 				79B00CEA1A78048D00EA4AE1 /* VelocityPaymentTransaction.m in Sources */,
 				796CC1541A838B5900C5D277 /* BillingData.m in Sources */,
 				796BF0151A82696500D787FF /* AuthorizeTransaction.m in Sources */,
+				79B1F4B21A89033E00EE4543 /* Reachability.m in Sources */,
 				796BF01D1A82696500D787FF /* KeySerialNumber.m in Sources */,
+				79C110761A8CCF9F0094F0A8 /* VelocityProcessorReturnUnlinked.m in Sources */,
 				79B00CE61A78046D00EA4AE1 /* BankcardTransactionResponsePro.m in Sources */,
+				79B1F4AB1A89003100EE4543 /* XMLReader.m in Sources */,
 				799870F41A7B8D39005D4508 /* ResponseViewViewController.m in Sources */,
 				796BF01E1A82696500D787FF /* PIN.m in Sources */,
 				796CC14E1A83755400C5D277 /* CustomerData.m in Sources */,
@@ -565,7 +595,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jackie Miller (68722EEQN7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jackie Miller (68722EEQN7)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -582,9 +613,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "321ea66a-9a19-4df4-917b-703b3226e020";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -606,7 +638,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Symplast LLC (H2NQL66JNC)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Symplast LLC (H2NQL66JNC)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -617,8 +650,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "f8b74d0d-b4a5-4206-bafd-72356032ef28";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -628,9 +662,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jackie Miller (68722EEQN7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jackie Miller (68722EEQN7)";
 				INFOPLIST_FILE = VelocityCardSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "321ea66a-9a19-4df4-917b-703b3226e020";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -638,9 +677,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Symplast LLC (H2NQL66JNC)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Symplast LLC (H2NQL66JNC)";
 				INFOPLIST_FILE = VelocityCardSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f8b74d0d-b4a5-4206-bafd-72356032ef28";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
