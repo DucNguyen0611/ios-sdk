@@ -29,8 +29,10 @@ This class provides the implementation of the following methods: <br/>
      5. undo;<br/>
      6. adjust;<br/>
      7. returnById;<br/>
-     8 .returnUnlinked;<br/>
-     queryTransactionDetails<br/>
+     8.returnUnlinked;<br/>
+     9.queryTransactionDetails;<br/>
+     10.captureAll;<br/>
+     
      
 <b> The class also provides delegate for conveying success and error response </b> <br/>
 
@@ -41,14 +43,15 @@ This class provides the implementation of the following methods: <br/>
 <h2>1. createCardToken(....) </h2><br/>
 The method is responsible for the invocation of verify operation on the Velocity REST server.<br/>
  <b>velocityPaymentTransaction Modal Class</b> - holds the values for the verify request VelocityPaymentTransaction <br/>
-               1.cardType - String     <br/>
+ 
+               	1.cardType - String     <br/>
 		2.cardholderName - String     <br/>
-               3.panNumber-String   <br/>
-               4.expiryDate - String   <br/>
+               	3.panNumber-String   <br/>
+        	4.expiryDate - String   <br/>
 		5.street - String   <br/>
-               6.stateProvince - String     <br/>
-               7.postalCode - String   <br/>
-               8.phone - String    <br/>
+               	6.stateProvince - String     <br/>
+               	7.postalCode - String   <br/>
+               	8.phone - String    <br/>
 		9.state - String     <br/>
                10.cvDataProvided - String    <br/>
                11.cVData - String   <br/>
@@ -57,10 +60,10 @@ The method is responsible for the invocation of verify operation on the Velocity
                14.customerPresent - String     <br/>
                15.employeeId - String     <br/>
                16.entryMode - String      <br/>
-	17.industryType - String   <br/>
+               17.industryType - String   <br/>
                18.email - String   <br/>
-	19.transactionDateTime - String   <br/>
-  20.city -String <br/>
+               19.transactionDateTime - String   <br/>
+               20.city -String <br/>
   
 <h2>How to set the Ui value on VelocityPaymentTransaction model </h2><br/>
 <b>Sample code</b><br/> 
@@ -94,7 +97,7 @@ The method is responsible for the invocation of verify operation on the Velocity
     [PaymentObjecthandler setModelObject:vPTMCObj]; //method which sets value into modal class<br/>
 
 
-1.Request a [velocityProcessorObj createCardTokenIsOnlySignOn:NO];method from API .<br/> 
+1.Request a [velocityProcessorObj createCardToken];method from API .<br/> 
 initialize response view class to store values in its variable<br/>
 make property of VelocityResponase class <br/>
 @property (strong, nonatomic) VelocityResponse *_txRespons_obj;<br/>
