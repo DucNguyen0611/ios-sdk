@@ -22,14 +22,15 @@ Used in Sample App as <br/>
 <h2>1. VelocityProcessor </h2><br/>
 
 This class provides the implementation of the following methods: <br/>
-     1. -(void)createCardTokenIsOnlySignOn:(BOOL)isSignOn;   <br/>
-     2. -(void)authoriseWToken:(BOOL)isWithToken;<br/>
-     3. -(void)authNCaptureWithToken:(BOOL)isAuthNCaptureWithToken;<br/>
-     4. -(void)captureTransaction;<br/>
-     5. -(void)voidORundoTransaction;<br/>
-     6. -(void)adjustAmount;<br/>
-     7. -(void)returnById;<br/>
-     8 .-(void)returnUnlinkedisWithToken:(BOOL)isWithToken;<br/><br/>
+     1. createCardToken;   <br/>
+     2. authorise;<br/>
+     3. authNCapture;<br/>
+     4. capture;<br/>
+     5. undo;<br/>
+     6. adjust;<br/>
+     7. returnById;<br/>
+     8 .returnUnlinked;<br/>
+     queryTransactionDetails<br/>
      
 <b> The class also provides delegate for conveying success and error response </b> <br/>
 
