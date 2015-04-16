@@ -4,14 +4,14 @@ It has the implementation of all the transaction payment solution methods for a 
 
 At the center of this SDK, there is the class <b>VelocityProcessor</b>. <br/>
 
-The signature for initializing this class is as below: <br/>
+The signature for initialising this class is as below: <br/>
 
 <b> - (VelocityProcessor *) initWith:(NSString *)identityToken forAppProfileId:(NSString *)appProfileId forMerchantProfileId:(NSString *)merchantProfileId forWorkflowId:(NSString *)workflowId andSessionToken:(NSString *)sessiontoken andType:(BOOL )isTestAccount; </b> <br/>
 
-@parameter  <b>sessionToken </b> - initializes the value for session token.  <br/>
-@parameter  <b>identityToken </b> - initializes the value for identity token.  <br/>
-@parameter  <b>appProfileId </b> - initializes the value for application profile Id.  <br/>
-@parameter  <b>merchantProfileId </b> - initializes the value for merchant profile Id.  <br/>
+@parameter  <b>sessionToken </b> - initialises the value for session token.  <br/>
+@parameter  <b>identityToken </b> - initialises the value for identity token.  <br/>
+@parameter  <b>appProfileId </b> - initialises the value for application profile Id.  <br/>
+@parameter  <b>merchantProfileId </b> - initialises the value for merchant profile Id.  <br/>
 @parameter  <b>workFlowId </b> - initializes the value for workflow Id.  <br/>
 @parameter  <b>isTestAccount </b> - works as a flag for the TestAccount.  <br/>
 
@@ -24,13 +24,13 @@ Used in Sample App as <br/>
 This class provides the implementation of the following methods: <br/>
      1. createCardToken;   <br/>
      2. authorise;<br/>
-     3. authNCapture;<br/>
+     3. authorizeAndCapture;<br/>
      4. capture;<br/>
      5. undo;<br/>
      6. adjust;<br/>
      7. returnById;<br/>
      8.returnUnlinked;<br/>
-     9.queryTransactionDetails;<br/>
+     9.queryTransactionsDetail;<br/>
      10.captureAll;<br/>
      
      
@@ -123,32 +123,39 @@ initialize the object<br/>
 					}
 
 <h2>1.2 authorise(...);</h2><br/>
-The method is responsible for the invocation of authorize operation on the Velocity REST server.<br/>
-<b>[velocityProcessorObj authoriseWToken:YES];</b><br/>
-The method is responsible for the invocation of authorize operation with token on the Velocity REST server.<br/>
-<b>[velocityProcessorObj authoriseWToken:NO];</b><br/>
-The method is responsible for the invocation of authorize operation without token on the Velocity REST server.<br/>
+The method is responsible for the invocation of authorise operation on the Velocity REST server.<br/>
+
+<h2>1.2.1 authoriseWithToken();</h2><br/>
+<b>[velocityProcessorObj authorise];</b><br/>
+The method is responsible for the invocation of authorise operation with token on the Velocity REST server.<br/>
+for this you have to make pass the payment account data token to the library 
+
+<h2>1.2.2 authoriseWithoutToken();</h2><br/>
+<b>[velocityProcessorObj authorise];</b><br/>
+The method is responsible for the invocation of authorise operation without token on the Velocity REST server. this will be called only when payment account data token is null and card data should be present.<br/>
+<h2>1.2.3 authoriseP2PE();</h2><br/>
+The method is responsible for the invocation of authorise operation without token and with encrypted card data on the Velocity REST server. this will be called only when payment account data token is null and card data should be present.<br/>
 
 Values are set from modal class <b>velocityPaymentTransaction</b> - holds the values for the authorize request VelocityPaymentTransaction<br/>
-            	  1.cardType - String     <br/>
+            	1.cardType - String     <br/> 
                 2.cardholderName - String     <br/>
-                3.panNumber-String   <br/>
-                4.expiryDate - String   <br/>
-	              5.street - String   <br/>
+                3.panNumber-String   <br/>  			//require for without token operation
+                4.expiryDate - String   <br/>  			//require for without token operation
+	        5.street - String   <br/>
                 6.stateProvince - String     <br/>
-                7.postalCode - String   <br/>
+                7.postalCode - String   <br/>  
                 8.phone - String    <br/>
-	              9.state - String     <br/>
+	        9.state - String     <br/>
                10.cvDataProvided - String    <br/>
-               11.cVData - String   <br/>
-	             12.reportingDataReference String <br/>
+               11.cVData - String   <br/>  			//require for without token operation
+	       12.reportingDataReference String <br/>
                13.transactionDataReference  String<br/>
-	             14.amount - String       <br/>
+	        14.amount - String       <br/>
                15.currencyCode - String       <br/> 
                16.customerPresent - String     <br/>
                17. partialShipment - boolean   <br/>
                18.signatureCaptured - boolean    <br/>
-	             19.quasiCash - boolean    <br/>
+	       19.quasiCash - boolean    <br/>
                20.email - String   <br/>
                21.transactionDateTime - String   <br/>
                22.city -String <br/>
@@ -157,17 +164,22 @@ Values are set from modal class <b>velocityPaymentTransaction</b> - holds the va
                25.tipAmount - String   <br/>
                26.employeeId - String     <br/>
                27.entryMode - String      <br/>
-	             28.industryType - String   <br/>
+	       28.industryType - String   <br/>
                29.countryCode - String     <br/>
                30.businnessName - String   <br/>
                31.comment - String    <br/>
                32.description - String    <br/>
-               33.paymentAccountDataToken - String   <br/>
+               33.paymentAccountDataToken - String   <br/> 	//required for with token operation
                34.cashBackAmount - String       <br/> 
                35.goodsType - String     <br/>
                36.invoiceNumber - String     <br/>
                37.orderNumber - String      <br/>
-	             38.FeeAmount - String   <br/>
+	       38.FeeAmount - String   <br/>
+	       39.securePaymentAccountData - String   <br/> 	//require for P2PE operation
+	       40.encryptionKeyId - String   <br/> 		//require for P2PE operation
+	       41.swipeStatus - String   <br/> 			//require for P2PE operation .if not available make it null.
+
+                
 	
 <h2>How to set the Ui value on VelocityPaymentTransaction model</h2><br/>
 <b>Sample code</b><br/> 
@@ -213,23 +225,12 @@ Values are set from modal class <b>velocityPaymentTransaction</b> - holds the va
     vPTMCObj.FeeAmount = @"1000.05";
     vPTMCObj.tipAmount = self.tipAmountTxtField.text;//this amount is used for capture<br/>
     vPTMCObj.keySerialNumber=@"";
-    vPTMCObj.identificationInformation=@"";
-    vPTMCObj.ecommerceSecurityData = @"";
-    vPTMCObj.track1Data = @"";
-    vPTMCObj.street2 = @"";
-    vPTMCObj.fax = @"";
-    vPTMCObj.customerTaxId = @"";
-    vPTMCObj.shippingData = @"";
-    vPTMCObj.securePaymentAccountData = @"";
-    vPTMCObj.encryptionKeyId = @"";
-    vPTMCObj.swipeStatus = @"";
-    vPTMCObj.approvalCode = @"";
-    vPTMCObj.internetTransactionData = @"";
+    vPTMCObj.identificationInformation=@"";     //for P2PE only, leave null string in case not P2PE
+    vPTMCObj.ecommerceSecurityData = @"";	//for P2PE only, leave null string in case not P2PE
+    vPTMCObj.securePaymentAccountData = @"";	//for P2PE only, leave null string in case not P2PE
     vPTMCObj.isPartialShipment = false;
     vPTMCObj.isSignatureCaptured = false; 
-    vPTMCObj.terminalID = @"";
     vPTMCObj.partialApprovalCapable = @"NotSet";
-    vPTMCObj.scoreThreshold = @"";
     vPTMCObj.isQuasiCash=false; 
     [PaymentObjecthandler setModelObject:vPTMCObj]; 
     
