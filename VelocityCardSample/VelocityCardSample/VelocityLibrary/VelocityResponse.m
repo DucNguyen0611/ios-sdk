@@ -28,7 +28,7 @@ static VelocityResponse *responseOBj;
  */
 +(VelocityResponse *)setModelObject:(id )obj{
     
-    responseOBj=obj;
+    responseOBj = obj;
     return responseOBj;
 }
 /**

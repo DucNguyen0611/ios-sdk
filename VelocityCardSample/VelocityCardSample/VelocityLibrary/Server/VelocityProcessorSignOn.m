@@ -46,19 +46,19 @@ static VelocityProcessorSignOn *scService = nil;
     switch (reach) {
             
         case NotReachable:
-            isNetworkActive=NO;
+            isNetworkActive = NO;
             break;
             
         case ReachableViaWiFi:
-            isNetworkActive=YES;
+            isNetworkActive = YES;
             break;
             
         case ReachableViaWWAN:
-            isNetworkActive=YES;
+            isNetworkActive = YES;
             break;
             
         default:
-            isNetworkActive=NO;
+            isNetworkActive = NO;
             break;
     }
     
@@ -77,7 +77,7 @@ static VelocityProcessorSignOn *scService = nil;
      *  check network connectivity
      */
     if ([self CheckNetworConnectivity]==YES) {
-NSString *appendedString=[identityToken stringByAppendingString:@" : "];
+NSString *appendedString =[identityToken stringByAppendingString:@" : "];
 NSData *tokenData = [appendedString dataUsingEncoding:NSUTF8StringEncoding];
 NSString * stringBase64 = [tokenData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithCarriageReturn];
 

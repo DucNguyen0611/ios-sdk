@@ -144,15 +144,35 @@ if ([self CheckNetworConnectivity] == YES) {
     //with token
     if (isWithToken) {
         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns4:PaymentAccountDataToken xmlns:ns4=\"%@\">%@</ns4:PaymentAccountDataToken> \n",kXml_Base_Url,PaymentObj.paymentAccountDataToken]];
+        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns5:SecurePaymentAccountData xmlns:ns5=\"%@\" i:nil=\"true\"/>\n",kXml_Base_Url]];
+        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns6:EncryptionKeyId xmlns:ns6=\"%@\" i:nil=\"true\"/>\n",kXml_Base_Url]];
+        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns7:SwipeStatus xmlns:ns7=\"%@\" i:nil=\"true\"/>\n",kXml_Base_Url]];
     }
     //without token
-    else
+    else{
         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns4:PaymentAccountDataToken xmlns:ns4=\"%@\" i:nil=\"true\"/>\n",kXml_Base_Url]];
     
-    
-        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns5:SecurePaymentAccountData xmlns:ns5=\"%@\" i:nil=\"true\">%@</ns5:SecurePaymentAccountData>\n",kXml_Base_Url,PaymentObj.securePaymentAccountData]];
-        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns6:EncryptionKeyId xmlns:ns6=\"%@\" i:nil=\"true\">%@</ns6:EncryptionKeyId>\n",kXml_Base_Url,PaymentObj.encryptionKeyId]];
+    if (PaymentObj.securePaymentAccountData.length>0 && PaymentObj.encryptionKeyId.length>0) {
+        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns5:SecurePaymentAccountData xmlns:ns5=\"%@\">%@</ns5:SecurePaymentAccountData>\n",kXml_Base_Url,PaymentObj.securePaymentAccountData]];
+        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns6:EncryptionKeyId xmlns:ns6=\"%@\">%@</ns6:EncryptionKeyId>\n",kXml_Base_Url,PaymentObj.encryptionKeyId]];
+        if (PaymentObj.swipeStatus.length >0 && PaymentObj.identificationInformation.length >0) {
+            xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns7:SwipeStatus xmlns:ns7=\"%@\" >%@</ns7:SwipeStatus>\n",kXml_Base_Url,PaymentObj.swipeStatus]];
+            xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CardSecurityData>"]];
+            xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:IdentificationInformation>%@</ns1:IdentificationInformation>",PaymentObj.identificationInformation]];
+            xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"</ns1:CardSecurityData>"]];
+            
+            
+        }
+        else
         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns7:SwipeStatus xmlns:ns7=\"%@\" i:nil=\"true\">%@</ns7:SwipeStatus>\n",kXml_Base_Url,PaymentObj.swipeStatus]];
+        
+    }
+    else{
+        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns5:SecurePaymentAccountData xmlns:ns5=\"%@\" i:nil=\"true\"/>\n",kXml_Base_Url]];
+        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns6:EncryptionKeyId xmlns:ns6=\"%@\" i:nil=\"true\"/>\n",kXml_Base_Url]];
+        xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns7:SwipeStatus xmlns:ns7=\"%@\" i:nil=\"true\"/>\n",kXml_Base_Url]];
+    }
+    }
     if (isWithToken)
         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:EcommerceSecurityData i:nil=\"true\">%@</ns1:EcommerceSecurityData>\n",PaymentObj.ecommerceSecurityData]];        //card data starts
     if (isWithToken) {
@@ -163,13 +183,21 @@ if ([self CheckNetworConnectivity] == YES) {
         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:Track1Data  i:nil=\"true\">%@</ns1:Track1Data>\n",PaymentObj.track1Data]];
         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@" </ns1:CardData>\n"]];
     }
+    else if(PaymentObj.securePaymentAccountData.length>0 && PaymentObj.encryptionKeyId.length>0){
+       
+    }
     else{
+        if (PaymentObj.cardType != nil && PaymentObj.panNumber != nil && PaymentObj.expiryDate != nil) {
             xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CardData>\n"]];
-                xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CardType>%@</ns1:CardType>\n",PaymentObj.cardType]];
-                xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:PAN>%@</ns1:PAN>\n",PaymentObj.panNumber]];
-                xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:Expire>%@</ns1:Expire>\n",PaymentObj.expiryDate]];
-                xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:Track1Data i:nil=\"true\"/>\n"]];
+            xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CardType>%@</ns1:CardType>\n",PaymentObj.cardType]];
+            xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:PAN>%@</ns1:PAN>\n",PaymentObj.panNumber]];
+            xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:Expire>%@</ns1:Expire>\n",PaymentObj.expiryDate]];
+            xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:Track1Data i:nil=\"true\"/>\n"]];
             xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@" </ns1:CardData>\n"]];
+            
+        }
+        
+        
         //card data ends
     }
     

@@ -7,13 +7,98 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A0527F41AC9B0DE00E03AFA /* VelocityProcessorCaptureAll.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0527F31AC9B0DE00E03AFA /* VelocityProcessorCaptureAll.m */; };
+		3A187E3C1AD6954D00274897 /* checkBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A187E381AD6954D00274897 /* checkBox.png */; };
+		3A187E3D1AD6954D00274897 /* checkBox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A187E391AD6954D00274897 /* checkBox@2x.png */; };
+		3A187E3E1AD6954D00274897 /* checkBoxMarked.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A187E3A1AD6954D00274897 /* checkBoxMarked.png */; };
+		3A5AC4441AC163F400490606 /* StatusEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC4431AC163F400490606 /* StatusEnum.m */; };
+		3A5AC4471AC1662400490606 /* CustomerTaxIdResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC4461AC1662400490606 /* CustomerTaxIdResponse.m */; };
+		3A5AC44A1AC1663800490606 /* CWSTransactionResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC4491AC1663800490606 /* CWSTransactionResponse.m */; };
+		3A5AC44D1AC1664900490606 /* EcommerceSecurityDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC44C1AC1664900490606 /* EcommerceSecurityDataResponse.m */; };
+		3A5AC4501AC1665C00490606 /* ElectronicCheckDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC44F1AC1665C00490606 /* ElectronicCheckDataResponse.m */; };
+		3A5AC4531AC1666B00490606 /* ElectronicCheckingMerchantDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC4521AC1666B00490606 /* ElectronicCheckingMerchantDataResponse.m */; };
+		3A5AC4561AC166A000490606 /* EmailResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC4551AC166A000490606 /* EmailResponse.m */; };
+		3A5AC4591AC166AF00490606 /* EncryptionKeyIdResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC4581AC166AF00490606 /* EncryptionKeyIdResponse.m */; };
+		3A5AC45C1AC166C500490606 /* FamilyInformationResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC45B1AC166C500490606 /* FamilyInformationResponse.m */; };
+		3A5AC45F1AC166F000490606 /* FaxResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC45E1AC166F000490606 /* FaxResponse.m */; };
+		3A5AC4621AC1670000490606 /* InternetTransactionDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC4611AC1670000490606 /* InternetTransactionDataResponse.m */; };
+		3A5AC4651AC1671800490606 /* LaneIdResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC4641AC1671800490606 /* LaneIdResponse.m */; };
+		3A5AC4681AC1672700490606 /* MerchantProfileMerchantDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC4671AC1672700490606 /* MerchantProfileMerchantDataResponse.m */; };
+		3A5AC46B1AC1673D00490606 /* MetaDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC46A1AC1673D00490606 /* MetaDataResponse.m */; };
+		3A5AC46E1AC1674F00490606 /* NameResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC46D1AC1674F00490606 /* NameResponse.m */; };
+		3A5AC4711AC1676300490606 /* PaymentAccountDataTokenResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC4701AC1676300490606 /* PaymentAccountDataTokenResponse.m */; };
+		3A5AC4741AC1677400490606 /* PhoneResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC4731AC1677400490606 /* PhoneResponse.m */; };
+		3A5AC4771AC1678600490606 /* ReportingDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC4761AC1678600490606 /* ReportingDataResponse.m */; };
+		3A5AC47A1AC1679600490606 /* ResponseResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC4791AC1679600490606 /* ResponseResponse.m */; };
+		3A5AC47D1AC167A300490606 /* ScoreThresholdResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC47C1AC167A300490606 /* ScoreThresholdResponse.m */; };
+		3A5AC4801AC167FB00490606 /* SecurePaymentAccountDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC47F1AC167FB00490606 /* SecurePaymentAccountDataResponse.m */; };
+		3A5AC4831AC1681100490606 /* ServiceTransactionDateTimeResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC4821AC1681100490606 /* ServiceTransactionDateTimeResponse.m */; };
+		3A5AC4861AC1683000490606 /* ShippingDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC4851AC1683000490606 /* ShippingDataResponse.m */; };
+		3A5AC4891AC168BB00490606 /* StoredValueDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC4881AC168BB00490606 /* StoredValueDataResponse.m */; };
+		3A5AC48C1AC168CF00490606 /* StoredValueMerchantDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC48B1AC168CF00490606 /* StoredValueMerchantDataResponse.m */; };
+		3A5AC48F1AC168E100490606 /* Street2Response.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC48E1AC168E100490606 /* Street2Response.m */; };
+		3A5AC4921AC16D9700490606 /* SwipeStatusResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC4911AC16D9700490606 /* SwipeStatusResponse.m */; };
+		3A5AC4951AC16DF300490606 /* TenderDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC4941AC16DF300490606 /* TenderDataResponse.m */; };
+		3A5AC4981AC16E2A00490606 /* TerminalIdResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC4971AC16E2A00490606 /* TerminalIdResponse.m */; };
+		3A5AC49B1AC16EA400490606 /* Track1DataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC49A1AC16EA400490606 /* Track1DataResponse.m */; };
+		3A5AC49E1AC16EBF00490606 /* TransactionResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC49D1AC16EBF00490606 /* TransactionResponse.m */; };
+		3A5AC4A11AC16ED300490606 /* TransactionClassTypePairResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC4A01AC16ED300490606 /* TransactionClassTypePairResponse.m */; };
+		3A5AC4A41AC16EEC00490606 /* TransactionDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC4A31AC16EEC00490606 /* TransactionDataResponse.m */; };
+		3A5AC4A71AC16F0300490606 /* TransactionDetailResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC4A61AC16F0300490606 /* TransactionDetailResponse.m */; };
+		3A5AC4AA1AC16F1E00490606 /* TransactionInformationResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC4A91AC16F1E00490606 /* TransactionInformationResponse.m */; };
+		3A5C37701AD2D04800D1DD06 /* ResponseViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C376F1AD2D04800D1DD06 /* ResponseViewViewController.m */; };
+		3A60C1F91AC55C6300A8C245 /* QueryTransectionRequestModalClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A60C1F81AC55C6300A8C245 /* QueryTransectionRequestModalClass.m */; };
+		3A60C1FC1AC5619F00A8C245 /* TransactionDetailModalClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A60C1FB1AC5619F00A8C245 /* TransactionDetailModalClass.m */; };
+		3A60C1FF1AC5638B00A8C245 /* VelocityQueryTransactionDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A60C1FE1AC5638B00A8C245 /* VelocityQueryTransactionDetails.m */; };
+		3A73EEDE1ACAEBFC00F7ABCB /* CaptureAllArrayOfResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A73EEDD1ACAEBFC00F7ABCB /* CaptureAllArrayOfResponse.m */; };
+		3A7C4F3A1AD91ED1004E7C0C /* checkBoxMarked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A7C4F391AD91ED1004E7C0C /* checkBoxMarked@2x.png */; };
+		3AA761601AB9C5820010F6E6 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA7615E1AB9C5820010F6E6 /* Crashlytics.framework */; };
+		3AA761611AB9C5820010F6E6 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA7615F1AB9C5820010F6E6 /* Fabric.framework */; };
+		3ADC12B81AC0451C001D45A7 /* AddressResultsEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC12B71AC0451C001D45A7 /* AddressResultsEnum.m */; };
+		3ADC12BB1AC04598001D45A7 /* ApplicationLocationEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC12BA1AC04598001D45A7 /* ApplicationLocationEnum.m */; };
+		3ADC12BE1AC045E8001D45A7 /* CaptureStateEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC12BD1AC045E8001D45A7 /* CaptureStateEnum.m */; };
+		3ADC12C11AC046CE001D45A7 /* CardholderNameResultEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC12C01AC046CE001D45A7 /* CardholderNameResultEnum.m */; };
+		3ADC12C41AC046E4001D45A7 /* CardStatusEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC12C31AC046E4001D45A7 /* CardStatusEnum.m */; };
+		3ADC12C71AC04708001D45A7 /* CityResultEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC12C61AC04708001D45A7 /* CityResultEnum.m */; };
+		3ADC12CA1AC0483C001D45A7 /* CountryCodeEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC12C91AC0483C001D45A7 /* CountryCodeEnum.m */; };
+		3ADC12CD1AC04856001D45A7 /* CountryResultEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC12CC1AC04856001D45A7 /* CountryResultEnum.m */; };
+		3ADC12D01AC0486C001D45A7 /* CVResultEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC12CF1AC0486C001D45A7 /* CVResultEnum.m */; };
+		3ADC12D31AC0489D001D45A7 /* EncryptionTypeEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC12D21AC0489D001D45A7 /* EncryptionTypeEnum.m */; };
+		3ADC12D61AC048B5001D45A7 /* FamilyStateEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC12D51AC048B5001D45A7 /* FamilyStateEnum.m */; };
+		3ADC12D91AC048CF001D45A7 /* HardwareTypeEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC12D81AC048CF001D45A7 /* HardwareTypeEnum.m */; };
+		3ADC12DC1AC048E7001D45A7 /* IndustryTypeEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC12DB1AC048E7001D45A7 /* IndustryTypeEnum.m */; };
+		3ADC12DF1AC04910001D45A7 /* IsAcknowledgedEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC12DE1AC04910001D45A7 /* IsAcknowledgedEnum.m */; };
+		3ADC12E21AC04928001D45A7 /* LanguageEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC12E11AC04928001D45A7 /* LanguageEnum.m */; };
+		3ADC12E81AC04A0A001D45A7 /* PINCapabilityEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC12E71AC04A0A001D45A7 /* PINCapabilityEnum.m */; };
+		3ADC12EB1AC04A2A001D45A7 /* PhoneResultenum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC12EA1AC04A2A001D45A7 /* PhoneResultenum.m */; };
+		3ADC12EE1AC04A50001D45A7 /* PostalCodeResultEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC12ED1AC04A50001D45A7 /* PostalCodeResultEnum.m */; };
+		3ADC12F11AC04AC5001D45A7 /* QueryDateTypeEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC12F01AC04AC5001D45A7 /* QueryDateTypeEnum.m */; };
+		3ADC12F41AC04ADA001D45A7 /* QueryTypeEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC12F31AC04ADA001D45A7 /* QueryTypeEnum.m */; };
+		3ADC12F71AC04B75001D45A7 /* ReadCapabilityEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC12F61AC04B75001D45A7 /* ReadCapabilityEnum.m */; };
+		3ADC12FA1AC04B86001D45A7 /* StateProvinceEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC12F91AC04B86001D45A7 /* StateProvinceEnum.m */; };
+		3ADC12FD1AC04B9A001D45A7 /* StateResultEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC12FC1AC04B9A001D45A7 /* StateResultEnum.m */; };
+		3ADC13061AC04C50001D45A7 /* TransactionDetailFormatEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC13051AC04C50001D45A7 /* TransactionDetailFormatEnum.m */; };
+		3ADC13091AC04CB9001D45A7 /* TransactionStateEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC13081AC04CB9001D45A7 /* TransactionStateEnum.m */; };
+		3ADC130C1AC04CD2001D45A7 /* TypeCardTypeEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC130B1AC04CD2001D45A7 /* TypeCardTypeEnum.m */; };
+		3ADC130F1AC04CF2001D45A7 /* VelocityEnums.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC130E1AC04CF2001D45A7 /* VelocityEnums.m */; };
+		3ADC13161AC05DD7001D45A7 /* ApplicationDataResponseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC13151AC05DD7001D45A7 /* ApplicationDataResponseClass.m */; };
+		3ADC13191AC05E02001D45A7 /* AddressResponseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC13181AC05E02001D45A7 /* AddressResponseClass.m */; };
+		3ADC131C1AC06005001D45A7 /* ApprovalCodeResponseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC131B1AC06005001D45A7 /* ApprovalCodeResponseClass.m */; };
+		3ADC131F1AC07D6F001D45A7 /* AVSResultResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC131E1AC07D6F001D45A7 /* AVSResultResponse.m */; };
+		3ADC13221AC07D8B001D45A7 /* BankcardDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC13211AC07D8B001D45A7 /* BankcardDataResponse.m */; };
+		3ADC13251AC07DA9001D45A7 /* BankcardMerchantDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC13241AC07DA9001D45A7 /* BankcardMerchantDataResponse.m */; };
+		3ADC13281AC07E08001D45A7 /* BatchAssignmentResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC13271AC07E08001D45A7 /* BatchAssignmentResponse.m */; };
+		3ADC132B1AC07E4A001D45A7 /* BillingDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC132A1AC07E4A001D45A7 /* BillingDataResponse.m */; };
+		3ADC132E1AC07E70001D45A7 /* CampaignIdResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC132D1AC07E70001D45A7 /* CampaignIdResponse.m */; };
+		3ADC13311AC085C6001D45A7 /* CardDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC13301AC085C6001D45A7 /* CardDataResponse.m */; };
+		3ADC13341AC08658001D45A7 /* CompleteTransactionResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC13331AC08658001D45A7 /* CompleteTransactionResponse.m */; };
+		3ADC13371AC0895E001D45A7 /* CustomerDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC13361AC0895E001D45A7 /* CustomerDataResponse.m */; };
 		3AEB19E61A6D389500FD188D /* VelocityProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB19E51A6D389500FD188D /* VelocityProcessor.m */; };
 		3AEB19EA1A6D3D4F00FD188D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB19E91A6D3D4F00FD188D /* MBProgressHUD.m */; };
 		3AF1AB681A69320600D18388 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1AB671A69320600D18388 /* main.m */; };
 		3AF1AB711A69320600D18388 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AF1AB6F1A69320600D18388 /* Main.storyboard */; };
 		3AF1AB731A69320600D18388 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AF1AB721A69320600D18388 /* Images.xcassets */; };
 		3AF1AB761A69320600D18388 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AF1AB741A69320600D18388 /* LaunchScreen.xib */; };
-		3AF1AB821A69320600D18388 /* VelocityCardSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1AB811A69320600D18388 /* VelocityCardSampleTests.m */; };
 		3AF1AB8D1A69336B00D18388 /* VelocityCardSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1AB8C1A69336B00D18388 /* VelocityCardSampleViewController.m */; };
 		3AF1AB931A6933E900D18388 /* VelocityCardSampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1AB921A6933E900D18388 /* VelocityCardSampleAppDelegate.m */; };
 		796BF0151A82696500D787FF /* AuthorizeTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 796BF0021A82696500D787FF /* AuthorizeTransaction.m */; };
@@ -37,7 +122,6 @@
 		798959B81A8A3940007A9EDB /* BancardCaptureResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 798959B71A8A3940007A9EDB /* BancardCaptureResponse.m */; };
 		798987FF1A7F827F00C52494 /* VelocityProcessorAuthWithToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 798987FE1A7F827F00C52494 /* VelocityProcessorAuthWithToken.m */; };
 		798CF9721A6FA9530047B51B /* VelocityProcessorSignOn.m in Sources */ = {isa = PBXBuildFile; fileRef = 798CF9711A6FA9530047B51B /* VelocityProcessorSignOn.m */; };
-		799870F41A7B8D39005D4508 /* ResponseViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 799870F31A7B8D39005D4508 /* ResponseViewViewController.m */; };
 		799870F71A7BBD0F005D4508 /* VelocityResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 799870F61A7BBD0F005D4508 /* VelocityResponse.m */; };
 		79A6D8F61A8B62DD00A22BE5 /* VelocityProcessorVoid.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A6D8F51A8B62DD00A22BE5 /* VelocityProcessorVoid.m */; };
 		79A6D8F91A8B633600A22BE5 /* VelocityProcessorAdjust.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A6D8F81A8B633600A22BE5 /* VelocityProcessorAdjust.m */; };
@@ -53,18 +137,174 @@
 		79CD59351A71402B008A7BCC /* VelocityProcessorAuthorizeTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CD59341A71402B008A7BCC /* VelocityProcessorAuthorizeTransaction.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		3AF1AB7C1A69320600D18388 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3AF1AB5A1A69320600D18388 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3AF1AB611A69320600D18388;
-			remoteInfo = VelocityCardSample;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		3A0527F21AC9B0DE00E03AFA /* VelocityProcessorCaptureAll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityProcessorCaptureAll.h; sourceTree = "<group>"; };
+		3A0527F31AC9B0DE00E03AFA /* VelocityProcessorCaptureAll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelocityProcessorCaptureAll.m; sourceTree = "<group>"; };
+		3A187E381AD6954D00274897 /* checkBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkBox.png; sourceTree = "<group>"; };
+		3A187E391AD6954D00274897 /* checkBox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkBox@2x.png"; sourceTree = "<group>"; };
+		3A187E3A1AD6954D00274897 /* checkBoxMarked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkBoxMarked.png; sourceTree = "<group>"; };
 		3A3B8EB51A6E50610019AF35 /* VelocityProcessorConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VelocityProcessorConstant.h; sourceTree = "<group>"; };
+		3A5AC4421AC163F400490606 /* StatusEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusEnum.h; sourceTree = "<group>"; };
+		3A5AC4431AC163F400490606 /* StatusEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusEnum.m; sourceTree = "<group>"; };
+		3A5AC4451AC1662400490606 /* CustomerTaxIdResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerTaxIdResponse.h; sourceTree = "<group>"; };
+		3A5AC4461AC1662400490606 /* CustomerTaxIdResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerTaxIdResponse.m; sourceTree = "<group>"; };
+		3A5AC4481AC1663800490606 /* CWSTransactionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWSTransactionResponse.h; sourceTree = "<group>"; };
+		3A5AC4491AC1663800490606 /* CWSTransactionResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWSTransactionResponse.m; sourceTree = "<group>"; };
+		3A5AC44B1AC1664900490606 /* EcommerceSecurityDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EcommerceSecurityDataResponse.h; sourceTree = "<group>"; };
+		3A5AC44C1AC1664900490606 /* EcommerceSecurityDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EcommerceSecurityDataResponse.m; sourceTree = "<group>"; };
+		3A5AC44E1AC1665C00490606 /* ElectronicCheckDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElectronicCheckDataResponse.h; sourceTree = "<group>"; };
+		3A5AC44F1AC1665C00490606 /* ElectronicCheckDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElectronicCheckDataResponse.m; sourceTree = "<group>"; };
+		3A5AC4511AC1666B00490606 /* ElectronicCheckingMerchantDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElectronicCheckingMerchantDataResponse.h; sourceTree = "<group>"; };
+		3A5AC4521AC1666B00490606 /* ElectronicCheckingMerchantDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElectronicCheckingMerchantDataResponse.m; sourceTree = "<group>"; };
+		3A5AC4541AC166A000490606 /* EmailResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailResponse.h; sourceTree = "<group>"; };
+		3A5AC4551AC166A000490606 /* EmailResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailResponse.m; sourceTree = "<group>"; };
+		3A5AC4571AC166AF00490606 /* EncryptionKeyIdResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncryptionKeyIdResponse.h; sourceTree = "<group>"; };
+		3A5AC4581AC166AF00490606 /* EncryptionKeyIdResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncryptionKeyIdResponse.m; sourceTree = "<group>"; };
+		3A5AC45A1AC166C500490606 /* FamilyInformationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FamilyInformationResponse.h; sourceTree = "<group>"; };
+		3A5AC45B1AC166C500490606 /* FamilyInformationResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FamilyInformationResponse.m; sourceTree = "<group>"; };
+		3A5AC45D1AC166F000490606 /* FaxResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaxResponse.h; sourceTree = "<group>"; };
+		3A5AC45E1AC166F000490606 /* FaxResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaxResponse.m; sourceTree = "<group>"; };
+		3A5AC4601AC1670000490606 /* InternetTransactionDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InternetTransactionDataResponse.h; sourceTree = "<group>"; };
+		3A5AC4611AC1670000490606 /* InternetTransactionDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InternetTransactionDataResponse.m; sourceTree = "<group>"; };
+		3A5AC4631AC1671800490606 /* LaneIdResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaneIdResponse.h; sourceTree = "<group>"; };
+		3A5AC4641AC1671800490606 /* LaneIdResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaneIdResponse.m; sourceTree = "<group>"; };
+		3A5AC4661AC1672700490606 /* MerchantProfileMerchantDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantProfileMerchantDataResponse.h; sourceTree = "<group>"; };
+		3A5AC4671AC1672700490606 /* MerchantProfileMerchantDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchantProfileMerchantDataResponse.m; sourceTree = "<group>"; };
+		3A5AC4691AC1673D00490606 /* MetaDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaDataResponse.h; sourceTree = "<group>"; };
+		3A5AC46A1AC1673D00490606 /* MetaDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetaDataResponse.m; sourceTree = "<group>"; };
+		3A5AC46C1AC1674F00490606 /* NameResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameResponse.h; sourceTree = "<group>"; };
+		3A5AC46D1AC1674F00490606 /* NameResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameResponse.m; sourceTree = "<group>"; };
+		3A5AC46F1AC1676300490606 /* PaymentAccountDataTokenResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentAccountDataTokenResponse.h; sourceTree = "<group>"; };
+		3A5AC4701AC1676300490606 /* PaymentAccountDataTokenResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentAccountDataTokenResponse.m; sourceTree = "<group>"; };
+		3A5AC4721AC1677400490606 /* PhoneResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneResponse.h; sourceTree = "<group>"; };
+		3A5AC4731AC1677400490606 /* PhoneResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneResponse.m; sourceTree = "<group>"; };
+		3A5AC4751AC1678600490606 /* ReportingDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportingDataResponse.h; sourceTree = "<group>"; };
+		3A5AC4761AC1678600490606 /* ReportingDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportingDataResponse.m; sourceTree = "<group>"; };
+		3A5AC4781AC1679600490606 /* ResponseResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseResponse.h; sourceTree = "<group>"; };
+		3A5AC4791AC1679600490606 /* ResponseResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseResponse.m; sourceTree = "<group>"; };
+		3A5AC47B1AC167A300490606 /* ScoreThresholdResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreThresholdResponse.h; sourceTree = "<group>"; };
+		3A5AC47C1AC167A300490606 /* ScoreThresholdResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreThresholdResponse.m; sourceTree = "<group>"; };
+		3A5AC47E1AC167FB00490606 /* SecurePaymentAccountDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurePaymentAccountDataResponse.h; sourceTree = "<group>"; };
+		3A5AC47F1AC167FB00490606 /* SecurePaymentAccountDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurePaymentAccountDataResponse.m; sourceTree = "<group>"; };
+		3A5AC4811AC1681100490606 /* ServiceTransactionDateTimeResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceTransactionDateTimeResponse.h; sourceTree = "<group>"; };
+		3A5AC4821AC1681100490606 /* ServiceTransactionDateTimeResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceTransactionDateTimeResponse.m; sourceTree = "<group>"; };
+		3A5AC4841AC1683000490606 /* ShippingDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShippingDataResponse.h; sourceTree = "<group>"; };
+		3A5AC4851AC1683000490606 /* ShippingDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShippingDataResponse.m; sourceTree = "<group>"; };
+		3A5AC4871AC168BB00490606 /* StoredValueDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoredValueDataResponse.h; sourceTree = "<group>"; };
+		3A5AC4881AC168BB00490606 /* StoredValueDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoredValueDataResponse.m; sourceTree = "<group>"; };
+		3A5AC48A1AC168CF00490606 /* StoredValueMerchantDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoredValueMerchantDataResponse.h; sourceTree = "<group>"; };
+		3A5AC48B1AC168CF00490606 /* StoredValueMerchantDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoredValueMerchantDataResponse.m; sourceTree = "<group>"; };
+		3A5AC48D1AC168E100490606 /* Street2Response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Street2Response.h; sourceTree = "<group>"; };
+		3A5AC48E1AC168E100490606 /* Street2Response.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Street2Response.m; sourceTree = "<group>"; };
+		3A5AC4901AC16D9700490606 /* SwipeStatusResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeStatusResponse.h; sourceTree = "<group>"; };
+		3A5AC4911AC16D9700490606 /* SwipeStatusResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeStatusResponse.m; sourceTree = "<group>"; };
+		3A5AC4931AC16DF300490606 /* TenderDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TenderDataResponse.h; sourceTree = "<group>"; };
+		3A5AC4941AC16DF300490606 /* TenderDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TenderDataResponse.m; sourceTree = "<group>"; };
+		3A5AC4961AC16E2A00490606 /* TerminalIdResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerminalIdResponse.h; sourceTree = "<group>"; };
+		3A5AC4971AC16E2A00490606 /* TerminalIdResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerminalIdResponse.m; sourceTree = "<group>"; };
+		3A5AC4991AC16EA400490606 /* Track1DataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track1DataResponse.h; sourceTree = "<group>"; };
+		3A5AC49A1AC16EA400490606 /* Track1DataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track1DataResponse.m; sourceTree = "<group>"; };
+		3A5AC49C1AC16EBF00490606 /* TransactionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionResponse.h; sourceTree = "<group>"; };
+		3A5AC49D1AC16EBF00490606 /* TransactionResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionResponse.m; sourceTree = "<group>"; };
+		3A5AC49F1AC16ED300490606 /* TransactionClassTypePairResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionClassTypePairResponse.h; sourceTree = "<group>"; };
+		3A5AC4A01AC16ED300490606 /* TransactionClassTypePairResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionClassTypePairResponse.m; sourceTree = "<group>"; };
+		3A5AC4A21AC16EEC00490606 /* TransactionDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionDataResponse.h; sourceTree = "<group>"; };
+		3A5AC4A31AC16EEC00490606 /* TransactionDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionDataResponse.m; sourceTree = "<group>"; };
+		3A5AC4A51AC16F0300490606 /* TransactionDetailResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionDetailResponse.h; sourceTree = "<group>"; };
+		3A5AC4A61AC16F0300490606 /* TransactionDetailResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionDetailResponse.m; sourceTree = "<group>"; };
+		3A5AC4A81AC16F1E00490606 /* TransactionInformationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionInformationResponse.h; sourceTree = "<group>"; };
+		3A5AC4A91AC16F1E00490606 /* TransactionInformationResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionInformationResponse.m; sourceTree = "<group>"; };
+		3A5C376E1AD2D04800D1DD06 /* ResponseViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseViewViewController.h; sourceTree = "<group>"; };
+		3A5C376F1AD2D04800D1DD06 /* ResponseViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseViewViewController.m; sourceTree = "<group>"; };
+		3A60C1F71AC55C6300A8C245 /* QueryTransectionRequestModalClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryTransectionRequestModalClass.h; sourceTree = "<group>"; };
+		3A60C1F81AC55C6300A8C245 /* QueryTransectionRequestModalClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryTransectionRequestModalClass.m; sourceTree = "<group>"; };
+		3A60C1FA1AC5619F00A8C245 /* TransactionDetailModalClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionDetailModalClass.h; sourceTree = "<group>"; };
+		3A60C1FB1AC5619F00A8C245 /* TransactionDetailModalClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionDetailModalClass.m; sourceTree = "<group>"; };
+		3A60C1FD1AC5638B00A8C245 /* VelocityQueryTransactionDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityQueryTransactionDetails.h; sourceTree = "<group>"; };
+		3A60C1FE1AC5638B00A8C245 /* VelocityQueryTransactionDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelocityQueryTransactionDetails.m; sourceTree = "<group>"; };
+		3A73EEDC1ACAEBFC00F7ABCB /* CaptureAllArrayOfResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureAllArrayOfResponse.h; sourceTree = "<group>"; };
+		3A73EEDD1ACAEBFC00F7ABCB /* CaptureAllArrayOfResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureAllArrayOfResponse.m; sourceTree = "<group>"; };
+		3A7C4F391AD91ED1004E7C0C /* checkBoxMarked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkBoxMarked@2x.png"; sourceTree = "<group>"; };
+		3AA7615E1AB9C5820010F6E6 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		3AA7615F1AB9C5820010F6E6 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		3ADC12B61AC0451C001D45A7 /* AddressResultsEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressResultsEnum.h; sourceTree = "<group>"; };
+		3ADC12B71AC0451C001D45A7 /* AddressResultsEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressResultsEnum.m; sourceTree = "<group>"; };
+		3ADC12B91AC04598001D45A7 /* ApplicationLocationEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationLocationEnum.h; sourceTree = "<group>"; };
+		3ADC12BA1AC04598001D45A7 /* ApplicationLocationEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationLocationEnum.m; sourceTree = "<group>"; };
+		3ADC12BC1AC045E8001D45A7 /* CaptureStateEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureStateEnum.h; sourceTree = "<group>"; };
+		3ADC12BD1AC045E8001D45A7 /* CaptureStateEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureStateEnum.m; sourceTree = "<group>"; };
+		3ADC12BF1AC046CE001D45A7 /* CardholderNameResultEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardholderNameResultEnum.h; sourceTree = "<group>"; };
+		3ADC12C01AC046CE001D45A7 /* CardholderNameResultEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardholderNameResultEnum.m; sourceTree = "<group>"; };
+		3ADC12C21AC046E4001D45A7 /* CardStatusEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardStatusEnum.h; sourceTree = "<group>"; };
+		3ADC12C31AC046E4001D45A7 /* CardStatusEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardStatusEnum.m; sourceTree = "<group>"; };
+		3ADC12C51AC04708001D45A7 /* CityResultEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityResultEnum.h; sourceTree = "<group>"; };
+		3ADC12C61AC04708001D45A7 /* CityResultEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityResultEnum.m; sourceTree = "<group>"; };
+		3ADC12C81AC0483C001D45A7 /* CountryCodeEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryCodeEnum.h; sourceTree = "<group>"; };
+		3ADC12C91AC0483C001D45A7 /* CountryCodeEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryCodeEnum.m; sourceTree = "<group>"; };
+		3ADC12CB1AC04856001D45A7 /* CountryResultEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryResultEnum.h; sourceTree = "<group>"; };
+		3ADC12CC1AC04856001D45A7 /* CountryResultEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryResultEnum.m; sourceTree = "<group>"; };
+		3ADC12CE1AC0486C001D45A7 /* CVResultEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVResultEnum.h; sourceTree = "<group>"; };
+		3ADC12CF1AC0486C001D45A7 /* CVResultEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CVResultEnum.m; sourceTree = "<group>"; };
+		3ADC12D11AC0489D001D45A7 /* EncryptionTypeEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncryptionTypeEnum.h; sourceTree = "<group>"; };
+		3ADC12D21AC0489D001D45A7 /* EncryptionTypeEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncryptionTypeEnum.m; sourceTree = "<group>"; };
+		3ADC12D41AC048B5001D45A7 /* FamilyStateEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FamilyStateEnum.h; sourceTree = "<group>"; };
+		3ADC12D51AC048B5001D45A7 /* FamilyStateEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FamilyStateEnum.m; sourceTree = "<group>"; };
+		3ADC12D71AC048CF001D45A7 /* HardwareTypeEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HardwareTypeEnum.h; sourceTree = "<group>"; };
+		3ADC12D81AC048CF001D45A7 /* HardwareTypeEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HardwareTypeEnum.m; sourceTree = "<group>"; };
+		3ADC12DA1AC048E7001D45A7 /* IndustryTypeEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndustryTypeEnum.h; sourceTree = "<group>"; };
+		3ADC12DB1AC048E7001D45A7 /* IndustryTypeEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndustryTypeEnum.m; sourceTree = "<group>"; };
+		3ADC12DD1AC04910001D45A7 /* IsAcknowledgedEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IsAcknowledgedEnum.h; sourceTree = "<group>"; };
+		3ADC12DE1AC04910001D45A7 /* IsAcknowledgedEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IsAcknowledgedEnum.m; sourceTree = "<group>"; };
+		3ADC12E01AC04928001D45A7 /* LanguageEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageEnum.h; sourceTree = "<group>"; };
+		3ADC12E11AC04928001D45A7 /* LanguageEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageEnum.m; sourceTree = "<group>"; };
+		3ADC12E61AC04A0A001D45A7 /* PINCapabilityEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINCapabilityEnum.h; sourceTree = "<group>"; };
+		3ADC12E71AC04A0A001D45A7 /* PINCapabilityEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PINCapabilityEnum.m; sourceTree = "<group>"; };
+		3ADC12E91AC04A2A001D45A7 /* PhoneResultenum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneResultenum.h; sourceTree = "<group>"; };
+		3ADC12EA1AC04A2A001D45A7 /* PhoneResultenum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneResultenum.m; sourceTree = "<group>"; };
+		3ADC12EC1AC04A50001D45A7 /* PostalCodeResultEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostalCodeResultEnum.h; sourceTree = "<group>"; };
+		3ADC12ED1AC04A50001D45A7 /* PostalCodeResultEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostalCodeResultEnum.m; sourceTree = "<group>"; };
+		3ADC12EF1AC04AC5001D45A7 /* QueryDateTypeEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryDateTypeEnum.h; sourceTree = "<group>"; };
+		3ADC12F01AC04AC5001D45A7 /* QueryDateTypeEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryDateTypeEnum.m; sourceTree = "<group>"; };
+		3ADC12F21AC04ADA001D45A7 /* QueryTypeEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryTypeEnum.h; sourceTree = "<group>"; };
+		3ADC12F31AC04ADA001D45A7 /* QueryTypeEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryTypeEnum.m; sourceTree = "<group>"; };
+		3ADC12F51AC04B75001D45A7 /* ReadCapabilityEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadCapabilityEnum.h; sourceTree = "<group>"; };
+		3ADC12F61AC04B75001D45A7 /* ReadCapabilityEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadCapabilityEnum.m; sourceTree = "<group>"; };
+		3ADC12F81AC04B86001D45A7 /* StateProvinceEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateProvinceEnum.h; sourceTree = "<group>"; };
+		3ADC12F91AC04B86001D45A7 /* StateProvinceEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StateProvinceEnum.m; sourceTree = "<group>"; };
+		3ADC12FB1AC04B9A001D45A7 /* StateResultEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateResultEnum.h; sourceTree = "<group>"; };
+		3ADC12FC1AC04B9A001D45A7 /* StateResultEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StateResultEnum.m; sourceTree = "<group>"; };
+		3ADC13041AC04C50001D45A7 /* TransactionDetailFormatEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionDetailFormatEnum.h; sourceTree = "<group>"; };
+		3ADC13051AC04C50001D45A7 /* TransactionDetailFormatEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionDetailFormatEnum.m; sourceTree = "<group>"; };
+		3ADC13071AC04CB9001D45A7 /* TransactionStateEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionStateEnum.h; sourceTree = "<group>"; };
+		3ADC13081AC04CB9001D45A7 /* TransactionStateEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionStateEnum.m; sourceTree = "<group>"; };
+		3ADC130A1AC04CD2001D45A7 /* TypeCardTypeEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeCardTypeEnum.h; sourceTree = "<group>"; };
+		3ADC130B1AC04CD2001D45A7 /* TypeCardTypeEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeCardTypeEnum.m; sourceTree = "<group>"; };
+		3ADC130D1AC04CF2001D45A7 /* VelocityEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityEnums.h; sourceTree = "<group>"; };
+		3ADC130E1AC04CF2001D45A7 /* VelocityEnums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelocityEnums.m; sourceTree = "<group>"; };
+		3ADC13141AC05DD7001D45A7 /* ApplicationDataResponseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationDataResponseClass.h; sourceTree = "<group>"; };
+		3ADC13151AC05DD7001D45A7 /* ApplicationDataResponseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationDataResponseClass.m; sourceTree = "<group>"; };
+		3ADC13171AC05E02001D45A7 /* AddressResponseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressResponseClass.h; sourceTree = "<group>"; };
+		3ADC13181AC05E02001D45A7 /* AddressResponseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressResponseClass.m; sourceTree = "<group>"; };
+		3ADC131A1AC06005001D45A7 /* ApprovalCodeResponseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApprovalCodeResponseClass.h; sourceTree = "<group>"; };
+		3ADC131B1AC06005001D45A7 /* ApprovalCodeResponseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApprovalCodeResponseClass.m; sourceTree = "<group>"; };
+		3ADC131D1AC07D6F001D45A7 /* AVSResultResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVSResultResponse.h; sourceTree = "<group>"; };
+		3ADC131E1AC07D6F001D45A7 /* AVSResultResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVSResultResponse.m; sourceTree = "<group>"; };
+		3ADC13201AC07D8B001D45A7 /* BankcardDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankcardDataResponse.h; sourceTree = "<group>"; };
+		3ADC13211AC07D8B001D45A7 /* BankcardDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankcardDataResponse.m; sourceTree = "<group>"; };
+		3ADC13231AC07DA9001D45A7 /* BankcardMerchantDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankcardMerchantDataResponse.h; sourceTree = "<group>"; };
+		3ADC13241AC07DA9001D45A7 /* BankcardMerchantDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankcardMerchantDataResponse.m; sourceTree = "<group>"; };
+		3ADC13261AC07E08001D45A7 /* BatchAssignmentResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatchAssignmentResponse.h; sourceTree = "<group>"; };
+		3ADC13271AC07E08001D45A7 /* BatchAssignmentResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatchAssignmentResponse.m; sourceTree = "<group>"; };
+		3ADC13291AC07E4A001D45A7 /* BillingDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillingDataResponse.h; sourceTree = "<group>"; };
+		3ADC132A1AC07E4A001D45A7 /* BillingDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillingDataResponse.m; sourceTree = "<group>"; };
+		3ADC132C1AC07E70001D45A7 /* CampaignIdResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CampaignIdResponse.h; sourceTree = "<group>"; };
+		3ADC132D1AC07E70001D45A7 /* CampaignIdResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CampaignIdResponse.m; sourceTree = "<group>"; };
+		3ADC132F1AC085C6001D45A7 /* CardDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDataResponse.h; sourceTree = "<group>"; };
+		3ADC13301AC085C6001D45A7 /* CardDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDataResponse.m; sourceTree = "<group>"; };
+		3ADC13321AC08658001D45A7 /* CompleteTransactionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompleteTransactionResponse.h; sourceTree = "<group>"; };
+		3ADC13331AC08658001D45A7 /* CompleteTransactionResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompleteTransactionResponse.m; sourceTree = "<group>"; };
+		3ADC13351AC0895E001D45A7 /* CustomerDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerDataResponse.h; sourceTree = "<group>"; };
+		3ADC13361AC0895E001D45A7 /* CustomerDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerDataResponse.m; sourceTree = "<group>"; };
 		3AEB19D81A6D289900FD188D /* VelocityConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VelocityConstant.h; sourceTree = "<group>"; };
 		3AEB19E41A6D389500FD188D /* VelocityProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityProcessor.h; sourceTree = "<group>"; };
 		3AEB19E51A6D389500FD188D /* VelocityProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelocityProcessor.m; sourceTree = "<group>"; };
@@ -76,7 +316,6 @@
 		3AF1AB701A69320600D18388 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3AF1AB721A69320600D18388 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3AF1AB751A69320600D18388 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		3AF1AB7B1A69320600D18388 /* VelocityCardSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VelocityCardSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AF1AB801A69320600D18388 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AF1AB811A69320600D18388 /* VelocityCardSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VelocityCardSampleTests.m; sourceTree = "<group>"; };
 		3AF1AB8B1A69336B00D18388 /* VelocityCardSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityCardSampleViewController.h; sourceTree = "<group>"; };
@@ -125,8 +364,6 @@
 		798987FE1A7F827F00C52494 /* VelocityProcessorAuthWithToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelocityProcessorAuthWithToken.m; sourceTree = "<group>"; };
 		798CF9701A6FA9530047B51B /* VelocityProcessorSignOn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityProcessorSignOn.h; sourceTree = "<group>"; };
 		798CF9711A6FA9530047B51B /* VelocityProcessorSignOn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelocityProcessorSignOn.m; sourceTree = "<group>"; };
-		799870F21A7B8D39005D4508 /* ResponseViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseViewViewController.h; sourceTree = "<group>"; };
-		799870F31A7B8D39005D4508 /* ResponseViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseViewViewController.m; sourceTree = "<group>"; };
 		799870F51A7BBD0F005D4508 /* VelocityResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityResponse.h; sourceTree = "<group>"; };
 		799870F61A7BBD0F005D4508 /* VelocityResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelocityResponse.m; sourceTree = "<group>"; };
 		79A6D8F41A8B62DD00A22BE5 /* VelocityProcessorVoid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityProcessorVoid.h; sourceTree = "<group>"; };
@@ -160,19 +397,217 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3AF1AB781A69320600D18388 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				3AA761601AB9C5820010F6E6 /* Crashlytics.framework in Frameworks */,
+				3AA761611AB9C5820010F6E6 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A187E371AD6954D00274897 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				3A7C4F391AD91ED1004E7C0C /* checkBoxMarked@2x.png */,
+				3A187E381AD6954D00274897 /* checkBox.png */,
+				3A187E391AD6954D00274897 /* checkBox@2x.png */,
+				3A187E3A1AD6954D00274897 /* checkBoxMarked.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		3A73EEDB1ACAEB4600F7ABCB /* CpatureAllModalClass */ = {
+			isa = PBXGroup;
+			children = (
+				3A73EEDC1ACAEBFC00F7ABCB /* CaptureAllArrayOfResponse.h */,
+				3A73EEDD1ACAEBFC00F7ABCB /* CaptureAllArrayOfResponse.m */,
+			);
+			path = CpatureAllModalClass;
+			sourceTree = "<group>";
+		};
+		3AA5E6ED1AC1B133007A1FD7 /* QueryTransactionResponseModalClass */ = {
+			isa = PBXGroup;
+			children = (
+				3A60C1FA1AC5619F00A8C245 /* TransactionDetailModalClass.h */,
+				3A60C1FB1AC5619F00A8C245 /* TransactionDetailModalClass.m */,
+			);
+			path = QueryTransactionResponseModalClass;
+			sourceTree = "<group>";
+		};
+		3AB2E46B1ABB18670037197C /* QueryTransactionDetail */ = {
+			isa = PBXGroup;
+			children = (
+				3AA5E6ED1AC1B133007A1FD7 /* QueryTransactionResponseModalClass */,
+				3ADC13101AC04F86001D45A7 /* ResponseClass */,
+				3ADC12B51AC044EE001D45A7 /* EnumClasses */,
+				3A60C1F71AC55C6300A8C245 /* QueryTransectionRequestModalClass.h */,
+				3A60C1F81AC55C6300A8C245 /* QueryTransectionRequestModalClass.m */,
+			);
+			path = QueryTransactionDetail;
+			sourceTree = "<group>";
+		};
+		3ADC12B51AC044EE001D45A7 /* EnumClasses */ = {
+			isa = PBXGroup;
+			children = (
+				3A5AC4421AC163F400490606 /* StatusEnum.h */,
+				3A5AC4431AC163F400490606 /* StatusEnum.m */,
+				3ADC12B61AC0451C001D45A7 /* AddressResultsEnum.h */,
+				3ADC12B71AC0451C001D45A7 /* AddressResultsEnum.m */,
+				3ADC12B91AC04598001D45A7 /* ApplicationLocationEnum.h */,
+				3ADC12BA1AC04598001D45A7 /* ApplicationLocationEnum.m */,
+				3ADC12BC1AC045E8001D45A7 /* CaptureStateEnum.h */,
+				3ADC12BD1AC045E8001D45A7 /* CaptureStateEnum.m */,
+				3ADC12BF1AC046CE001D45A7 /* CardholderNameResultEnum.h */,
+				3ADC12C01AC046CE001D45A7 /* CardholderNameResultEnum.m */,
+				3ADC12C21AC046E4001D45A7 /* CardStatusEnum.h */,
+				3ADC12C31AC046E4001D45A7 /* CardStatusEnum.m */,
+				3ADC12C51AC04708001D45A7 /* CityResultEnum.h */,
+				3ADC12C61AC04708001D45A7 /* CityResultEnum.m */,
+				3ADC12C81AC0483C001D45A7 /* CountryCodeEnum.h */,
+				3ADC12C91AC0483C001D45A7 /* CountryCodeEnum.m */,
+				3ADC12CB1AC04856001D45A7 /* CountryResultEnum.h */,
+				3ADC12CC1AC04856001D45A7 /* CountryResultEnum.m */,
+				3ADC12CE1AC0486C001D45A7 /* CVResultEnum.h */,
+				3ADC12CF1AC0486C001D45A7 /* CVResultEnum.m */,
+				3ADC12D11AC0489D001D45A7 /* EncryptionTypeEnum.h */,
+				3ADC12D21AC0489D001D45A7 /* EncryptionTypeEnum.m */,
+				3ADC12D41AC048B5001D45A7 /* FamilyStateEnum.h */,
+				3ADC12D51AC048B5001D45A7 /* FamilyStateEnum.m */,
+				3ADC12D71AC048CF001D45A7 /* HardwareTypeEnum.h */,
+				3ADC12D81AC048CF001D45A7 /* HardwareTypeEnum.m */,
+				3ADC12DA1AC048E7001D45A7 /* IndustryTypeEnum.h */,
+				3ADC12DB1AC048E7001D45A7 /* IndustryTypeEnum.m */,
+				3ADC12DD1AC04910001D45A7 /* IsAcknowledgedEnum.h */,
+				3ADC12DE1AC04910001D45A7 /* IsAcknowledgedEnum.m */,
+				3ADC12E01AC04928001D45A7 /* LanguageEnum.h */,
+				3ADC13041AC04C50001D45A7 /* TransactionDetailFormatEnum.h */,
+				3ADC13051AC04C50001D45A7 /* TransactionDetailFormatEnum.m */,
+				3ADC13071AC04CB9001D45A7 /* TransactionStateEnum.h */,
+				3ADC13081AC04CB9001D45A7 /* TransactionStateEnum.m */,
+				3ADC12E11AC04928001D45A7 /* LanguageEnum.m */,
+				3ADC12E61AC04A0A001D45A7 /* PINCapabilityEnum.h */,
+				3ADC12E71AC04A0A001D45A7 /* PINCapabilityEnum.m */,
+				3ADC130A1AC04CD2001D45A7 /* TypeCardTypeEnum.h */,
+				3ADC130B1AC04CD2001D45A7 /* TypeCardTypeEnum.m */,
+				3ADC12E91AC04A2A001D45A7 /* PhoneResultenum.h */,
+				3ADC12EA1AC04A2A001D45A7 /* PhoneResultenum.m */,
+				3ADC12EC1AC04A50001D45A7 /* PostalCodeResultEnum.h */,
+				3ADC12ED1AC04A50001D45A7 /* PostalCodeResultEnum.m */,
+				3ADC12EF1AC04AC5001D45A7 /* QueryDateTypeEnum.h */,
+				3ADC12F01AC04AC5001D45A7 /* QueryDateTypeEnum.m */,
+				3ADC12F21AC04ADA001D45A7 /* QueryTypeEnum.h */,
+				3ADC12F31AC04ADA001D45A7 /* QueryTypeEnum.m */,
+				3ADC12F51AC04B75001D45A7 /* ReadCapabilityEnum.h */,
+				3ADC12F61AC04B75001D45A7 /* ReadCapabilityEnum.m */,
+				3ADC12F81AC04B86001D45A7 /* StateProvinceEnum.h */,
+				3ADC12F91AC04B86001D45A7 /* StateProvinceEnum.m */,
+				3ADC12FB1AC04B9A001D45A7 /* StateResultEnum.h */,
+				3ADC12FC1AC04B9A001D45A7 /* StateResultEnum.m */,
+				3ADC130D1AC04CF2001D45A7 /* VelocityEnums.h */,
+				3ADC130E1AC04CF2001D45A7 /* VelocityEnums.m */,
+			);
+			path = EnumClasses;
+			sourceTree = "<group>";
+		};
+		3ADC13101AC04F86001D45A7 /* ResponseClass */ = {
+			isa = PBXGroup;
+			children = (
+				3ADC13141AC05DD7001D45A7 /* ApplicationDataResponseClass.h */,
+				3ADC13151AC05DD7001D45A7 /* ApplicationDataResponseClass.m */,
+				3ADC13171AC05E02001D45A7 /* AddressResponseClass.h */,
+				3ADC13181AC05E02001D45A7 /* AddressResponseClass.m */,
+				3ADC131A1AC06005001D45A7 /* ApprovalCodeResponseClass.h */,
+				3ADC131B1AC06005001D45A7 /* ApprovalCodeResponseClass.m */,
+				3ADC131D1AC07D6F001D45A7 /* AVSResultResponse.h */,
+				3ADC131E1AC07D6F001D45A7 /* AVSResultResponse.m */,
+				3ADC13201AC07D8B001D45A7 /* BankcardDataResponse.h */,
+				3ADC13211AC07D8B001D45A7 /* BankcardDataResponse.m */,
+				3ADC13231AC07DA9001D45A7 /* BankcardMerchantDataResponse.h */,
+				3ADC13241AC07DA9001D45A7 /* BankcardMerchantDataResponse.m */,
+				3ADC13261AC07E08001D45A7 /* BatchAssignmentResponse.h */,
+				3ADC13271AC07E08001D45A7 /* BatchAssignmentResponse.m */,
+				3ADC13291AC07E4A001D45A7 /* BillingDataResponse.h */,
+				3ADC132A1AC07E4A001D45A7 /* BillingDataResponse.m */,
+				3ADC132C1AC07E70001D45A7 /* CampaignIdResponse.h */,
+				3ADC132D1AC07E70001D45A7 /* CampaignIdResponse.m */,
+				3ADC132F1AC085C6001D45A7 /* CardDataResponse.h */,
+				3ADC13301AC085C6001D45A7 /* CardDataResponse.m */,
+				3ADC13321AC08658001D45A7 /* CompleteTransactionResponse.h */,
+				3ADC13331AC08658001D45A7 /* CompleteTransactionResponse.m */,
+				3ADC13351AC0895E001D45A7 /* CustomerDataResponse.h */,
+				3ADC13361AC0895E001D45A7 /* CustomerDataResponse.m */,
+				3A5AC4451AC1662400490606 /* CustomerTaxIdResponse.h */,
+				3A5AC4461AC1662400490606 /* CustomerTaxIdResponse.m */,
+				3A5AC4481AC1663800490606 /* CWSTransactionResponse.h */,
+				3A5AC4491AC1663800490606 /* CWSTransactionResponse.m */,
+				3A5AC44B1AC1664900490606 /* EcommerceSecurityDataResponse.h */,
+				3A5AC44C1AC1664900490606 /* EcommerceSecurityDataResponse.m */,
+				3A5AC44E1AC1665C00490606 /* ElectronicCheckDataResponse.h */,
+				3A5AC44F1AC1665C00490606 /* ElectronicCheckDataResponse.m */,
+				3A5AC4511AC1666B00490606 /* ElectronicCheckingMerchantDataResponse.h */,
+				3A5AC4521AC1666B00490606 /* ElectronicCheckingMerchantDataResponse.m */,
+				3A5AC4541AC166A000490606 /* EmailResponse.h */,
+				3A5AC4551AC166A000490606 /* EmailResponse.m */,
+				3A5AC4571AC166AF00490606 /* EncryptionKeyIdResponse.h */,
+				3A5AC4581AC166AF00490606 /* EncryptionKeyIdResponse.m */,
+				3A5AC45A1AC166C500490606 /* FamilyInformationResponse.h */,
+				3A5AC45B1AC166C500490606 /* FamilyInformationResponse.m */,
+				3A5AC45D1AC166F000490606 /* FaxResponse.h */,
+				3A5AC45E1AC166F000490606 /* FaxResponse.m */,
+				3A5AC4601AC1670000490606 /* InternetTransactionDataResponse.h */,
+				3A5AC4611AC1670000490606 /* InternetTransactionDataResponse.m */,
+				3A5AC4631AC1671800490606 /* LaneIdResponse.h */,
+				3A5AC4641AC1671800490606 /* LaneIdResponse.m */,
+				3A5AC4661AC1672700490606 /* MerchantProfileMerchantDataResponse.h */,
+				3A5AC4671AC1672700490606 /* MerchantProfileMerchantDataResponse.m */,
+				3A5AC4691AC1673D00490606 /* MetaDataResponse.h */,
+				3A5AC46A1AC1673D00490606 /* MetaDataResponse.m */,
+				3A5AC46C1AC1674F00490606 /* NameResponse.h */,
+				3A5AC46D1AC1674F00490606 /* NameResponse.m */,
+				3A5AC46F1AC1676300490606 /* PaymentAccountDataTokenResponse.h */,
+				3A5AC4701AC1676300490606 /* PaymentAccountDataTokenResponse.m */,
+				3A5AC4721AC1677400490606 /* PhoneResponse.h */,
+				3A5AC4731AC1677400490606 /* PhoneResponse.m */,
+				3A5AC4751AC1678600490606 /* ReportingDataResponse.h */,
+				3A5AC4761AC1678600490606 /* ReportingDataResponse.m */,
+				3A5AC4781AC1679600490606 /* ResponseResponse.h */,
+				3A5AC4791AC1679600490606 /* ResponseResponse.m */,
+				3A5AC47B1AC167A300490606 /* ScoreThresholdResponse.h */,
+				3A5AC47C1AC167A300490606 /* ScoreThresholdResponse.m */,
+				3A5AC47E1AC167FB00490606 /* SecurePaymentAccountDataResponse.h */,
+				3A5AC47F1AC167FB00490606 /* SecurePaymentAccountDataResponse.m */,
+				3A5AC4811AC1681100490606 /* ServiceTransactionDateTimeResponse.h */,
+				3A5AC4821AC1681100490606 /* ServiceTransactionDateTimeResponse.m */,
+				3A5AC4841AC1683000490606 /* ShippingDataResponse.h */,
+				3A5AC4851AC1683000490606 /* ShippingDataResponse.m */,
+				3A5AC4871AC168BB00490606 /* StoredValueDataResponse.h */,
+				3A5AC4881AC168BB00490606 /* StoredValueDataResponse.m */,
+				3A5AC48A1AC168CF00490606 /* StoredValueMerchantDataResponse.h */,
+				3A5AC48B1AC168CF00490606 /* StoredValueMerchantDataResponse.m */,
+				3A5AC48D1AC168E100490606 /* Street2Response.h */,
+				3A5AC48E1AC168E100490606 /* Street2Response.m */,
+				3A5AC4901AC16D9700490606 /* SwipeStatusResponse.h */,
+				3A5AC4911AC16D9700490606 /* SwipeStatusResponse.m */,
+				3A5AC4931AC16DF300490606 /* TenderDataResponse.h */,
+				3A5AC4941AC16DF300490606 /* TenderDataResponse.m */,
+				3A5AC4961AC16E2A00490606 /* TerminalIdResponse.h */,
+				3A5AC4971AC16E2A00490606 /* TerminalIdResponse.m */,
+				3A5AC4991AC16EA400490606 /* Track1DataResponse.h */,
+				3A5AC49A1AC16EA400490606 /* Track1DataResponse.m */,
+				3A5AC49C1AC16EBF00490606 /* TransactionResponse.h */,
+				3A5AC49D1AC16EBF00490606 /* TransactionResponse.m */,
+				3A5AC49F1AC16ED300490606 /* TransactionClassTypePairResponse.h */,
+				3A5AC4A01AC16ED300490606 /* TransactionClassTypePairResponse.m */,
+				3A5AC4A21AC16EEC00490606 /* TransactionDataResponse.h */,
+				3A5AC4A31AC16EEC00490606 /* TransactionDataResponse.m */,
+				3A5AC4A51AC16F0300490606 /* TransactionDetailResponse.h */,
+				3A5AC4A61AC16F0300490606 /* TransactionDetailResponse.m */,
+				3A5AC4A81AC16F1E00490606 /* TransactionInformationResponse.h */,
+				3A5AC4A91AC16F1E00490606 /* TransactionInformationResponse.m */,
+			);
+			path = ResponseClass;
+			sourceTree = "<group>";
+		};
 		3AEB19CF1A6D171F00FD188D /* VelocityLibrary */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,9 +615,9 @@
 				798CF97D1A6FF7140047B51B /* Modal Class */,
 				798CF9671A6FA4400047B51B /* Reachability */,
 				798CF9681A6FA4400047B51B /* Server */,
+				3A3B8EB51A6E50610019AF35 /* VelocityProcessorConstant.h */,
 				3AEB19E41A6D389500FD188D /* VelocityProcessor.h */,
 				3AEB19E51A6D389500FD188D /* VelocityProcessor.m */,
-				3A3B8EB51A6E50610019AF35 /* VelocityProcessorConstant.h */,
 				799870F51A7BBD0F005D4508 /* VelocityResponse.h */,
 				799870F61A7BBD0F005D4508 /* VelocityResponse.m */,
 			);
@@ -202,6 +637,8 @@
 		3AF1AB591A69320600D18388 = {
 			isa = PBXGroup;
 			children = (
+				3AA7615E1AB9C5820010F6E6 /* Crashlytics.framework */,
+				3AA7615F1AB9C5820010F6E6 /* Fabric.framework */,
 				3AEB19CF1A6D171F00FD188D /* VelocityLibrary */,
 				3AF1AB641A69320600D18388 /* VelocityCardSample */,
 				3AF1AB7E1A69320600D18388 /* VelocityCardSampleTests */,
@@ -213,7 +650,6 @@
 			isa = PBXGroup;
 			children = (
 				3AF1AB621A69320600D18388 /* VelocityCardSample.app */,
-				3AF1AB7B1A69320600D18388 /* VelocityCardSampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -221,14 +657,15 @@
 		3AF1AB641A69320600D18388 /* VelocityCardSample */ = {
 			isa = PBXGroup;
 			children = (
+				3A187E371AD6954D00274897 /* images */,
 				3AEB19E71A6D3D4F00FD188D /* Hud */,
 				3AEB19D81A6D289900FD188D /* VelocityConstant.h */,
 				3AF1AB911A6933E900D18388 /* VelocityCardSampleAppDelegate.h */,
 				3AF1AB921A6933E900D18388 /* VelocityCardSampleAppDelegate.m */,
 				3AF1AB8B1A69336B00D18388 /* VelocityCardSampleViewController.h */,
 				3AF1AB8C1A69336B00D18388 /* VelocityCardSampleViewController.m */,
-				799870F21A7B8D39005D4508 /* ResponseViewViewController.h */,
-				799870F31A7B8D39005D4508 /* ResponseViewViewController.m */,
+				3A5C376E1AD2D04800D1DD06 /* ResponseViewViewController.h */,
+				3A5C376F1AD2D04800D1DD06 /* ResponseViewViewController.m */,
 				3AF1AB6F1A69320600D18388 /* Main.storyboard */,
 				3AF1AB721A69320600D18388 /* Images.xcassets */,
 				3AF1AB741A69320600D18388 /* LaunchScreen.xib */,
@@ -345,6 +782,10 @@
 				79C110721A8CCF730094F0A8 /* VelocityProcessorReturnByID.m */,
 				79C110741A8CCF9F0094F0A8 /* VelocityProcessorReturnUnlinked.h */,
 				79C110751A8CCF9F0094F0A8 /* VelocityProcessorReturnUnlinked.m */,
+				3A60C1FD1AC5638B00A8C245 /* VelocityQueryTransactionDetails.h */,
+				3A60C1FE1AC5638B00A8C245 /* VelocityQueryTransactionDetails.m */,
+				3A0527F21AC9B0DE00E03AFA /* VelocityProcessorCaptureAll.h */,
+				3A0527F31AC9B0DE00E03AFA /* VelocityProcessorCaptureAll.m */,
 			);
 			path = Server;
 			sourceTree = "<group>";
@@ -352,6 +793,8 @@
 		798CF97D1A6FF7140047B51B /* Modal Class */ = {
 			isa = PBXGroup;
 			children = (
+				3A73EEDB1ACAEB4600F7ABCB /* CpatureAllModalClass */,
+				3AB2E46B1ABB18670037197C /* QueryTransactionDetail */,
 				798959B51A8A391B007A9EDB /* BancardCaptureResponseModalClass */,
 				796BF0001A82685D00D787FF /* Sub_Modal_Obj_Class */,
 				79AF87B21A7A938C00266230 /* ErrorResponseModalClass */,
@@ -417,24 +860,6 @@
 			productReference = 3AF1AB621A69320600D18388 /* VelocityCardSample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3AF1AB7A1A69320600D18388 /* VelocityCardSampleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3AF1AB881A69320600D18388 /* Build configuration list for PBXNativeTarget "VelocityCardSampleTests" */;
-			buildPhases = (
-				3AF1AB771A69320600D18388 /* Sources */,
-				3AF1AB781A69320600D18388 /* Frameworks */,
-				3AF1AB791A69320600D18388 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3AF1AB7D1A69320600D18388 /* PBXTargetDependency */,
-			);
-			name = VelocityCardSampleTests;
-			productName = VelocityCardSampleTests;
-			productReference = 3AF1AB7B1A69320600D18388 /* VelocityCardSampleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -446,10 +871,6 @@
 				TargetAttributes = {
 					3AF1AB611A69320600D18388 = {
 						CreatedOnToolsVersion = 6.1.1;
-					};
-					3AF1AB7A1A69320600D18388 = {
-						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = 3AF1AB611A69320600D18388;
 					};
 				};
 			};
@@ -467,7 +888,6 @@
 			projectRoot = "";
 			targets = (
 				3AF1AB611A69320600D18388 /* VelocityCardSample */,
-				3AF1AB7A1A69320600D18388 /* VelocityCardSampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -477,16 +897,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A187E3E1AD6954D00274897 /* checkBoxMarked.png in Resources */,
+				3A187E3D1AD6954D00274897 /* checkBox@2x.png in Resources */,
 				3AF1AB711A69320600D18388 /* Main.storyboard in Resources */,
 				3AF1AB761A69320600D18388 /* LaunchScreen.xib in Resources */,
+				3A187E3C1AD6954D00274897 /* checkBox.png in Resources */,
+				3A7C4F3A1AD91ED1004E7C0C /* checkBoxMarked@2x.png in Resources */,
 				3AF1AB731A69320600D18388 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3AF1AB791A69320600D18388 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,66 +914,129 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ADC13311AC085C6001D45A7 /* CardDataResponse.m in Sources */,
+				3ADC12DF1AC04910001D45A7 /* IsAcknowledgedEnum.m in Sources */,
+				3ADC12CD1AC04856001D45A7 /* CountryResultEnum.m in Sources */,
 				796BF01A1A82696500D787FF /* ECommerceSecurityData.m in Sources */,
+				3ADC130C1AC04CD2001D45A7 /* TypeCardTypeEnum.m in Sources */,
+				3ADC12DC1AC048E7001D45A7 /* IndustryTypeEnum.m in Sources */,
+				3ADC13371AC0895E001D45A7 /* CustomerDataResponse.m in Sources */,
+				3A5AC4531AC1666B00490606 /* ElectronicCheckingMerchantDataResponse.m in Sources */,
+				3A5AC48F1AC168E100490606 /* Street2Response.m in Sources */,
+				3A5AC4891AC168BB00490606 /* StoredValueDataResponse.m in Sources */,
+				3ADC12E81AC04A0A001D45A7 /* PINCapabilityEnum.m in Sources */,
+				3A5AC4771AC1678600490606 /* ReportingDataResponse.m in Sources */,
 				796BF0161A82696500D787FF /* AVSData.m in Sources */,
 				796CC1571A838DCF00C5D277 /* Address.m in Sources */,
 				3AF1AB8D1A69336B00D18388 /* VelocityCardSampleViewController.m in Sources */,
+				3ADC12C41AC046E4001D45A7 /* CardStatusEnum.m in Sources */,
 				796BF0271A826B1E00D787FF /* TenderData.m in Sources */,
+				3ADC12FA1AC04B86001D45A7 /* StateProvinceEnum.m in Sources */,
+				3ADC13191AC05E02001D45A7 /* AddressResponseClass.m in Sources */,
 				796BF0171A82696500D787FF /* CardData.m in Sources */,
+				3A5AC4711AC1676300490606 /* PaymentAccountDataTokenResponse.m in Sources */,
+				3ADC12BB1AC04598001D45A7 /* ApplicationLocationEnum.m in Sources */,
+				3A5AC4501AC1665C00490606 /* ElectronicCheckDataResponse.m in Sources */,
+				3A60C1FF1AC5638B00A8C245 /* VelocityQueryTransactionDetails.m in Sources */,
+				3A5C37701AD2D04800D1DD06 /* ResponseViewViewController.m in Sources */,
+				3ADC12C71AC04708001D45A7 /* CityResultEnum.m in Sources */,
+				3ADC131F1AC07D6F001D45A7 /* AVSResultResponse.m in Sources */,
+				3A0527F41AC9B0DE00E03AFA /* VelocityProcessorCaptureAll.m in Sources */,
+				3A5AC47D1AC167A300490606 /* ScoreThresholdResponse.m in Sources */,
+				3ADC13161AC05DD7001D45A7 /* ApplicationDataResponseClass.m in Sources */,
+				3A5AC4951AC16DF300490606 /* TenderDataResponse.m in Sources */,
+				3A5AC4921AC16D9700490606 /* SwipeStatusResponse.m in Sources */,
 				3AF1AB931A6933E900D18388 /* VelocityCardSampleAppDelegate.m in Sources */,
 				796BF01C1A82696500D787FF /* IdentificationInformation.m in Sources */,
 				3AF1AB681A69320600D18388 /* main.m in Sources */,
+				3A5AC47A1AC1679600490606 /* ResponseResponse.m in Sources */,
 				796BF0291A826B1E00D787FF /* Transaction.m in Sources */,
 				79A6D8F91A8B633600A22BE5 /* VelocityProcessorAdjust.m in Sources */,
 				799870F71A7BBD0F005D4508 /* VelocityResponse.m in Sources */,
+				3A5AC45F1AC166F000490606 /* FaxResponse.m in Sources */,
+				3ADC12F11AC04AC5001D45A7 /* QueryDateTypeEnum.m in Sources */,
 				79CD59351A71402B008A7BCC /* VelocityProcessorAuthorizeTransaction.m in Sources */,
+				3ADC12D61AC048B5001D45A7 /* FamilyStateEnum.m in Sources */,
+				3A60C1FC1AC5619F00A8C245 /* TransactionDetailModalClass.m in Sources */,
+				3ADC12F71AC04B75001D45A7 /* ReadCapabilityEnum.m in Sources */,
+				3A5AC46B1AC1673D00490606 /* MetaDataResponse.m in Sources */,
+				3A5AC4441AC163F400490606 /* StatusEnum.m in Sources */,
+				3A5AC45C1AC166C500490606 /* FamilyInformationResponse.m in Sources */,
+				3ADC12C11AC046CE001D45A7 /* CardholderNameResultEnum.m in Sources */,
 				798987FF1A7F827F00C52494 /* VelocityProcessorAuthWithToken.m in Sources */,
+				3A5AC48C1AC168CF00490606 /* StoredValueMerchantDataResponse.m in Sources */,
+				3ADC12EB1AC04A2A001D45A7 /* PhoneResultenum.m in Sources */,
+				3A5AC4591AC166AF00490606 /* EncryptionKeyIdResponse.m in Sources */,
+				3ADC13341AC08658001D45A7 /* CompleteTransactionResponse.m in Sources */,
 				3AEB19E61A6D389500FD188D /* VelocityProcessor.m in Sources */,
 				798CF9721A6FA9530047B51B /* VelocityProcessorSignOn.m in Sources */,
 				796BF0181A82696500D787FF /* CardHolderName.m in Sources */,
+				3ADC12D01AC0486C001D45A7 /* CVResultEnum.m in Sources */,
+				3A73EEDE1ACAEBFC00F7ABCB /* CaptureAllArrayOfResponse.m in Sources */,
 				796BF0191A82696500D787FF /* CardSecurityData.m in Sources */,
 				796BF01B1A82696500D787FF /* Email.m in Sources */,
+				3ADC12E21AC04928001D45A7 /* LanguageEnum.m in Sources */,
+				3ADC13251AC07DA9001D45A7 /* BankcardMerchantDataResponse.m in Sources */,
+				3A5AC4741AC1677400490606 /* PhoneResponse.m in Sources */,
+				3A5AC4A71AC16F0300490606 /* TransactionDetailResponse.m in Sources */,
 				79A6D8F61A8B62DD00A22BE5 /* VelocityProcessorVoid.m in Sources */,
 				798959B81A8A3940007A9EDB /* BancardCaptureResponse.m in Sources */,
 				79B1F28E1A88BB9100EE4543 /* VelocityProcessorAuthWAndWOCapture.m in Sources */,
+				3A5AC49E1AC16EBF00490606 /* TransactionResponse.m in Sources */,
+				3ADC12BE1AC045E8001D45A7 /* CaptureStateEnum.m in Sources */,
 				79C110731A8CCF730094F0A8 /* VelocityProcessorReturnByID.m in Sources */,
+				3A5AC4831AC1681100490606 /* ServiceTransactionDateTimeResponse.m in Sources */,
 				79B1F4B51A8912CB00EE4543 /* VelocityProcessorCapture.m in Sources */,
 				796BF02A1A826B1E00D787FF /* TransactionData.m in Sources */,
+				3ADC13091AC04CB9001D45A7 /* TransactionStateEnum.m in Sources */,
+				3ADC12B81AC0451C001D45A7 /* AddressResultsEnum.m in Sources */,
+				3ADC132E1AC07E70001D45A7 /* CampaignIdResponse.m in Sources */,
+				3ADC12F41AC04ADA001D45A7 /* QueryTypeEnum.m in Sources */,
+				3A5AC4AA1AC16F1E00490606 /* TransactionInformationResponse.m in Sources */,
+				3ADC12CA1AC0483C001D45A7 /* CountryCodeEnum.m in Sources */,
 				79B00CEA1A78048D00EA4AE1 /* VelocityPaymentTransaction.m in Sources */,
+				3A5AC46E1AC1674F00490606 /* NameResponse.m in Sources */,
+				3A5AC4471AC1662400490606 /* CustomerTaxIdResponse.m in Sources */,
+				3A5AC44A1AC1663800490606 /* CWSTransactionResponse.m in Sources */,
+				3A5AC4801AC167FB00490606 /* SecurePaymentAccountDataResponse.m in Sources */,
 				796CC1541A838B5900C5D277 /* BillingData.m in Sources */,
+				3A5AC4651AC1671800490606 /* LaneIdResponse.m in Sources */,
+				3A5AC4A11AC16ED300490606 /* TransactionClassTypePairResponse.m in Sources */,
 				796BF0151A82696500D787FF /* AuthorizeTransaction.m in Sources */,
+				3A5AC4681AC1672700490606 /* MerchantProfileMerchantDataResponse.m in Sources */,
+				3A5AC4861AC1683000490606 /* ShippingDataResponse.m in Sources */,
+				3ADC13281AC07E08001D45A7 /* BatchAssignmentResponse.m in Sources */,
 				79B1F4B21A89033E00EE4543 /* Reachability.m in Sources */,
+				3ADC13221AC07D8B001D45A7 /* BankcardDataResponse.m in Sources */,
+				3A5AC4561AC166A000490606 /* EmailResponse.m in Sources */,
 				796BF01D1A82696500D787FF /* KeySerialNumber.m in Sources */,
+				3ADC12D91AC048CF001D45A7 /* HardwareTypeEnum.m in Sources */,
+				3ADC12EE1AC04A50001D45A7 /* PostalCodeResultEnum.m in Sources */,
+				3A5AC44D1AC1664900490606 /* EcommerceSecurityDataResponse.m in Sources */,
 				79C110761A8CCF9F0094F0A8 /* VelocityProcessorReturnUnlinked.m in Sources */,
 				79B00CE61A78046D00EA4AE1 /* BankcardTransactionResponsePro.m in Sources */,
+				3A60C1F91AC55C6300A8C245 /* QueryTransectionRequestModalClass.m in Sources */,
 				79B1F4AB1A89003100EE4543 /* XMLReader.m in Sources */,
-				799870F41A7B8D39005D4508 /* ResponseViewViewController.m in Sources */,
 				796BF01E1A82696500D787FF /* PIN.m in Sources */,
+				3ADC12D31AC0489D001D45A7 /* EncryptionTypeEnum.m in Sources */,
+				3A5AC49B1AC16EA400490606 /* Track1DataResponse.m in Sources */,
 				796CC14E1A83755400C5D277 /* CustomerData.m in Sources */,
+				3ADC12FD1AC04B9A001D45A7 /* StateResultEnum.m in Sources */,
 				79AF87B51A7A93CB00266230 /* ErrorPaymentResponse.m in Sources */,
 				3AEB19EA1A6D3D4F00FD188D /* MBProgressHUD.m in Sources */,
 				796CC1511A8375D000C5D277 /* ReportingData.m in Sources */,
+				3A5AC4981AC16E2A00490606 /* TerminalIdResponse.m in Sources */,
 				796BF0281A826B1E00D787FF /* Track1Data.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3AF1AB771A69320600D18388 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3AF1AB821A69320600D18388 /* VelocityCardSampleTests.m in Sources */,
+				3ADC132B1AC07E4A001D45A7 /* BillingDataResponse.m in Sources */,
+				3A5AC4621AC1670000490606 /* InternetTransactionDataResponse.m in Sources */,
+				3ADC13061AC04C50001D45A7 /* TransactionDetailFormatEnum.m in Sources */,
+				3ADC131C1AC06005001D45A7 /* ApprovalCodeResponseClass.m in Sources */,
+				3ADC130F1AC04CF2001D45A7 /* VelocityEnums.m in Sources */,
+				3A5AC4A41AC16EEC00490606 /* TransactionDataResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		3AF1AB7D1A69320600D18388 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3AF1AB611A69320600D18388 /* VelocityCardSample */;
-			targetProxy = 3AF1AB7C1A69320600D18388 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3AF1AB6F1A69320600D18388 /* Main.storyboard */ = {
@@ -595,8 +1075,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jackie Miller (68722EEQN7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jackie Miller (68722EEQN7)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Laura Miller (VA9NVQD3RE)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Laura Miller (VA9NVQD3RE)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -616,7 +1096,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "321ea66a-9a19-4df4-917b-703b3226e020";
+				PROVISIONING_PROFILE = "712ea7fa-cfed-4819-9847-cc8282cf9729";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -638,8 +1118,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Symplast LLC (H2NQL66JNC)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Symplast LLC (H2NQL66JNC)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: 250 COMMERCE, LLC (2ZF6GS8UM4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: 250 COMMERCE, LLC (2ZF6GS8UM4)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -652,7 +1132,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "f8b74d0d-b4a5-4206-bafd-72356032ef28";
+				PROVISIONING_PROFILE = "3a416a54-d44e-444d-970c-f669ad64c55d";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -662,13 +1142,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jackie Miller (68722EEQN7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jackie Miller (68722EEQN7)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Laura Miller (VA9NVQD3RE)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Laura Miller (VA9NVQD3RE)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = VelocityCardSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "321ea66a-9a19-4df4-917b-703b3226e020";
+				PROVISIONING_PROFILE = "712ea7fa-cfed-4819-9847-cc8282cf9729";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -677,48 +1161,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Symplast LLC (H2NQL66JNC)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Symplast LLC (H2NQL66JNC)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: 250 COMMERCE, LLC (2ZF6GS8UM4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: 250 COMMERCE, LLC (2ZF6GS8UM4)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = VelocityCardSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f8b74d0d-b4a5-4206-bafd-72356032ef28";
+				PROVISIONING_PROFILE = "3a416a54-d44e-444d-970c-f669ad64c55d";
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		3AF1AB891A69320600D18388 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = VelocityCardSampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VelocityCardSample.app/VelocityCardSample";
-			};
-			name = Debug;
-		};
-		3AF1AB8A1A69320600D18388 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = VelocityCardSampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VelocityCardSample.app/VelocityCardSample";
 			};
 			name = Release;
 		};
@@ -739,15 +1193,6 @@
 			buildConfigurations = (
 				3AF1AB861A69320600D18388 /* Debug */,
 				3AF1AB871A69320600D18388 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3AF1AB881A69320600D18388 /* Build configuration list for PBXNativeTarget "VelocityCardSampleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3AF1AB891A69320600D18388 /* Debug */,
-				3AF1AB8A1A69320600D18388 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

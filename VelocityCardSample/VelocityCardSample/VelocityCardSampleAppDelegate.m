@@ -7,7 +7,6 @@
 //
 
 #import "VelocityCardSampleAppDelegate.h"
-
 #import "VelocityProcessor.h"
 @interface VelocityCardSampleAppDelegate ()
 
@@ -17,7 +16,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+           [Fabric with:@[CrashlyticsKit]];
         // Override point for customization after application launch.
+    
     return YES;
 }
 

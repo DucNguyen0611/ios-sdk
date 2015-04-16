@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "Reachability.h"
-@interface VelocityCardSampleViewController : UIViewController
+@interface VelocityCardSampleViewController : UIViewController<UITextViewDelegate>
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 
 @interface VelocityCardSampleAppDelegate : UIResponder<UIApplicationDelegate>
 @property (strong, nonatomic) UIWindow *window;

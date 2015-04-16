@@ -37,19 +37,19 @@
     switch (reach) {
             
         case NotReachable:
-            isNetworkActive=NO;
+            isNetworkActive = NO;
             break;
             
         case ReachableViaWiFi:
-            isNetworkActive=YES;
+            isNetworkActive = YES;
             break;
             
         case ReachableViaWWAN:
-            isNetworkActive=YES;
+            isNetworkActive = YES;
             break;
             
         default:
-            isNetworkActive=NO;
+            isNetworkActive = NO;
             break;
     }
     
@@ -77,7 +77,7 @@
     NSData *tokenData = [appendedString dataUsingEncoding:NSUTF8StringEncoding];
     NSString * stringBase64 = [tokenData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithCarriageReturn];
     
-    PaymentObj =[PaymentObjecthandler getModelObject];
+    PaymentObj = [PaymentObjecthandler getModelObject];
         /**
          *  Xml for requesting server
          */
@@ -123,19 +123,55 @@
         if (isWithToken) {
             xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns4:PaymentAccountDataToken xmlns:ns4=\"http://schemas.ipcommerce.com/CWS/v2.0/Transactions\">%@</ns4:PaymentAccountDataToken>\n",PaymentObj.paymentAccountDataToken]];
         }
-        else
-    xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns4:PaymentAccountDataToken xmlns:ns4=\"http://schemas.ipcommerce.com/CWS/v2.0/Transactions\" i:nil=\"true\"/>"]];
-    xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns5:SecurePaymentAccountData xmlns:ns5=\"http://schemas.ipcommerce.com/CWS/v2.0/Transactions\" i:nil=\"true\" >%@</ns5:SecurePaymentAccountData>\n",PaymentObj.securePaymentAccountData]];
-    xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns6:EncryptionKeyId xmlns:ns6=\"http://schemas.ipcommerce.com/CWS/v2.0/Transactions\" i:nil=\"true\" >%@</ns6:EncryptionKeyId>\n",PaymentObj.encryptionKeyId]];
-    xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns7:SwipeStatus xmlns:ns7=\"http://schemas.ipcommerce.com/CWS/v2.0/Transactions\" i:nil=\"true\" >%@</ns7:SwipeStatus>\n",PaymentObj.swipeStatus]];
+        else{
+            xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns4:PaymentAccountDataToken xmlns:ns4=\"%@\" i:nil=\"true\"/>\n",kXml_Base_Url]];
+            
+            if (PaymentObj.securePaymentAccountData.length>0 && PaymentObj.encryptionKeyId.length>0) {
+                xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns5:SecurePaymentAccountData xmlns:ns5=\"%@\">%@</ns5:SecurePaymentAccountData>\n",kXml_Base_Url,PaymentObj.securePaymentAccountData]];
+                xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns6:EncryptionKeyId xmlns:ns6=\"%@\">%@</ns6:EncryptionKeyId>\n",kXml_Base_Url,PaymentObj.encryptionKeyId]];
+                if (PaymentObj.swipeStatus.length >0 && PaymentObj.identificationInformation.length >0) {
+                    xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns7:SwipeStatus xmlns:ns7=\"%@\" >%@</ns7:SwipeStatus>\n",kXml_Base_Url,PaymentObj.swipeStatus]];
+                    xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CardSecurityData>"]];
+                    xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:IdentificationInformation>%@</ns1:IdentificationInformation>",PaymentObj.identificationInformation]];
+                    xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"</ns1:CardSecurityData>"]];
+                    
+                    
+                }
+                else
+                    xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns7:SwipeStatus xmlns:ns7=\"%@\" i:nil=\"true\">%@</ns7:SwipeStatus>\n",kXml_Base_Url,PaymentObj.swipeStatus]];
+                
+            }
+            else{
+                xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns5:SecurePaymentAccountData xmlns:ns5=\"%@\" i:nil=\"true\"/>\n",kXml_Base_Url]];
+                xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns6:EncryptionKeyId xmlns:ns6=\"%@\" i:nil=\"true\"/>\n",kXml_Base_Url]];
+                xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns7:SwipeStatus xmlns:ns7=\"%@\" i:nil=\"true\"/>\n",kXml_Base_Url]];
+            }
+        }
     
-    xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CardData>\n"]];
-    xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CardType>%@</ns1:CardType>\n",PaymentObj.cardType]];
-    xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:PAN>%@</ns1:PAN>\n",PaymentObj.panNumber]];
-    xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@" <ns1:Expire>%@</ns1:Expire>\n",PaymentObj.expiryDate]];
-    xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:Track1Data i:nil=\"true\" >%@</ns1:Track1Data>\n",PaymentObj.track1Data]];
-    xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"</ns1:CardData>\n"]];
-    xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:EcommerceSecurityData i:nil=\"true\" />\n"]];
+        if (isWithToken)
+            xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:EcommerceSecurityData i:nil=\"true\"/>\n"]];
+        //card data starts
+        if (isWithToken) {
+            xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CardData>\n"]];
+            xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CardType i:nil=\"true\"/>\n"]];
+            xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:PAN i:nil=\"true\"/>\n"]];
+            xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:Expire i:nil=\"true\"/>\n"]];
+            xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:Track1Data  i:nil=\"true\"/>\n"]];
+            xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@" </ns1:CardData>\n"]];
+        }
+        else if(PaymentObj.securePaymentAccountData.length>0 && PaymentObj.encryptionKeyId.length>0){
+            
+        }
+        else{
+            xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CardData>\n"]];
+            xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CardType>%@</ns1:CardType>\n",PaymentObj.cardType]];
+            xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:PAN>%@</ns1:PAN>\n",PaymentObj.panNumber]];
+            xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:Expire>%@</ns1:Expire>\n",PaymentObj.expiryDate]];
+            xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:Track1Data i:nil=\"true\"/>\n"]];
+            xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@" </ns1:CardData>\n"]];
+            //card data ends
+        }
+
     xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"</ns1:TenderData>\n"]];
     xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:TransactionData>\n"]];
     xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns8:Amount xmlns:ns8=\"http://schemas.ipcommerce.com/CWS/v2.0/Transactions\">%@</ns8:Amount>\n",PaymentObj.amount]];
@@ -176,7 +212,7 @@
         url = [NSURL URLWithString:[NSString stringWithFormat:@"%@Txn/%@",kServer_Test_Url,workDFlowID]];
     
     else
-        url= [NSURL URLWithString:[NSString stringWithFormat:@"%@Txn/%@",kServer_Url,workDFlowID]];
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"%@Txn/%@",kServer_Url,workDFlowID]];
         
     NSMutableURLRequest *urlReq = [[NSMutableURLRequest alloc]initWithURL:url];
     [urlReq setTimeoutInterval:30];
@@ -186,7 +222,7 @@
     [urlReq setValue:@"application/xml" forHTTPHeaderField:@"Content-Type"];
     [urlReq setValue:[NSString stringWithFormat:@"Basics %@",stringBase64] forHTTPHeaderField:kAuthorization];
     
-    NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlReq
+    NSURLSessionDataTask * dataTask = [defaultSession dataTaskWithRequest:urlReq
                                                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
                                       
                                       {
@@ -194,7 +230,7 @@
                                           
                                           NSString *theXML = [[NSString alloc] initWithBytes:[data bytes] length:[data length] encoding:NSUTF8StringEncoding];
                                           NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-                                          NSString*httpCode= [NSString stringWithFormat:@"%ld",(long)[httpResponse statusCode]];
+                                          NSString*httpCode = [NSString stringWithFormat:@"%ld",(long)[httpResponse statusCode]];
                                           NSDictionary * dict = [NSDictionary dictionaryWithDictionary:[XMLReader dictionaryForXMLString:theXML error:nil]];
                                           NSArray *dictNameArray =[dict allKeys];
                                           
@@ -213,8 +249,8 @@
                                                       [self.delegate performSelector:@selector(VelocityProcessorReturnUnLinkedServerRequestFailedWithErrorMessage:) withObject:errObj];
                                                   }
                                                   else{
-                                                      banCardObj= [ResponseObjecthandler getModelObjectWithDic:dict];
-                                                      banCardObj.statusCodeHttpResponse =httpCode;
+                                                      banCardObj = [ResponseObjecthandler getModelObjectWithDic:dict];
+                                                      banCardObj.statusCodeHttpResponse = httpCode;
                                                       
                                                       NSLog(@"bancard objects ****%@",banCardObj);
                                                       [self.delegate performSelector:@selector(VelocityProcessorReturnUnLinkedServerRequestFinishedWithSuccess:) withObject:banCardObj];

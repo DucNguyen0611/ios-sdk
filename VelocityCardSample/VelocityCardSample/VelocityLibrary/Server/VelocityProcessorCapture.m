@@ -37,19 +37,19 @@
     switch (reach) {
             
         case NotReachable:
-            isNetworkActive=NO;
+            isNetworkActive = NO;
             break;
             
         case ReachableViaWiFi:
-            isNetworkActive=YES;
+            isNetworkActive = YES;
             break;
             
         case ReachableViaWWAN:
-            isNetworkActive=YES;
+            isNetworkActive = YES;
             break;
             
         default:
-            isNetworkActive=NO;
+            isNetworkActive = NO;
             break;
     }
     
@@ -67,10 +67,10 @@
 -(void)captureAndAppprofileid:(NSString *)appProfileID andMerchentID:(NSString *)merchantID andWorkFlowID:(NSString *)workDFlowID andSessionToken:(NSString *)sessionToken andIsTestAccount:(BOOL)isTestAccount{
     if ([self CheckNetworConnectivity ]== YES) {
     NSString *newStr = [sessionToken substringWithRange:NSMakeRange(1, [sessionToken length] - 2)];
-    NSString *appendedString=[newStr stringByAppendingString:@" : "];
+    NSString *appendedString = [newStr stringByAppendingString:@" : "];
     NSData *tokenData = [appendedString dataUsingEncoding:NSUTF8StringEncoding];
     NSString * stringBase64 = [tokenData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithCarriageReturn];
-        PaymentObj =[PaymentObjecthandler getModelObject];
+        PaymentObj = [PaymentObjecthandler getModelObject];
         
         NSString *xmlMainString =kHeadr_Xml;
      xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"\n<ChangeTransaction xmlns=\"%@/Rest\"\n",kXml_Base_Url]];
@@ -110,7 +110,7 @@
     [urlReq addValue:NSLocalizedString(@"application/xml",nil) forHTTPHeaderField:NSLocalizedString(@"Accept",nil)];
     [urlReq setValue:@"application/xml" forHTTPHeaderField:@"Content-Type"];
     [urlReq setValue:[NSString stringWithFormat:@"Basics %@",stringBase64] forHTTPHeaderField:kAuthorization];
-      NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlReq
+      NSURLSessionDataTask * dataTask = [defaultSession dataTaskWithRequest:urlReq
                                                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
                                       
                                       {
@@ -118,9 +118,9 @@
                                           
                                           NSString *theXML = [[NSString alloc] initWithBytes:[data bytes] length:[data length] encoding:NSUTF8StringEncoding];
                                           NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-                                          NSString*httpCode= [NSString stringWithFormat:@"%ld",(long)[httpResponse statusCode]];
+                                          NSString*httpCode = [NSString stringWithFormat:@"%ld",(long)[httpResponse statusCode]];
                                           NSDictionary * dict = [NSDictionary dictionaryWithDictionary:[XMLReader dictionaryForXMLString:theXML error:nil]];
-                                          NSArray *dictNameArray =[dict allKeys];
+                                          NSArray *dictNameArray = [dict allKeys];
                                           
                                           /**
                                            *  parsing response
@@ -128,7 +128,7 @@
                                           if(error==nil && theXML.length>0){
                                               
                                               
-                                              if(self.delegate != nil && ([self.delegate conformsToProtocol:@protocol(VelocityProcessorAuthWTokenDelegate)])){
+                                              if(self.delegate != nil && ([self.delegate conformsToProtocol:@protocol(VelocityProcessorCaptureDelegate)])){
                                                   if ([dictNameArray containsObject:kErrorResponse ]) {
                                                       
                                                       errObj =[ErrorObjecthandler getModelObjectWithDic:dict];
@@ -137,8 +137,8 @@
                                                       [self.delegate performSelector:@selector(VelocityProcessorCaptureServerRequestFailedWithErrorMessage:) withObject:errObj];
                                                   }
                                                   else{
-                                                      captureObj=[BancardCaptureObjecthandler setModelObjectWithDic:dict];
-                                                      captureObj.httpCode =httpCode;
+                                                      captureObj =[BancardCaptureObjecthandler setModelObjectWithDic:dict];
+                                                      captureObj.httpCode = httpCode;
                                                       
                                                       NSLog(@"bancard objects ****%@",banCardObj);
                                                       [self.delegate performSelector:@selector(VelocityProcessorCaptureServerRequestFinishedWithSuccess:) withObject:banCardObj];

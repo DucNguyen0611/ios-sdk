@@ -20,7 +20,7 @@ static AuthorizeTransaction *authWObj;
 }
 +(void)setModelObject:(AuthorizeTransaction *)obj{
     
-    authWObj=obj;
+    authWObj = obj;
 }
 +(AuthorizeTransaction *)getModelObject{
     

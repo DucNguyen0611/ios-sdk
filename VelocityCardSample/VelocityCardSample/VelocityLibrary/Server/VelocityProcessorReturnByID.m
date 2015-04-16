@@ -37,19 +37,19 @@
     switch (reach) {
             
         case NotReachable:
-            isNetworkActive=NO;
+            isNetworkActive = NO;
             break;
             
         case ReachableViaWiFi:
-            isNetworkActive=YES;
+            isNetworkActive = YES;
             break;
             
         case ReachableViaWWAN:
-            isNetworkActive=YES;
+            isNetworkActive = YES;
             break;
             
         default:
-            isNetworkActive=NO;
+            isNetworkActive = NO;
             break;
     }
     
@@ -97,7 +97,7 @@
     [urlReq setValue:@"application/xml" forHTTPHeaderField:@"Content-Type"];
     [urlReq setValue:[NSString stringWithFormat:@"Basics %@",stringBase64] forHTTPHeaderField:kAuthorization];
         
-    NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlReq
+    NSURLSessionDataTask * dataTask = [defaultSession dataTaskWithRequest:urlReq
                                                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
                                       
                                       {
@@ -105,7 +105,7 @@
                                           
                                           NSString *theXML = [[NSString alloc] initWithBytes:[data bytes] length:[data length] encoding:NSUTF8StringEncoding];
                                           NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-                                          NSString*httpCode= [NSString stringWithFormat:@"%ld",(long)[httpResponse statusCode]];
+                                          NSString*httpCode = [NSString stringWithFormat:@"%ld",(long)[httpResponse statusCode]];
                                           NSDictionary * dict = [NSDictionary dictionaryWithDictionary:[XMLReader dictionaryForXMLString:theXML error:nil]];
                                           NSArray *dictNameArray =[dict allKeys];
                                           
@@ -124,8 +124,8 @@
                                                       [self.delegate performSelector:@selector(VelocityProcessorReturnByIdServerRequestFailedWithErrorMessage:) withObject:errObj];
                                                   }
                                                   else{
-                                                      banCardObj= [ResponseObjecthandler getModelObjectWithDic:dict];
-                                                      banCardObj.statusCodeHttpResponse =httpCode;
+                                                      banCardObj = [ResponseObjecthandler getModelObjectWithDic:dict];
+                                                      banCardObj.statusCodeHttpResponse = httpCode;
                                                       
                                                       NSLog(@"bancard objects ****%@",banCardObj);
                                                       [self.delegate performSelector:@selector(VelocityProcessorReturnByIdServerRequestFinishedWithSuccess:) withObject:banCardObj];

@@ -38,6 +38,8 @@
 #import "VelocityProcessorAdjust.h"
 #import "VelocityProcessorReturnByID.h"
 #import "VelocityProcessorReturnUnlinked.h"
+#import "VelocityQueryTransactionDetails.h"
+#import "VelocityProcessorCaptureAll.h"
 @protocol VelocityProcessorDelegate<NSObject>
 @required
 //delegate method for successful transaction
@@ -46,7 +48,7 @@
 -(void)VelocityProcessorFailedWithErrorMessage:(id )failedAny;
 @end
 
-@interface VelocityProcessor : NSObject<VelocityProcessorSignOnDelegate,VelocityProcessorAuthTXDelegate,VelocityProcessorAuthWTokenDelegate,VelocityProcessorAuthNCaptureWAndWOTokenDelegate,VelocityProcessorCaptureDelegate,VelocityProcessorVoidDelegate,VelocityProcessorAdjustDelegate,VelocityProcessorReturnByIdDelegate,VelocityProcessorReturnUnLinkedDelegate>{
+@interface VelocityProcessor : NSObject<VelocityProcessorSignOnDelegate,VelocityProcessorAuthTXDelegate,VelocityProcessorAuthWTokenDelegate,VelocityProcessorAuthNCaptureWAndWOTokenDelegate,VelocityProcessorCaptureDelegate,VelocityProcessorVoidDelegate,VelocityProcessorAdjustDelegate,VelocityProcessorReturnByIdDelegate,VelocityProcessorReturnUnLinkedDelegate,VelocityProcessorQueryTransactionDetailDelegate,VelocityProcessorCaptureAllDelegate>{
   
 }
 @property (strong,nonatomic) NSString *vPIdentityToken;
@@ -81,31 +83,32 @@
  *
  *  @param isSignOn bool variable
  */
--(void)createCardTokenIsOnlySignOn:(BOOL)isSignOn;//used for calling sign on method
+-(void)signON;
+-(void)createCardToken;//used for calling sign on method
 /**
  *  Call authorise with token and authorise without token method on the basis of bool value input if bool value == true then call auth with token otherwise call auth without token
  *
  *  @param isWithToken bool value
  */
--(void)authoriseWToken:(BOOL)isWithToken;
+-(void)authorise;
 /**
  *  Call auth and capture method on the basis of bool value input if true it will call with token method and if false it will call without token method
  *
  *  @param isAuthNCaptureWithToken bool value
  */
--(void)authNCaptureWithToken:(BOOL)isAuthNCaptureWithToken;
+-(void)authorizeAndCapture;
 /**
  *  Call capture method for capturing transaction
  */
--(void)captureTransaction;
+-(void)capture;
 /**
  *  Call void or undo method
  */
--(void)voidORundoTransaction;
+-(void)undo;
 /**
  *  Call adjust method to adjust transaction
  */
--(void)adjustAmount;
+-(void)adjust;
 /**
  *  Call return by id method
  */
@@ -113,7 +116,21 @@
 /**
  *  call sign on method and directly after calling sign on directly call returnunlinked without token method
  *  call returned unlinked method with token if bool value is true else call without token
- *  @param isWithToken i
+ *  @param isWithToken
  */
--(void)returnUnlinkedisWithToken:(BOOL)isWithToken;
+-(void)returnUnlinked;
+
+/**
+ *  Call query transaction  detail method
+ *
+ *  @param
+ */
+-(void)queryTransactionsDetail;
+/**
+ *  Call CaptureAll   method
+ *
+ *  @param
+ */
+-(void)captureAll;
+
 @end

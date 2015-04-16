@@ -37,19 +37,19 @@
     switch (reach) {
             
         case NotReachable:
-            isNetworkActive=NO;
+            isNetworkActive = NO;
             break;
             
         case ReachableViaWiFi:
-            isNetworkActive=YES;
+            isNetworkActive = YES;
             break;
             
         case ReachableViaWWAN:
-            isNetworkActive=YES;
+            isNetworkActive = YES;
             break;
             
         default:
-            isNetworkActive=NO;
+            isNetworkActive = NO;
             break;
     }
     
@@ -69,13 +69,13 @@
     NSString *newStr = [sessionToken substringWithRange:NSMakeRange(1, [sessionToken length] - 2)];
     
     
-    NSString *appendedString=[newStr stringByAppendingString:@" : "];
+    NSString *appendedString = [newStr stringByAppendingString:@" : "];
     NSData *tokenData = [appendedString dataUsingEncoding:NSUTF8StringEncoding];
     NSString * stringBase64 = [tokenData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithCarriageReturn];
     
     PaymentObj =[PaymentObjecthandler getModelObject];
     
-    NSString *xmlMainString =kHeadr_Xml;
+    NSString *xmlMainString = kHeadr_Xml;
     
     xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"\n<Adjust xmlns=\"http://schemas.ipcommerce.com/CWS/v2.0/Transactions/Rest\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" i:type=\"Adjust\">\n"]];
     
@@ -113,7 +113,7 @@
     
     
     //   NSURLSessionDataTask *dataTask = [defaultSession dataTaskWithRequest:urlReq];
-    NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlReq
+    NSURLSessionDataTask * dataTask = [defaultSession dataTaskWithRequest:urlReq
                                                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
                                       
                                       {
@@ -121,9 +121,9 @@
                                           
                                           NSString *theXML = [[NSString alloc] initWithBytes:[data bytes] length:[data length] encoding:NSUTF8StringEncoding];
                                           NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-                                          NSString*httpCode= [NSString stringWithFormat:@"%ld",(long)[httpResponse statusCode]];
+                                          NSString*httpCode = [NSString stringWithFormat:@"%ld",(long)[httpResponse statusCode]];
                                           NSDictionary * dict = [NSDictionary dictionaryWithDictionary:[XMLReader dictionaryForXMLString:theXML error:nil]];
-                                          NSArray *dictNameArray =[dict allKeys];
+                                          NSArray *dictNameArray = [dict allKeys];
                                           
                                           /**
                                            *  Parsing response
@@ -140,8 +140,8 @@
                                                       [self.delegate performSelector:@selector(VelocityProcessorAdjustServerRequestFailedWithErrorMessage:) withObject:errObj];
                                                   }
                                                   else{
-                                                      banCardObj= [ResponseObjecthandler getModelObjectWithDic:dict];
-                                                      banCardObj.statusCodeHttpResponse =httpCode;
+                                                      banCardObj = [ResponseObjecthandler getModelObjectWithDic:dict];
+                                                      banCardObj.statusCodeHttpResponse = httpCode;
                                                       
                                                       NSLog(@"bancard objects ****%@",banCardObj);
                                                       [self.delegate performSelector:@selector(VelocityProcessorAdjustServerRequestFinishedWithSuccess:) withObject:banCardObj];
