@@ -68,50 +68,53 @@ The method is responsible for the invocation of verify operation on the Velocity
 <h2>How to set the Ui value on VelocityPaymentTransaction model </h2><br/>
 <b>Sample code</b><br/> 
 
-    VelocityPaymentTransaction *vPTMCObj;  //velocityProcessorTransactionModelClass Object
-    vPTMCObj=[PaymentObjecthandler getModelObject];  //method to initialize the modal class object
-    vPTMCObj.transactionName = [self.transactionTypebtn titleForState:UIControlStateNormal];
-    vPTMCObj.state = [self.stateBtn titleForState:UIControlStateNormal]; 
-    vPTMCObj.country = self.countryTxtField.text; 
-    vPTMCObj.cardType = [self.cardTypeBtn titleForState:UIControlStateNormal]; 
-    vPTMCObj.cardholderName = self.nameTxtField.text; 
-    vPTMCObj.panNumber=self.creditCardNotxtField.text; 
-    vPTMCObj.expiryDate = [self.monthTextField.text stringByAppendingString:self.yearTextField.text]; 
-    vPTMCObj.street = self.streetTxtField.text; 
-    vPTMCObj.city = self.cityTxtField.text; 
-    vPTMCObj.stateProvince = [self.stateBtn titleForState:UIControlStateNormal]; 
-    vPTMCObj.accountType=@"NotSet";
-    vPTMCObj.postalCode = self.zipTxtField.text; 
-    vPTMCObj.phone= self.phoneTxtField.text; 
-    vPTMCObj.cvDataProvided = @"Provided";
-    vPTMCObj.cVData = self.cVCtxtField.text; 
-    vPTMCObj.amount = self.testCashTxtField.text; 
-    vPTMCObj.currencyCode = self.currencyCodeTxtField.text; 
-    vPTMCObj.customerPresent = @"Present";
-    vPTMCObj.employeeId = self.customerIDtxtField.text; 
-    vPTMCObj.entryMode = @"Keyed";
-    vPTMCObj.industryType = @"Ecommerce";
-    vPTMCObj.email = self.emailTxtField.text; 
-    vPTMCObj.countryCode = @"USA";
-    vPTMCObj.transactionDateTime=@"2013-04-03T13:50:16";
-    [PaymentObjecthandler setModelObject:vPTMCObj]; //method which sets value into modal class<br/>
+	    VelocityPaymentTransaction *vPTMCObj;  //velocityProcessorTransactionModelClass Object
+	    vPTMCObj=[PaymentObjecthandler getModelObject];  //method to initialize the modal class object
+	    vPTMCObj.transactionName = [self.transactionTypebtn titleForState:UIControlStateNormal];
+	    vPTMCObj.state = [self.stateBtn titleForState:UIControlStateNormal]; 
+	    vPTMCObj.country = self.countryTxtField.text; 
+	    vPTMCObj.cardType = [self.cardTypeBtn titleForState:UIControlStateNormal]; 
+	    vPTMCObj.cardholderName = self.nameTxtField.text; 
+	    vPTMCObj.panNumber=self.creditCardNotxtField.text; 
+	    vPTMCObj.expiryDate = [self.monthTextField.text stringByAppendingString:self.yearTextField.text]; 
+	    vPTMCObj.street = self.streetTxtField.text; 
+	    vPTMCObj.city = self.cityTxtField.text; 
+	    vPTMCObj.stateProvince = [self.stateBtn titleForState:UIControlStateNormal]; 
+	    vPTMCObj.accountType=@"NotSet";
+	    vPTMCObj.postalCode = self.zipTxtField.text; 
+	    vPTMCObj.phone= self.phoneTxtField.text; 
+	    vPTMCObj.cvDataProvided = @"Provided";
+	    vPTMCObj.cVData = self.cVCtxtField.text; 
+	    vPTMCObj.amount = self.testCashTxtField.text; 
+	    vPTMCObj.currencyCode = self.currencyCodeTxtField.text; 
+	    vPTMCObj.customerPresent = @"Present";
+	    vPTMCObj.employeeId = self.customerIDtxtField.text; 
+	    vPTMCObj.entryMode = @"Keyed";
+	    vPTMCObj.industryType = @"Ecommerce";
+	    vPTMCObj.email = self.emailTxtField.text; 
+	    vPTMCObj.countryCode = @"USA";
+	    vPTMCObj.transactionDateTime=@"2013-04-03T13:50:16";
+	    [PaymentObjecthandler setModelObject:vPTMCObj]; //method which sets value into modal class<br/>
 
 
 1.Request a [velocityProcessorObj createCardToken];method from API .<br/> 
 initialize response view class to store values in its variable<br/>
 make property of VelocityResponase class <br/>
-@property (strong, nonatomic) VelocityResponse *_txRespons_obj;<br/>
-initialize the object<br/> 
- self._txRespons_obj = [VelocityResponseObjectHandlers getModelObject];<br/>
+
+	@property (strong, nonatomic) VelocityResponse *_txRespons_obj;<br/>
+initialize the object<br/>
+
+ 	self._txRespons_obj = [VelocityResponseObjectHandlers getModelObject];<br/>
+ 	
 2.Get the success or Error response from API.<br/> 
        
-2.1 <b>-(void)VelocityProcessorFailedWithErrorMessage:(id )failedAny;</b><br/>
+	2.1 <b>-(void)VelocityProcessorFailedWithErrorMessage:(id )failedAny;</b><br/>
       
 	 //Here get the Error status then show the corresponding message.	
           if (__txRespons_obj!=nil && [self._txRespons_obj isKindOfClass:[ErrorPaymentResponse 		  
           class]]&&__txRespons_obj.errorId!=nil) { 
 						   }
-2.2 <b>-(void)VelocityProcessorFinishedWithSuccess:(id )successAny;</b><br/>
+	2.2 <b>-(void)VelocityProcessorFinishedWithSuccess:(id )successAny;</b><br/>
 
  	//Here get the Success status then show the corresponding message.
 	if (__txRespons_obj!=nil && [self._txRespons_obj isKindOfClass:[BankcardTransactionResponsePro class]]&& 	
@@ -125,16 +128,16 @@ initialize the object<br/>
 <h2>1.2 authorise(...);</h2><br/>
 The method is responsible for the invocation of authorise operation on the Velocity REST server.<br/>
 
-<h2>1.2.1 authoriseWithToken();</h2><br/>
-<b>[velocityProcessorObj authorise];</b><br/>
-The method is responsible for the invocation of authorise operation with token on the Velocity REST server.<br/>
-for this you have to make pass the payment account data token to the library 
+	<h2>1.2.1 authoriseWithToken();</h2><br/>
+	<b>[velocityProcessorObj authorise];</b><br/>
+	The method is responsible for the invocation of authorise operation with token on the Velocity REST server.<br/>
+	for this you have to make pass the payment account data token to the library 
 
-<h2>1.2.2 authoriseWithoutToken();</h2><br/>
-<b>[velocityProcessorObj authorise];</b><br/>
-The method is responsible for the invocation of authorise operation without token on the Velocity REST server. this will be called only when payment account data token is null and card data should be present.<br/>
-<h2>1.2.3 authoriseP2PE();</h2><br/>
-The method is responsible for the invocation of authorise operation without token and with encrypted card data on the Velocity REST server. this will be called only when payment account data token is null and card data should be present.<br/>
+	<h2>1.2.2 authoriseWithoutToken();</h2><br/>
+	<b>[velocityProcessorObj authorise];</b><br/>
+	The method is responsible for the invocation of authorise operation without token on the Velocity REST server. this will be called only when payment account data token is null and card data should be present.<br/>
+	<h2>1.2.3 authoriseP2PE();</h2><br/>
+	The method is responsible for the invocation of authorise operation without token and with encrypted card data on the Velocity REST server. this will be called only when payment account data token is null and card data should be present.<br/>
 
 Values are set from modal class <b>velocityPaymentTransaction</b> - holds the values for the authorize request VelocityPaymentTransaction<br/>
             	1.cardType - String     <br/> 
@@ -276,52 +279,52 @@ if calling P2PE securityaccount data token and encryption key id should be there
 
 <h2>1.3 authAndCapture(...) </h2><br/>
 The method is responsible for the invocation of authorizeAndCapture operation on the Velocity REST server.<br/>
- <b> -(void)authNCaptureWithToken:(BOOL)isAuthNCaptureWithToken;</b><br/>
+ <b> -(void)authorizeAndCapture;</b><br/>
 
 Set paramets in the modal class <b>velocityPaymentTransaction </b><br/>
-            1. cardType - String     <br/>
-			      2. cardholderName - String     <br/>
-            3.panNumber-String   <br/>
-            4.expiryDate - String   <br/>
-			      5.street - String   <br/>
-            6. stateProvince - String     <br/>
-            7.postalCode - String   <br/>
-            8. phone - String    <br/>
-			      9. reportingDataReference String <br/>
-            10. transactionDataReference  String<br/>
-			      11. state - String     <br/>
-            12. cvDataProvided - String    <br/>
-            13.cVData - String   <br/>
-			      14. amount - String       <br/>
-            15. currencyCode - String       <br/> 
-            16. customerPresent - String     <br/>
-            17. employeeId - String     <br/>
-            18. entryMode - String      <br/>
-	          19.industryType - String   <br/>
-            20. email - String   <br/>
-			      21. transactionDateTime - String   <br/>
-			      22. city -String <br/>
-			      23. partialShipment - boolean   <br/>
-            24.country - String     <br/>
-            25.signatureCaptured - boolean    <br/>
-            26.tipAmount - String   <br/>
-            27. quasiCash - boolean    <br/>
-	          28.partialApprovalCapable - String   <br/>
-            29. countryCode - String     <br/>
-            30. businnessName - String   <br/>
-            31.comment - String    <br/>
-            32.description - String    <br/>
-            33.paymentAccountDataToken - String   <br/>
-            34.cashBackAmount - String       <br/> 
-            35.goodsType - String     <br/>
-            36.invoiceNumber - String     <br/>
-            37. orderNumber - String      <br/>
-	          38.FeeAmount - String   <br/>
+        1. cardType - String     <br/>
+	2. cardholderName - String     <br/>
+        3.panNumber-String   <br/>
+        4.expiryDate - String   <br/>
+	5.street - String   <br/>
+        6. stateProvince - String     <br/>
+        7.postalCode - String   <br/>
+        8. phone - String    <br/>
+	9. reportingDataReference String <br/>
+        10. transactionDataReference  String<br/>
+	11. state - String     <br/>
+        12. cvDataProvided - String    <br/>
+        13.cVData - String   <br/>
+	14. amount - String       <br/>
+        15. currencyCode - String       <br/> 
+        16. customerPresent - String     <br/>
+        17. employeeId - String     <br/>
+        18. entryMode - String      <br/>
+	19.industryType - String   <br/>
+        20. email - String   <br/>
+	21. transactionDateTime - String   <br/>
+	22. city -String <br/>
+	23. partialShipment - boolean   <br/>
+        24.country - String     <br/>
+        25.signatureCaptured - boolean    <br/>
+        26.tipAmount - String   <br/>
+        27. quasiCash - boolean    <br/>
+	28.partialApprovalCapable - String   <br/>
+        29. countryCode - String     <br/>
+        30. businnessName - String   <br/>
+        31.comment - String    <br/>
+        32.description - String    <br/>
+        33.paymentAccountDataToken - String   <br/>
+        34.cashBackAmount - String       <br/> 
+        35.goodsType - String     <br/>
+        36.invoiceNumber - String     <br/>
+        37.orderNumber - String      <br/>
+	38.FeeAmount - String   <br/>
              
  <h2>How to set the Ui value on VelocityPaymentTransaction model </h2><br/>
  <b>Sample code</b><br/> 
  
-  	  VelocityPaymentTransaction *vPTMCObj;//velocityProcessorTransactionModelClass Object
+  	VelocityPaymentTransaction *vPTMCObj;//velocityProcessorTransactionModelClass Object
     	vPTMCObj=[PaymentObjecthandler getModelObject];//method to initialize the modal class object
     	vPTMCObj.transactionName = [self.transactionTypebtn titleForState:UIControlStateNormal];
     	vPTMCObj.state = [self.stateBtn titleForState:UIControlStateNormal]; 
@@ -330,8 +333,8 @@ Set paramets in the modal class <b>velocityPaymentTransaction </b><br/>
     	vPTMCObj.cardType = [self.cardTypeBtn titleForState:UIControlStateNormal]; 
     	vPTMCObj.cardholderName = self.nameTxtField.text; 
     	vPTMCObj.panNumber=self.creditCardNotxtField.text; 
-	    vPTMCObj.expiryDate = [self.monthTextField.text stringByAppendingString:self.yearTextField.text]; 
-	    vPTMCObj.isNullable = false; 
+	vPTMCObj.expiryDate = [self.monthTextField.text stringByAppendingString:self.yearTextField.text]; 
+	vPTMCObj.isNullable = false; 
     	vPTMCObj.street = self.streetTxtField.text; 
     	vPTMCObj.city = self.cityTxtField.text; 
     	vPTMCObj.stateProvince = [self.stateBtn titleForState:UIControlStateNormal];
@@ -361,14 +364,6 @@ Set paramets in the modal class <b>velocityPaymentTransaction </b><br/>
     	vPTMCObj.orderNumber = @"629203";
     	vPTMCObj.FeeAmount = @"1000.05";
     	vPTMCObj.tipAmount = self.tipAmountTxtField.text;//this amount is used for capture<br/>
-    	vPTMCObj.keySerialNumber=@"";
-    	vPTMCObj.identificationInformation=@"";
-    	vPTMCObj.ecommerceSecurityData = @"";
-    	vPTMCObj.track1Data = @"";
-    	vPTMCObj.street2 = @"";
-    	vPTMCObj.fax = @"";
-    	vPTMCObj.customerTaxId = @"";
-    	vPTMCObj.shippingData = @"";
     	vPTMCObj.securePaymentAccountData = @"";
     	vPTMCObj.encryptionKeyId = @"";
     	vPTMCObj.swipeStatus = @"";
