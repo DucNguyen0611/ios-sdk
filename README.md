@@ -184,8 +184,8 @@ Values are set from modal class <b>velocityPaymentTransaction</b> - holds the va
 <h2>How to set the Ui value on VelocityPaymentTransaction model</h2><br/>
 <b>Sample code</b><br/> 
     
-    VelocityPaymentTransaction *vPTMCObj;//velocityProcessorTransactionModelClass Object
-    vPTMCObj=[PaymentObjecthandler getModelObject];//method to initialize the modal class object
+    VelocityPaymentTransaction *vPTMCObj;		 //velocityProcessorTransactionModelClass Object
+    vPTMCObj=[PaymentObjecthandler getModelObject];	//method to initialize the modal class object
     vPTMCObj.transactionName = [self.transactionTypebtn titleForState:UIControlStateNormal];
     vPTMCObj.state = [self.stateBtn titleForState:UIControlStateNormal]; 
     vPTMCObj.country = self.countryTxtField.text; 
@@ -223,11 +223,11 @@ Values are set from modal class <b>velocityPaymentTransaction</b> - holds the va
     vPTMCObj.invoiceNumber = @"808";
     vPTMCObj.orderNumber = @"629203";
     vPTMCObj.FeeAmount = @"1000.05";
-    vPTMCObj.tipAmount = self.tipAmountTxtField.text;//this amount is used for capture<br/>
+    vPTMCObj.tipAmount = self.tipAmountTxtField.text;	//this amount is used for capture<br/>
     vPTMCObj.keySerialNumber=@"";
-    vPTMCObj.identificationInformation=@"";     //for P2PE only, leave null string in case not P2PE
-    vPTMCObj.ecommerceSecurityData = @"";	//for P2PE only, leave null string in case not P2PE
-    vPTMCObj.securePaymentAccountData = @"";	//for P2PE only, leave null string in case not P2PE
+    vPTMCObj.securePaymentAccountData = _securePaymentAccountDataTextView.text;//for P2PE only, leave null string in case not P2PE
+    vPTMCObj.encryptionKeyId = _encryptionKeyIDTextView.text; //for P2PE only, leave null string in case not P2PE
+    vPTMCObj.swipeStatus = @""; //for P2PE only, leave null string in case not P2PE
     vPTMCObj.isPartialShipment = false;
     vPTMCObj.isSignatureCaptured = false; 
     vPTMCObj.partialApprovalCapable = @"NotSet";
@@ -236,10 +236,23 @@ Values are set from modal class <b>velocityPaymentTransaction</b> - holds the va
     
     
 1.Request a authorize() method from API .<br/> 
-	[velocityProcessorObj authoriseWToken:YES];  //calling authwithtoken method
-	[velocityProcessorObj authoriseWToken:NO];  //calling authwithout token method
+
+		[velocityProcessorObj authorise];  	//calling authwithtoken method
+		----------------------------------
+		vPTMCObj.paymentAccountDataToken = nil;  //calling authwithout token method
+            	[velocityProcessorObj authorise];	
+        	------------------------------------
+        	vPTMCObj.paymentAccountDataToken = nil;  //calling P2PE  method
+        	vPTMCObj.encryptionKeyId = _encryptionKeyIDTextView.text; //for P2PE only, leave null string in case not P2PE
+		vPTMCObj.swipeStatus = @""; //for P2PE only, leave null string in case not P2PE
+    		vPTMCObj.securePaymentAccountData = _securePaymentAccountDataTextView.text;	//for P2PE only, leave null string in case not P2PE
+            	[velocityProcessorObj authorise];
+		-----------------------------------
+	
 if calling with token then have to set value for vPTMCobj.paymentaccountdDatatoken.<br/>
-Other wise have to fill the card data information.
+if calling without token   fill the card data information.
+if calling P2PE securityaccount data token and encryption key id should be there.
+
 2.Get the success or Error response from API.<br/> 
        
 2.1 <b>-(void)VelocityProcessorFailedWithErrorMessage:(id )failedAny;</b><br/>
