@@ -11,13 +11,17 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>54ae5cb6-10a5-f947-8185-ef4a9f970bf7++5076</key>
-		<string>https://chetusvn.chetu.com:8443/svn/NorthAmericanBancard-P1/iOS%25252525252525252525252525252525252525252525252525252525252525252520Library</string>
+		<string>https://chetusvn.chetu.com:8443/svn/NorthAmericanBancard-P1/iOS%2525252525252525252525252525252525252525252525252525252525252525252520Library</string>
+		<key>8E6A41A99B1C3B7E1DA1992AA2ED232881D40B7E</key>
+		<string>https://github.com/aamitgupta/ios-sdk.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>VelocityCardSample/VelocityCardSample.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>54ae5cb6-10a5-f947-8185-ef4a9f970bf7++5076</key>
+		<string>../../../../iOS%20Library</string>
+		<key>8E6A41A99B1C3B7E1DA1992AA2ED232881D40B7E</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectRepositoryRootDictionary</key>
@@ -26,13 +30,21 @@
 		<string>https://chetusvn.chetu.com:8443/svn/NorthAmericanBancard-P1</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://chetusvn.chetu.com:8443/svn/NorthAmericanBancard-P1/iOS%25252525252525252525252525252525252525252525252525252525252525252520Library/VelocityCardSample/VelocityCardSample.xcodeproj</string>
+	<string>https://github.com/aamitgupta/ios-sdk.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>54ae5cb6-10a5-f947-8185-ef4a9f970bf7++5076</string>
+	<string>8E6A41A99B1C3B7E1DA1992AA2ED232881D40B7E</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8E6A41A99B1C3B7E1DA1992AA2ED232881D40B7E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ios-sdk</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.subversion</string>

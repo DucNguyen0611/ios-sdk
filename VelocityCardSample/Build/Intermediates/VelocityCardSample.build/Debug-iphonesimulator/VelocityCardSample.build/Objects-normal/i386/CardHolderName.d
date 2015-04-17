@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/Chetu/Documents/NabVelocityIOS_SVN/VelocityCardSample/VelocityCardSample/VelocityLibrary/Modal\ Class/Sub_Modal_Obj_Class/CardHolderName.m \
-  /Users/Chetu/Documents/NabVelocityIOS_SVN/VelocityCardSample/VelocityCardSample/VelocityLibrary/Modal\ Class/Sub_Modal_Obj_Class/CardHolderName.h
+  /Users/Chetu/Documents/ios-sdk/VelocityCardSample/VelocityCardSample/VelocityLibrary/Modal\ Class/Sub_Modal_Obj_Class/CardHolderName.m \
+  /Users/Chetu/Documents/ios-sdk/VelocityCardSample/VelocityCardSample/VelocityLibrary/Modal\ Class/Sub_Modal_Obj_Class/CardHolderName.h

@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/Chetu/Documents/NabVelocityIOS_SVN/VelocityCardSample/VelocityCardSample/Hud/MBProgressHUD.m \
-  /Users/Chetu/Documents/NabVelocityIOS_SVN/VelocityCardSample/VelocityCardSample/Hud/MBProgressHUD.h
+  /Users/Chetu/Documents/ios-sdk/VelocityCardSample/VelocityCardSample/Hud/MBProgressHUD.m \
+  /Users/Chetu/Documents/ios-sdk/VelocityCardSample/VelocityCardSample/Hud/MBProgressHUD.h
