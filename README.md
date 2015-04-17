@@ -44,26 +44,26 @@ This class provides the implementation of the following methods: <br/>
 The method is responsible for the invocation of verify operation on the Velocity REST server.<br/>
  <b>velocityPaymentTransaction Modal Class</b> - holds the values for the verify request VelocityPaymentTransaction <br/>
  
-               	1.cardType - String     <br/>
-		2.cardholderName - String     <br/>
-               	3.panNumber-String   <br/>
-        	4.expiryDate - String   <br/>
-		5.street - String   <br/>
-               	6.stateProvince - String     <br/>
-               	7.postalCode - String   <br/>
-               	8.phone - String    <br/>
-		9.state - String     <br/>
-               10.cvDataProvided - String    <br/>
-               11.cVData - String   <br/>
-	       12.amount - String       <br/>
-               13.currencyCode - String       <br/> 
-               14.customerPresent - String     <br/>
-               15.employeeId - String     <br/>
-               16.entryMode - String      <br/>
-               17.industryType - String   <br/>
-               18.email - String   <br/>
-               19.transactionDateTime - String   <br/>
-               20.city -String <br/>
+               		1.cardType - String     <br/>
+			2.cardholderName - String     <br/>
+               		3.panNumber-String   <br/>
+        		4.expiryDate - String   <br/>
+			5.street - String   <br/>
+               		6.stateProvince - String     <br/>
+               		7.postalCode - String   <br/>
+               		8.phone - String    <br/>
+			9.state - String     <br/>
+               		10.cvDataProvided - String    <br/>
+               		11.cVData - String   <br/>
+	       		12.amount - String       <br/>
+               		13.currencyCode - String       <br/> 
+               		14.customerPresent - String     <br/>
+               		15.employeeId - String     <br/>
+               		16.entryMode - String      <br/>
+               		17.industryType - String   <br/>
+               		18.email - String   <br/>
+               		19.transactionDateTime - String   <br/>
+               		20.city -String <br/>
   
 <h2>How to set the Ui value on VelocityPaymentTransaction model </h2><br/>
 <b>Sample code</b><br/> 
@@ -282,44 +282,44 @@ The method is responsible for the invocation of authorizeAndCapture operation on
  <b> -(void)authorizeAndCapture;</b><br/>
 
 Set paramets in the modal class <b>velocityPaymentTransaction </b><br/>
-        1. cardType - String     <br/>
-	2. cardholderName - String     <br/>
-        3.panNumber-String   <br/>
-        4.expiryDate - String   <br/>
-	5.street - String   <br/>
-        6. stateProvince - String     <br/>
-        7.postalCode - String   <br/>
-        8. phone - String    <br/>
-	9. reportingDataReference String <br/>
-        10. transactionDataReference  String<br/>
-	11. state - String     <br/>
-        12. cvDataProvided - String    <br/>
-        13.cVData - String   <br/>
-	14. amount - String       <br/>
-        15. currencyCode - String       <br/> 
-        16. customerPresent - String     <br/>
-        17. employeeId - String     <br/>
-        18. entryMode - String      <br/>
-	19.industryType - String   <br/>
-        20. email - String   <br/>
-	21. transactionDateTime - String   <br/>
-	22. city -String <br/>
-	23. partialShipment - boolean   <br/>
-        24.country - String     <br/>
-        25.signatureCaptured - boolean    <br/>
-        26.tipAmount - String   <br/>
-        27. quasiCash - boolean    <br/>
-	28.partialApprovalCapable - String   <br/>
-        29. countryCode - String     <br/>
-        30. businnessName - String   <br/>
-        31.comment - String    <br/>
-        32.description - String    <br/>
-        33.paymentAccountDataToken - String   <br/>
-        34.cashBackAmount - String       <br/> 
-        35.goodsType - String     <br/>
-        36.invoiceNumber - String     <br/>
-        37.orderNumber - String      <br/>
-	38.FeeAmount - String   <br/>
+	        1. cardType - String     <br/>
+		2. cardholderName - String     <br/>
+	        3.panNumber-String   <br/>
+	        4.expiryDate - String   <br/>
+		5.street - String   <br/>
+	        6. stateProvince - String     <br/>
+	        7.postalCode - String   <br/>
+	        8. phone - String    <br/>
+		9. reportingDataReference String <br/>
+	        10. transactionDataReference  String<br/>
+		11. state - String     <br/>
+	        12. cvDataProvided - String    <br/>
+	        13.cVData - String   <br/>
+		14. amount - String       <br/>
+	        15. currencyCode - String       <br/> 
+	        16. customerPresent - String     <br/>
+	        17. employeeId - String     <br/>
+	        18. entryMode - String      <br/>
+		19.industryType - String   <br/>
+	        20. email - String   <br/>
+		21. transactionDateTime - String   <br/>
+		22. city -String <br/>
+		23. partialShipment - boolean   <br/>
+	        24.country - String     <br/>
+	        25.signatureCaptured - boolean    <br/>
+	        26.tipAmount - String   <br/>
+	        27. quasiCash - boolean    <br/>
+		28.partialApprovalCapable - String   <br/>
+	        29. countryCode - String     <br/>
+	        30. businnessName - String   <br/>
+	        31.comment - String    <br/>
+	        32.description - String    <br/>
+	        33.paymentAccountDataToken - String   <br/>
+	        34.cashBackAmount - String       <br/> 
+	        35.goodsType - String     <br/>
+	        36.invoiceNumber - String     <br/>
+	        37.orderNumber - String      <br/>
+		38.FeeAmount - String   <br/>
              
  <h2>How to set the Ui value on VelocityPaymentTransaction model </h2><br/>
  <b>Sample code</b><br/> 
@@ -541,44 +541,44 @@ The method is responsible for the invocation of returnUnLinked operation on the 
 <b> -(void)returnUnlinked;</b><br/>
 
 Modal class  <b>velocityPaymentTransaction </b> - holds the values for the returnUnlinked request VelocityPaymentTransaction<br/>
-             1. cardType - String     <br/>
+	     1. cardType - String     <br/>
 		2. cardholderName - String     <br/>
-             3.  panNumber-String   <br/>
-             4.   expiryDate - String   <br/>
+	     3.  panNumber-String   <br/>
+	     4.   expiryDate - String   <br/>
 		      	 5.   street - String   <br/>
-             6.   stateProvince - String     <br/>
-             7.   postalCode - String   <br/>
-             8.   phone - String    <br/>
+	     6.   stateProvince - String     <br/>
+	     7.   postalCode - String   <br/>
+	     8.   phone - String    <br/>
 			       9.    reportingDataReference String <br/>
-            10.   transactionDataReference  String<br/>
+	    10.   transactionDataReference  String<br/>
 			      11.   state - String     <br/>
-            12.   cvDataProvided - String    <br/>
+	    12.   cvDataProvided - String    <br/>
 			      13.   amount - String       <br/>
-            14.   currencyCode - String       <br/> 
-            15.   customerPresent - String     <br/>
-            16.   employeeId - String     <br/>
-            17.   entryMode - String      <br/>
+	    14.   currencyCode - String       <br/> 
+	    15.   customerPresent - String     <br/>
+	    16.   employeeId - String     <br/>
+	    17.   entryMode - String      <br/>
 	          18.   industryType - String   <br/>
-            19.   email - String   <br/>
+	    19.   email - String   <br/>
 			      20.   transactionDateTime - String   <br/>
 			      21.   city -String <br/>
 			      22.   quasiCash - boolean    <br/>
-            23.  country - String     <br/>
-            24. transactionId- String <br/>
-            25.  signatureCaptured - boolean    <br/>
-            26.  partialShipment - boolean   <br/>
-            27.  countryCode - String     <br/>
-            28.  businnessName - String   <br/>
-            29. comment - String    <br/>
-            30. description - String    <br/>
-            31. paymentAccountDataToken - String   <br/>
-            32. cashBackAmount - String       <br/> 
-            33. goodsType - String     <br/>
-            34.invoiceNumber - String     <br/>
-            35.orderNumber - String      <br/>
+	    23.  country - String     <br/>
+	    24. transactionId- String <br/>
+	    25.  signatureCaptured - boolean    <br/>
+	    26.  partialShipment - boolean   <br/>
+	    27.  countryCode - String     <br/>
+	    28.  businnessName - String   <br/>
+	    29. comment - String    <br/>
+	    30. description - String    <br/>
+	    31. paymentAccountDataToken - String   <br/>
+	    32. cashBackAmount - String       <br/> 
+	    33. goodsType - String     <br/>
+	    34.invoiceNumber - String     <br/>
+	    35.orderNumber - String      <br/>
 	          36. FeeAmount - String   <br/>
-            37. tipAmount - String   <br/>
-            38. partialApprovalCapable - String   <br/>
+	    37. tipAmount - String   <br/>
+	    38. partialApprovalCapable - String   <br/>
             
 <h2>How to set the Ui value on VelocityPaymentTransaction model </h2><br/>
 
@@ -854,14 +854,20 @@ The Velocity sample IOS Application is able to test the following transaction me
 1. Verify - The Verify operation is used to verify information about a payment account, such as address verification data (AVSData) on a credit card account, without reserving any funds. <br/>
 2. Authorize - The Authorize operation is used to authorize transactions by performing a check on card-holder's funds and reserves the authorization amount if sufficient funds are available. <br/>
 3. Authorize W/O token - This method proceeds with the card details when payment account data token is not available. <br/>
-4. AuthorizeAndCapture - The AuthorizeAndCapture operation is used to authorize transactions by performing a check on card-holder's funds and reserves the authorization amount if sufficient funds are available, and flags the transaction for capture (settlement) in a single invocation.<br/> 
-5. AuthorizeAndCapture W/O token - This method proceeds with the card details and performs the capture operation in single invocation when the payment account data token is not available. <br/>
-6. Capture - The Capture operation is used to capture a single transaction for settlement after it has been successfully authorized by the Authorize operation. <br/>
-7. Void(Undo) - The Undo operation is used to release card-holder funds by performing a void (Credit Card) or reversal (PIN Debit) on a previously authorized transaction that has not been captured (flagged) for settlement. <br/> 
-8. Adjust - The Adjust operation is used to make adjustments to a previously authorized amount (incremental or reversal) prior to capture and settlement. <br/>
-9. ReturnById - The ReturnById operation is used to perform a linked credit to a card-holder’s account from the merchant’s account based on a previously authorized and settled(Captured) transaction. <br/>
-10. ReturnUnlinked - The ReturnUnlinked operation is used to perform an "unlinked", or standalone, credit to a card-holder’s account from the merchant’s account. <br/>
-11. ReturnUnlinked W/O token - This method proceeds with the card details when payment account data token is not available.<br/>
+4.P2PE Authorize - This method proceeds with the encrypted card details when payment account data token is not available. <br/> 
+5. AuthorizeAndCapture - The AuthorizeAndCapture operation is used to authorize transactions by performing a check on card-holder's funds and reserves the authorization amount if sufficient funds are available, and flags the transaction for capture (settlement) in a single invocation.<br/> 
+6. AuthorizeAndCapture W/O token - This method proceeds with the card details and performs the capture operation in single invocation when the payment account data token is not available. <br/>
+7. P2PE AuthorizeAndCapture- This method proceeds with the encrypted card details and performs the capture operation in single invocation when the payment account data token is not available. <br/>
+8. Capture - The Capture operation is used to capture a single transaction for settlement after it has been successfully authorized by the Authorize operation. <br/>
+9. Undo - The Undo operation is used to release card-holder funds by performing a void (Credit Card) or reversal (PIN Debit) on a previously authorized transaction that has not been captured (flagged) for settlement. <br/> 
+10. Adjust - The Adjust operation is used to make adjustments to a previously authorized amount (incremental or reversal) prior to capture and settlement. <br/>
+11. ReturnById - The ReturnById operation is used to perform a linked credit to a card-holder’s account from the merchant’s account based on a previously authorized and settled(Captured) transaction. <br/>
+12. ReturnUnlinked - The ReturnUnlinked operation is used to perform an "unlinked", or standalone, credit to a card-holder’s account from the merchant’s account. <br/>
+13. ReturnUnlinked W/O token - This method proceeds with the card details when payment account data token is not available.<br/>
+14.P2PE ReturnUnlinked  - This method proceeds with the encrypted card details when payment account data token is not available.<br/>
+15.QueryTransctionDetails-this method processes with transactionId or BatchID for the query of transaction.<br/>
+16.CaptureAll - this method captures ,all the transaction made before.<br/>
+
 Depending upon the type of transaction performed with request input data, response is generated from the velocity server which can be viewed on the Result page. <br/>
 <h2>5.How to include static library into XcodeProject</h2><br/>
 	1.Download the sdk from github<br/>
@@ -877,6 +883,9 @@ Depending upon the type of transaction performed with request input data, respon
 		5.5 #import "VelocityResponse.h"		//import this header
 		5.6 #import "VelocityPaymentTransaction.h"	//import this header
 		5.7 #import "VelocityProcessor.h"               //import this header
+		5.8 #import "QueryTransectionRequestModalClass.h"//import this header
+		5.9 #import "CaptureAllArrayOfResponse.h"	//import this header
+		5.10 #import "TransactionDetailModalClass.h"	//import this header
 
      
   
