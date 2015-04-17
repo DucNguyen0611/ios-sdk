@@ -30,7 +30,7 @@ static ErrorPaymentResponse *errResponseObj;
  *  @return object
  */
 +(void)setModelObject:(ErrorPaymentResponse *)obj{
-    errResponseObj=obj;
+    errResponseObj = obj;
     
     
 }
@@ -43,18 +43,29 @@ static ErrorPaymentResponse *errResponseObj;
  */
 +(ErrorPaymentResponse *)getModelObjectWithDic:(NSDictionary *)dict{
 
+    if ([[dict objectForKey:@"ErrorResponse"] objectForKey:@"ErrorId"]==nil) {
+       
+        errResponseObj.helpUrl = [dict objectForKey:@"HelpUrl"];
+        errResponseObj.operation = [dict objectForKey:@"Operation"];
+        errResponseObj.reason = [dict objectForKey:@"Reason"];
+        errResponseObj.ruleMessage = [[dict objectForKey:@"Messages"] objectAtIndex:0];
+         errResponseObj.errorId = [dict valueForKey:@"ErrorId"];
+    }
+    else{
     errResponseObj.errorId = [[dict objectForKey:@"ErrorResponse"] objectForKey:@"ErrorId"];
+    
     errResponseObj.helpUrl = [[dict objectForKey:@"ErrorResponse"] objectForKey:@"HelpUrl"];
     errResponseObj.operation = [[dict objectForKey:@"ErrorResponse"] objectForKey:@"Operation"];
     errResponseObj.reason = [[dict objectForKey:@"ErrorResponse"] objectForKey:@"Reason"];
 //    errResponseObj.statusHttpResponse = [[dict objectForKey:@"ErrorResponse"] objectForKey:@"ErrorId"];
 //    errResponseObj.statusCodeHttpResponse = [[dict objectForKey:@"ErrorResponse"] objectForKey:@"ErrorId"];
+    
     if ([[[[dict objectForKey:@"ErrorResponse"] objectForKey:@"ValidationErrors"] objectForKey:@"ValidationError"] isKindOfClass:[NSArray class]]) {
         errResponseObj.ruleMessage = [[[[[dict objectForKey:@"ErrorResponse"] objectForKey:@"ValidationErrors"] objectForKey:@"ValidationError"] objectAtIndex:0]objectForKey:@"RuleMessage"];
     }
     else
         errResponseObj.ruleMessage = [[[[dict objectForKey:@"ErrorResponse"] objectForKey:@"ValidationErrors"] objectForKey:@"ValidationError"]objectForKey:@"RuleMessage"];
-    
+    }
     return errResponseObj;
 }
 /**

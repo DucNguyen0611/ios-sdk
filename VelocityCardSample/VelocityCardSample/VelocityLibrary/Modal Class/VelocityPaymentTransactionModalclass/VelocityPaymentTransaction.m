@@ -31,7 +31,7 @@ static VelocityPaymentTransaction *paymentObj;
  */
 +(void)setModelObject:(VelocityPaymentTransaction *)obj{
     
-    paymentObj=obj;
+    paymentObj = obj;
 }
 /**
  *  For getting values from modal class

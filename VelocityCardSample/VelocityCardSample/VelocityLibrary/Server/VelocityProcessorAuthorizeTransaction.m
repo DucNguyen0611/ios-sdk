@@ -117,6 +117,7 @@
                  *  Parsing response
                  */
     if(error==nil && theXML.length>0){
+        
         if(self.delegate != nil && ([self.delegate conformsToProtocol:@protocol(VelocityProcessorAuthTXDelegate)])){
             if ([dictNameArray containsObject:kErrorResponse ]) {
                 errObj =[ErrorObjecthandler getModelObjectWithDic:dict];

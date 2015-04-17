@@ -7,7 +7,6 @@
 //
 
 #import "VelocityCardSampleAppDelegate.h"
-
 #import "VelocityProcessor.h"
 @interface VelocityCardSampleAppDelegate ()
 
@@ -18,6 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
         // Override point for customization after application launch.
+    
     return YES;
 }
 

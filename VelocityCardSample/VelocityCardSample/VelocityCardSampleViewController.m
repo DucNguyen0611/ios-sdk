@@ -1,3 +1,5 @@
+
+
 //
 //  VelocityCardSampleViewController.m
 //  VelocityCardSample
@@ -14,6 +16,8 @@
 #import "ErrorPaymentResponse.h"//import this header
 #import "ResponseViewViewController.h"
 #import "MBProgressHUD.h"
+#import "QueryTransectionRequestModalClass.h"
+#import "VelocityPaymentTransaction.h"
 @interface VelocityCardSampleViewController ()<UIPickerViewDataSource,UIPickerViewDelegate,UIGestureRecognizerDelegate,UITextFieldDelegate,VelocityProcessorDelegate>//Velocity processor delegate
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -40,11 +44,32 @@
 @property (weak,nonatomic) NSString* transactionID;
 @property (weak,nonatomic) NSString* paymentDataToken;
 @property (weak, nonatomic) IBOutlet UITextField *tipAmountTxtField;
-
+@property BOOL isTestAccount;
+@property BOOL checkbox;
 - (IBAction)cardTypeBtn:(id)sender;
 - (IBAction)processPaymentBtn:(id)sender;
 - (IBAction)stateBtn:(id)sender;
 - (IBAction)transactionTypebtn:(id)sender;
+
+- (IBAction)buttonIsTestMode:(id)sender;
+- (IBAction)buttonIsCaptureAll:(id)sender;
+- (IBAction)buttonSimplemethods:(id)sender;
+- (IBAction)buttonIsP2PE:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *btnIsCaptureAll;
+@property (weak, nonatomic) IBOutlet UIButton *btnIsP2PE;
+@property (weak, nonatomic) IBOutlet UIButton *buttonIsTestMode;
+@property (weak, nonatomic) IBOutlet UIButton *buttonSimpleMethod;
+@property int buttonPosition;
+@property (weak, nonatomic) IBOutlet UIButton *buttonAppProfileID;
+
+@property (weak, nonatomic) IBOutlet UITextView *securePaymentAccountDataTextView;
+@property (weak, nonatomic) IBOutlet UITextView *encryptionKeyIDTextView;
+@property (weak, nonatomic) IBOutlet UIButton *buttonWorkFlowID;
+- (IBAction)buttonAppProfileIDClicked:(id)sender;
+- (IBAction)ButtonWorkFlowIDClicked:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *queryTransactionIDTextField;
+@property (weak, nonatomic) IBOutlet UITextField *queryBatchID;
+
 @end
 @implementation VelocityCardSampleViewController
 {
@@ -52,6 +77,8 @@
     NSArray *cardTypearr;
     NSArray *currencyCodeArr;
     NSArray *stateArr;
+     NSArray *workflowIDArray;
+     NSArray *appProfileIDArray;
     VelocityProcessor *velocityProcessorObj;//velocity processor object
     UIButton *btntag;
     UIView *chiledView;
@@ -59,6 +86,8 @@
     UIToolbar *toolBar;
     ResponseViewViewController *respViewObj;
     int switchcaseInput;
+    QueryTransectionRequestModalClass *queryTransactionRequestModalObject;
+    VelocityPaymentTransaction *paymentObj;
 }
 /*!
  *  @author sumit suman, 15-01-23 17:01:36
@@ -68,46 +97,96 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.scrollView.contentSize  = CGSizeMake(self.view.frame.size.width, 3000);
-    self.pickerView.hidden=YES;
-    self.transactionTypebtn.layer.cornerRadius=5;
+    self.scrollView.contentSize  = CGSizeMake(self.view.frame.size.width, 3800);
+    self.pickerView.hidden = YES;
+    self.transactionTypebtn.layer.cornerRadius = 5;
     self.transactionTypebtn.layer.masksToBounds = YES;
-    self.processPaymentBtn.layer.cornerRadius=5;
-    self.processPaymentBtn.layer.borderWidth=1.0;
-    self.processPaymentBtn.layer.borderColor=[[UIColor whiteColor]CGColor];
+    self.processPaymentBtn.layer.cornerRadius = 5;
+    self.processPaymentBtn.layer.borderWidth = 1.0;
+    self.processPaymentBtn.layer.borderColor = [[UIColor whiteColor]CGColor];
     self.processPaymentBtn.layer.masksToBounds = YES;
-    self.stateBtn.layer.cornerRadius=5;
+    self.stateBtn.layer.cornerRadius = 5;
     self.stateBtn.layer.masksToBounds = YES;
-    self.cardTypeBtn.layer.cornerRadius=5;
+    self.cardTypeBtn.layer.cornerRadius = 5;
     self.cardTypeBtn.layer.masksToBounds = YES;
+    self.btnIsCaptureAll.layer.cornerRadius = 5;
+    self.btnIsCaptureAll.layer.masksToBounds = YES;
+    self.btnIsP2PE.layer.cornerRadius = 5;
+    self.btnIsP2PE.layer.masksToBounds = YES;
+    self.buttonSimpleMethod.layer.cornerRadius = 5;
+    self.buttonSimpleMethod.layer.masksToBounds = YES;
+    self.buttonAppProfileID.layer.cornerRadius = 5;
+    self.buttonAppProfileID.layer.masksToBounds = YES;
+    self.buttonWorkFlowID.layer.cornerRadius = 5;
+    self.buttonWorkFlowID.layer.masksToBounds = YES;
+    self.securePaymentAccountDataTextView.layer.cornerRadius = 5;
+    self.securePaymentAccountDataTextView.layer.masksToBounds = YES;
+    self.encryptionKeyIDTextView.layer.cornerRadius = 5;
+    self.encryptionKeyIDTextView.layer.masksToBounds = YES;
+    _checkbox = kisTestAccountBOOL;
+    if (_checkbox) {
+        [_buttonIsTestMode setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
+        _isTestAccount =YES;
+        _checkbox = NO;
+    }
+    
+    else if (!_checkbox) {
+        [_buttonIsTestMode setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+        _isTestAccount =NO;
+        _checkbox = YES;
+    }
+
+    /**
+     workflowIDArray
+     */
+    workflowIDArray = [[NSArray alloc]initWithObjects:@"14644  (Normal)",@" 15464  (capturerall)",@"14560  (P2PE)", nil];
+    /**
+     appProfileIDArray
+     */
+    appProfileIDArray = [[NSArray alloc]initWithObjects:@"2317000001  (Normal)",@" A39DF00001  (capturerall)",@"BBBAAA0001  (P2PE)", nil];
     /**
      transaction types
      */
-    tranxTypearr=[[NSArray alloc]initWithObjects:@"SignOn",@"Verify",@"Authorize w/ Token",@"Authorise w/o Token",@"AuthAndCapture w/ Token",@"AuthAndCapture w/o token",@"Capture",@"Void(Undo)",@"Adjust",@"ReturnById",@"ReturnUnlinked",@"ReturnUnlinkedW/oToken", nil];
+    tranxTypearr=[[NSArray alloc]initWithObjects:@"SignOn",@"Verify",@"Authorize w/ Token",@"Authorise w/o Token",@"P2PE Authorise",@"AuthAndCapture w/ Token",@"AuthAndCapture w/o token",@"P2PE AuthAndCapture ",@"Capture",@"Void(Undo)",@"Adjust",@"ReturnById",@"ReturnUnlinkedW/oToken",@"ReturnUnlinked ",@"P2PE ReturnUnlinked",@"QueryTransactionDetails",@"CaptureAll", nil];
     /**
      card type
      */
-    cardTypearr=[[NSArray alloc]initWithObjects:@"Visa",@"Master",@"Discover",@"American Express", nil];
+    cardTypearr = [[NSArray alloc]initWithObjects:@"Visa",@"Master",@"Discover",@"American Express", nil];
     stateArr=[[NSArray alloc]initWithObjects:@"CO",@"NK", nil];
+    
     [self.transactionTypebtn setTitle:[NSString stringWithFormat:@"%@",[tranxTypearr objectAtIndex:0]] forState:UIControlStateNormal];
+    
     [self.stateBtn setTitle:[NSString stringWithFormat:@"%@",[stateArr objectAtIndex:0]] forState:UIControlStateNormal];
+    
     [self.cardTypeBtn setTitle:[NSString stringWithFormat:@"%@",[cardTypearr objectAtIndex:0]] forState:UIControlStateNormal];
+    [self.buttonWorkFlowID setTitle:[NSString stringWithFormat:@"%@",[workflowIDArray objectAtIndex:0]] forState:UIControlStateNormal];
+    [self.buttonAppProfileID setTitle:[NSString stringWithFormat:@"%@",[appProfileIDArray objectAtIndex:0]] forState:UIControlStateNormal];
+    
+    
     toolBar= [[UIToolbar alloc] initWithFrame:CGRectMake(0,self.view.frame.size.height-_pickerView.frame.size.height-42,_pickerView.frame.size.width,44)];
+   
+    vPTMCObj = [PaymentObjecthandler getModelObject];
+    
     /**
      Intialize the object of velocity processor class ans settting the required parameter
      
      :returns: velocity processor object
      */
-
-    velocityProcessorObj= [[VelocityProcessor alloc] initWith:kIdentityToken forAppProfileId:kAppProfileId forMerchantProfileId:kMerchantProfileId forWorkflowId:KWorkflowId andSessionToken:nil andType:kisTestAccountBOOL ];
-        velocityProcessorObj.delegate=self;
+    
+  
+    
+    velocityProcessorObj = [[VelocityProcessor alloc] initWith:kIdentityToken forAppProfileId:kAppProfileId forMerchantProfileId:kMerchantProfileId forWorkflowId:KWorkflowId andSessionToken:nil andType:kisTestAccountBOOL ];
+    _buttonPosition = 2;
+    
+    velocityProcessorObj.delegate=self;
     /*!
      this will be used to hold and pass values to the library
      velocity payment transaction modal calss
      velocity transactionmodalclass object
     */
-    vPTMCObj=[PaymentObjecthandler getModelObject];
-    respViewObj =[[ResponseViewViewController alloc]init];
+    
+    respViewObj = [[ResponseViewViewController alloc]init];
+    queryTransactionRequestModalObject = [QueryTransectionRequestObjecthandler getModelObject];
 }
 
 #pragma mark-VelocityProcessorDelegate
@@ -126,7 +205,7 @@
     }
     else{
     UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main"bundle:nil];
-    ResponseViewViewController *subView =[storyboard instantiateViewControllerWithIdentifier:@"ResponseViewViewController"];
+    ResponseViewViewController *subView = [storyboard instantiateViewControllerWithIdentifier:@"ResponseViewViewController"];
     [self presentViewController:subView animated:YES completion:nil];
         
     }
@@ -148,21 +227,24 @@
     [toolBar setBarStyle:UIBarStyleBlackOpaque];
     UIBarButtonItem *barButtonDone = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(donePiker:)];
     toolBar.items = [[NSArray alloc] initWithObjects:barButtonDone,nil];
-    barButtonDone.tintColor=[UIColor whiteColor];
+    barButtonDone.tintColor = [UIColor whiteColor];
     [self.view addSubview:toolBar];
     [self.view addSubview:self.pickerView];
     [UIView animateWithDuration:0.3 animations:^{
-        self.pickerView.hidden=NO;
+        self.pickerView.hidden = NO;
         _pickerView.frame = CGRectMake(_pickerView.frame.origin.x,
                                        self.view.frame.size.height-160,                                        _pickerView.frame.size.width,
                                        _pickerView.frame.size.height);
     }];
     [_pickerView reloadAllComponents];
+    [_pickerView selectRow:0 inComponent:0 animated:YES];
 }
 //hiding pikerview
 -(IBAction)donePiker:(id)sender{
+    
     [toolBar removeFromSuperview];
     [_pickerView removeFromSuperview];
+    
 }
 #pragma mark - Picker View Data source
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
@@ -175,6 +257,10 @@ numberOfRowsInComponent:(NSInteger)component{
         return [tranxTypearr count];
     else if (btntag.tag==1000)
         return [stateArr count];
+    else if(btntag .tag == 3000)
+        return [appProfileIDArray count];
+    else if (btntag.tag == 4000)
+        return [workflowIDArray count];
     else
         return [cardTypearr count];
    }
@@ -186,11 +272,18 @@ numberOfRowsInComponent:(NSInteger)component{
 
     if (btntag.tag==2000){
        [self.transactionTypebtn setTitle:[NSString stringWithFormat:@"%@",[tranxTypearr objectAtIndex:row]] forState:UIControlStateNormal];
-    vPTMCObj.transactionName =[NSString stringWithFormat:@"%@",[tranxTypearr objectAtIndex:row]];
+    vPTMCObj.transactionName = [NSString stringWithFormat:@"%@",[tranxTypearr objectAtIndex:row]];
         switchcaseInput = (int)row;
     }
     else if (btntag.tag==1000)
         [self.stateBtn setTitle:[NSString stringWithFormat:@"%@",[stateArr objectAtIndex:row]] forState:UIControlStateNormal];
+    else if (btntag.tag==3000)
+        [self.buttonAppProfileID setTitle:[NSString stringWithFormat:@"%@",[appProfileIDArray objectAtIndex:row]] forState:UIControlStateNormal];
+
+        
+    else if (btntag.tag==4000)
+        [self.buttonWorkFlowID setTitle:[NSString stringWithFormat:@"%@",[workflowIDArray objectAtIndex:row]] forState:UIControlStateNormal];
+        
     else
         [self.cardTypeBtn setTitle:[NSString stringWithFormat:@"%@",[cardTypearr objectAtIndex:row]] forState:UIControlStateNormal];
 }
@@ -201,6 +294,10 @@ numberOfRowsInComponent:(NSInteger)component{
      return [tranxTypearr objectAtIndex:row];
     else if (btntag.tag==1000)
      return [stateArr objectAtIndex:row];
+    else if (btntag.tag==3000)
+        return [appProfileIDArray objectAtIndex:row];
+    else if (btntag.tag==4000)
+        return [workflowIDArray objectAtIndex:row];
     else
      return [cardTypearr objectAtIndex:row];
 }
@@ -218,6 +315,16 @@ numberOfRowsInComponent:(NSInteger)component{
         attString = [[NSAttributedString alloc] initWithString:[stateArr objectAtIndex:row] attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
         return attString;
     }
+    else if (btntag.tag==3000){
+        attString = [[NSAttributedString alloc] initWithString:[appProfileIDArray objectAtIndex:row] attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+        return attString;
+    }
+
+    else if (btntag.tag==4000){
+        attString = [[NSAttributedString alloc] initWithString:[workflowIDArray objectAtIndex:row] attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+        return attString;
+    }
+
     else
     {
         attString = [[NSAttributedString alloc] initWithString:[cardTypearr objectAtIndex:row] attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
@@ -233,15 +340,23 @@ numberOfRowsInComponent:(NSInteger)component{
     UITouch *touch = [touches anyObject];
     if ([touch view] != self.pickerView){
         [self.pickerView endEditing:YES];
-    self.pickerView.hidden=YES;
-    self.scrollView.hidden=NO;
+    self.pickerView.hidden = YES;
+    self.scrollView.hidden = NO;
         [self.pickerView removeFromSuperview];
         [[self view] endEditing:YES];
     [super touchesBegan:touches withEvent:event];
     }
      [toolBar removeFromSuperview];
 }
-
+#pragma textview delegate
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    if([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    
+    return YES;
+}
 #pragma mark-textfield delegate
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {    [toolBar removeFromSuperview];
@@ -278,6 +393,91 @@ numberOfRowsInComponent:(NSInteger)component{
 - (IBAction)transactionTypebtn:(id)sender {
      btntag=(UIButton*)sender;
         [self labelTapped];
+}
+- (IBAction)buttonAppProfileIDClicked:(id)sender {
+    btntag=(UIButton*)sender;
+    [self labelTapped];
+}
+
+- (IBAction)ButtonWorkFlowIDClicked:(id)sender {
+    btntag=(UIButton*)sender;
+    [self labelTapped];
+}
+- (IBAction)buttonIsTestMode:(id)sender {
+    if (_checkbox) {
+        [_buttonIsTestMode setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
+        _isTestAccount =YES;
+        _checkbox = NO;
+    }
+    else if (!_checkbox) {
+        [_buttonIsTestMode setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+        _isTestAccount =NO;
+        _checkbox = YES;
+    }
+    
+}
+
+- (IBAction)buttonIsCaptureAll:(id)sender {
+    _buttonPosition = 0 ;
+    ///ForCapture all the values are changed////comment this part if not used
+    
+     velocityProcessorObj = [[VelocityProcessor alloc] initWith:kIdentityTokenCaptureAll forAppProfileId:kAppProfileIdCaptureAll forMerchantProfileId:kMerchantProfileIdCaptureAll forWorkflowId:KWorkflowIdCaptureAll andSessionToken:nil andType:kisTestAccountBOOL ];
+    vPTMCObj.securePaymentAccountData = @"";
+    vPTMCObj.encryptionKeyId = @"";
+    vPTMCObj.swipeStatus = @"";
+    velocityProcessorObj.delegate=self;
+    [self selectMethodType:0];
+    
+}
+
+- (IBAction)buttonSimplemethods:(id)sender {
+    _buttonPosition = 2;
+    velocityProcessorObj = [[VelocityProcessor alloc] initWith:kIdentityToken forAppProfileId:kAppProfileId forMerchantProfileId:kMerchantProfileId forWorkflowId:KWorkflowId andSessionToken:nil andType:kisTestAccountBOOL ];
+    vPTMCObj.securePaymentAccountData = @"";
+    vPTMCObj.encryptionKeyId = @"";
+    vPTMCObj.swipeStatus = @"";
+    velocityProcessorObj.delegate=self;
+      [self selectMethodType:2];
+}
+
+- (IBAction)buttonIsP2PE:(id)sender {
+    _buttonPosition = 1;
+    ///ForDUKT Cardswaper  the values are changed////comment this part if not used
+        velocityProcessorObj = [[VelocityProcessor alloc] initWith:kIdentityToken forAppProfileId:kAppProfileIdDUKT forMerchantProfileId:kMerchantProfileId forWorkflowId:KWorkflowIdDUKT andSessionToken:nil andType:kisTestAccountBOOL ];
+        vPTMCObj.securePaymentAccountData = _securePaymentAccountDataTextView.text;
+         vPTMCObj.encryptionKeyId = _encryptionKeyIDTextView.text;
+        vPTMCObj.swipeStatus = @"";
+    velocityProcessorObj.delegate=self;
+ vPTMCObj.paymentAccountDataToken = nil;
+    [self selectMethodType:1];
+    
+}
+-(void)selectMethodType:(NSInteger)switchCase
+{
+    switch (switchCase ) {
+        case 0:
+            [_btnIsCaptureAll setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
+            [_btnIsP2PE setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+            [_buttonSimpleMethod setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+
+            break;
+        case 1:
+            [_btnIsCaptureAll setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+            [_btnIsP2PE setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
+            [_buttonSimpleMethod setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+            break;
+        case 2:
+            [_btnIsCaptureAll setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+            [_btnIsP2PE setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+            [_buttonSimpleMethod setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];            break;
+            
+        default:
+            [_btnIsCaptureAll setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+            [_btnIsP2PE setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+            [_buttonSimpleMethod setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
+            break;
+    }
+    
 }
 
 //press this buttion to proceed payment
@@ -323,104 +523,172 @@ numberOfRowsInComponent:(NSInteger)component{
     vPTMCObj.invoiceNumber = @"808";
     vPTMCObj.orderNumber = @"629203";
     vPTMCObj.FeeAmount = @"1000.05";
-    vPTMCObj.tipAmount = self.tipAmountTxtField.text;//this amount is used for capture
-    vPTMCObj.keySerialNumber=@"";
-    vPTMCObj.identificationInformation=@"";
-    vPTMCObj.ecommerceSecurityData = @"";
-    vPTMCObj.track1Data = @"";
-    vPTMCObj.street2 = @"";
-    vPTMCObj.fax = @"";
-    vPTMCObj.customerTaxId = @"";
-    vPTMCObj.shippingData = @"";
-    vPTMCObj.securePaymentAccountData = @"";
-    vPTMCObj.encryptionKeyId = @"";
-    vPTMCObj.swipeStatus = @"";
-    vPTMCObj.approvalCode = @"";
-    vPTMCObj.internetTransactionData = @"";
+    vPTMCObj.tipAmount = self.tipAmountTxtField.text;//this amount is
     vPTMCObj.isPartialShipment = false;
     vPTMCObj.isSignatureCaptured = false;
-    vPTMCObj.terminalID = @"";
-    //vPTMCObj.batchID = @"";
     vPTMCObj.partialApprovalCapable = @"NotSet";
-    vPTMCObj.scoreThreshold = @"";
-    vPTMCObj.isQuasiCash=false;
-    self.pickerView.hidden=YES;
+    vPTMCObj.isQuasiCash = false;
+    self.pickerView.hidden = YES;
     [PaymentObjecthandler setModelObject:vPTMCObj];
     switch (switchcaseInput ) {
         case 0:
             /**
-             *  Calling creat card token method for signon
+             *  Calling  signon
              */
 
-             [velocityProcessorObj createCardTokenIsOnlySignOn:YES];
+             [velocityProcessorObj signON];
             break;
         case 1:
             /**
              *  Calling creat card token method for verify
              */
-            
-            [velocityProcessorObj createCardTokenIsOnlySignOn:NO];
+             [velocityProcessorObj createCardToken];
             break;
         case 2:
             /**
              *  Calling Authwith token method
              */
-            [velocityProcessorObj authoriseWToken:YES];
+            [velocityProcessorObj authorise];
             break;
         case 3:
             /**
              *  calling authwithout token method
              */
-            [velocityProcessorObj authoriseWToken:NO];
+            vPTMCObj.paymentAccountDataToken = nil;
+            [velocityProcessorObj authorise];
             break;
         case 4:
             /**
-             *  calling auth and capture method with token
+             *  calling authP2PE token method
              */
-            [velocityProcessorObj authNCaptureWithToken:YES];
-            
+            vPTMCObj.paymentAccountDataToken = nil;
+            [velocityProcessorObj authorise];
             break;
         case 5:
             /**
-             *  calling auth and capture method with out token
+             *  calling auth and capture method with token
              */
-            [velocityProcessorObj authNCaptureWithToken:NO];
+            [velocityProcessorObj authorizeAndCapture];
+            
             break;
         case 6:
             /**
-             *  calling capture method
+             *  calling auth and capture method with out token
              */
-            [velocityProcessorObj captureTransaction];
+            vPTMCObj.paymentAccountDataToken = nil;
+            [velocityProcessorObj authorizeAndCapture];
             break;
         case 7:
             /**
-             *  calling void method
+             *  calling auth and capture P2PE method 
              */
-            [velocityProcessorObj voidORundoTransaction];
+            vPTMCObj.paymentAccountDataToken = nil;
+            [velocityProcessorObj authorizeAndCapture];
             break;
         case 8:
             /**
-             *  calling adjust method
+             *  calling capture method
              */
-            [velocityProcessorObj adjustAmount];
+            [velocityProcessorObj capture];
             break;
         case 9:
+            /**
+             *  calling void method
+             */
+            [velocityProcessorObj undo];
+            break;
+        case 10:
+            /**
+             *  calling adjust method
+             */
+            [velocityProcessorObj adjust];
+            break;
+        case 11:
             /**
              *  calling return by id method
              */
             [velocityProcessorObj returnById];
             break;
-        case 10:
+        case 12:
             /**
              *  calling returned unlinked method
              */
-            [velocityProcessorObj returnUnlinkedisWithToken:YES];
+            [velocityProcessorObj returnUnlinked];
             break;
-        case 11:
+        case 13:
             /**
              *  calling returned unlinked method without token
              */
-            [velocityProcessorObj returnUnlinkedisWithToken:NO];
+            vPTMCObj.paymentAccountDataToken = nil;
+            [velocityProcessorObj returnUnlinked];
+            break;
+        case 14:
+            /**
+             *  calling returned unlinked P@2PE method
+             */
+            vPTMCObj.paymentAccountDataToken = nil;
+            [velocityProcessorObj returnUnlinked];
+            break;
+        case 15:
+            /**
+             *  calling Query transaction details method
+             */
+            queryTransactionRequestModalObject.page = @"0";
+            queryTransactionRequestModalObject.pageSize = @"10";
+            queryTransactionRequestModalObject.transactionStartDateTime = @"";
+            queryTransactionRequestModalObject.transactionEndDateTime = @"";
+            queryTransactionRequestModalObject.includeRelated = @"true";
+            queryTransactionRequestModalObject.isAcknowledged = @"NotSet";
+            queryTransactionRequestModalObject.transactionIds = @[_queryTransactionIDTextField.text];
+            queryTransactionRequestModalObject.batchIds = @[
+                                                            _queryBatchID.text
+                                                            ];
+            
+//            queryTransactionRequestModalObject.transactionIds = @[
+//                                                                  @"8D90B6F54CAC440B9B67727437EE27CD",
+//                                                                  @"8DC205563381413EA81DE1290B1872D1",
+//                                                                  @"3A94BA5FB07E4549893881699D75ABEF"
+//                                                                  ];
+            
+            //            queryTransactionRequestModalObject.captureEndDateTime = @"";
+            //            queryTransactionRequestModalObject.captureStartDateTime = @"";
+            //            queryTransactionRequestModalObject.transactionClass = @"";
+            //            queryTransactionRequestModalObject.transactionType = @"";
+            //            queryTransactionRequestModalObject.amountArray = @[
+            //                                                               @"12.34"
+            //                                                               ];
+            //
+            //            queryTransactionRequestModalObject.approvalCodes = @[
+            //                                                                 @"VI1000"
+            //                                                                 ];
+//                        queryTransactionRequestModalObject.batchIds = @[
+//                                                                        @"0539"
+//                                                                        ];
+            //            queryTransactionRequestModalObject.merchantProfileIds = @[
+            //                                                                      @""
+            //                                                                      ];
+            //            queryTransactionRequestModalObject.orderNumbers = @[
+            //                                                                @""
+            //                                                                ];
+            //
+            //            queryTransactionRequestModalObject.serviceIds = @[
+            //                                                              @"2317000001"
+            //                                                              ];
+            //
+            //            queryTransactionRequestModalObject.serviceKeys= @[
+            //                                                              @"FF3BB6DC58300001"
+            //                                                              ];
+            
+            [velocityProcessorObj queryTransactionsDetail];
+            
+            break;
+        case 16:
+            /**
+             *  calling Capture All method
+             */
+           
+            
+            [velocityProcessorObj captureAll];
             break;
 
         default:
@@ -429,5 +697,6 @@ numberOfRowsInComponent:(NSInteger)component{
     }
 
 }
+
 
 @end

@@ -64,6 +64,7 @@
 @property (strong,nonatomic) NSString *swipeStatus;
 @property (strong,nonatomic) NSString *approvalCode;
 @property (strong,nonatomic) NSString *internetTransactionData;
+
 @property BOOL isPartialShipment;
 @property BOOL isSignatureCaptured;
 @property (strong,nonatomic) NSString *terminalID;

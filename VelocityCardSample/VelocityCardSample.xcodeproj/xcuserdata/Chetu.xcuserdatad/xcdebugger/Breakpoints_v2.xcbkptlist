@@ -9,13 +9,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VelocityCardSample/VelocityLibrary/Server/VelocityProcessorAuthorizeTransaction.m"
-            timestampString = "446131261.933221"
+            filePath = "VelocityCardSample/VelocityLibrary/Server/VelocityProcessorAuthWAndWOCapture.m"
+            timestampString = "450023681.643043"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "-verifySessionTokenInXML:forAppProfileId:forMerchantProfileId:forWorkflowId:andType:"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
+            landmarkName = "-authorizeAndCaptureWithTokenAndAppprofileid:andMerchentID:andWorkFlowID:andSessionToken:andIsTestAccount:andIsWithToken:withModalObjectsAddress:authoriseTransaction:andAvsData:andBillingData:and:and:and:and:and:and:and:and:and:and:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityLibrary/Server/VelocityProcessorAuthWAndWOCapture.m"
+            timestampString = "450023690.73948"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
+            landmarkName = "-authorizeAndCaptureWithTokenAndAppprofileid:andMerchentID:andWorkFlowID:andSessionToken:andIsTestAccount:andIsWithToken:withModalObjectsAddress:authoriseTransaction:andAvsData:andBillingData:and:and:and:and:and:and:and:and:and:and:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VelocityCardSample/VelocityLibrary/Server/VelocityProcessorAuthorizeTransaction.m"
-            timestampString = "446131261.933221"
+            timestampString = "450180333.848329"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "-verifySessionTokenInXML:forAppProfileId:forMerchantProfileId:forWorkflowId:andType:"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VelocityCardSample/VelocityLibrary/VelocityProcessor.m"
-            timestampString = "447076727.099169"
+            timestampString = "450728453.60322"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "263"
-            endingLineNumber = "263"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
             landmarkName = "-VelocityProcessorAuthTXServerRequestFinishedWithSuccess:"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VelocityCardSample/VelocityCardSampleViewController.m"
-            timestampString = "446655886.992002"
+            timestampString = "450785162.710875"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
             landmarkName = "-VelocityProcessorFinishedWithSuccess:"
             landmarkType = "5">
          </BreakpointContent>
@@ -73,109 +89,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VelocityCardSample/ResponseViewViewController.m"
-            timestampString = "446723072.398687"
+            filePath = "VelocityCardSample/VelocityCardSampleViewController.m"
+            timestampString = "450785162.710875"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VelocityCardSample/ResponseViewViewController.m"
-            timestampString = "446125192.27027"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VelocityCardSample/ResponseViewViewController.m"
-            timestampString = "446125192.27027"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VelocityCardSample/VelocityLibrary/VelocityProcessor.m"
-            timestampString = "447076727.099169"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
-            landmarkName = "-VelocityProcessorSignOnServerRequestFinishedWithSuccess:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VelocityCardSample/VelocityLibrary/VelocityProcessor.m"
-            timestampString = "447076727.099169"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "-VelocityProcessorSignOnServerRequestFinishedWithSuccess:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VelocityCardSample/VelocityLibrary/VelocityProcessor.m"
-            timestampString = "447076727.099169"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
-            landmarkName = "-VelocityProcessorSignOnServerRequestFailedWithErrorMessage:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VelocityCardSample/VelocityLibrary/VelocityProcessor.m"
-            timestampString = "447076727.099169"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
-            landmarkName = "-VelocityProcessorSignOnServerRequestFailedWithErrorMessage:"
+            startingLineNumber = "407"
+            endingLineNumber = "407"
+            landmarkName = "-buttonIsTestMode:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -186,11 +106,171 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VelocityCardSample/VelocityCardSampleViewController.m"
-            timestampString = "446723494.57173"
+            timestampString = "450785162.710875"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "412"
+            endingLineNumber = "412"
+            landmarkName = "-buttonIsTestMode:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityCardSampleViewController.m"
+            timestampString = "450785162.710875"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "446"
+            endingLineNumber = "446"
+            landmarkName = "-buttonIsP2PE:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityCardSampleViewController.m"
+            timestampString = "450785162.710875"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "436"
+            endingLineNumber = "436"
+            landmarkName = "-buttonSimplemethods:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityCardSampleViewController.m"
+            timestampString = "450785162.710875"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "425"
+            endingLineNumber = "425"
+            landmarkName = "-buttonIsCaptureAll:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityLibrary/Server/VelocityProcessorCaptureAll.m"
+            timestampString = "450354572.887378"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "-CaptureAllWithsAppprofileid:andMerchentID:andWorkFlowID:andSessionToken:andIsTestAccount:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityLibrary/Server/VelocityProcessorCaptureAll.m"
+            timestampString = "450354579.451229"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "-CaptureAllWithsAppprofileid:andMerchentID:andWorkFlowID:andSessionToken:andIsTestAccount:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityLibrary/Server/VelocityProcessorCaptureAll.m"
+            timestampString = "450354628.428954"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "-CaptureAllWithsAppprofileid:andMerchentID:andWorkFlowID:andSessionToken:andIsTestAccount:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityLibrary/Server/VelocityProcessorCaptureAll.m"
+            timestampString = "450354740.634543"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "-CaptureAllWithsAppprofileid:andMerchentID:andWorkFlowID:andSessionToken:andIsTestAccount:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityLibrary/VelocityProcessor.m"
+            timestampString = "450728453.60322"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "587"
+            endingLineNumber = "587"
+            landmarkName = "-VelocityProcessorCaptureAllServerRequestFailedWithErrorMessage:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityLibrary/Server/VelocityProcessorCaptureAll.m"
+            timestampString = "450355061.437127"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "-CaptureAllWithsAppprofileid:andMerchentID:andWorkFlowID:andSessionToken:andIsTestAccount:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityCardSampleViewController.m"
+            timestampString = "450785162.710875"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "220"
+            endingLineNumber = "220"
             landmarkName = "-VelocityProcessorFailedWithErrorMessage:"
             landmarkType = "5">
          </BreakpointContent>
@@ -201,13 +281,365 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VelocityCardSample/VelocityLibrary/Server/VelocityProcessorAdjust.m"
-            timestampString = "447012333.646627"
+            filePath = "VelocityCardSample/VelocityLibrary/VelocityProcessor.m"
+            timestampString = "450728453.60322"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "-adjustAppprofileid:andMerchentID:andWorkFlowID:andSessionToken:andIsTestAccount:"
+            startingLineNumber = "594"
+            endingLineNumber = "594"
+            landmarkName = "-VelocityProcessorCaptureAllServerRequestFailedWithErrorMessage:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityLibrary/VelocityProcessor.m"
+            timestampString = "450728453.60322"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "597"
+            endingLineNumber = "597"
+            landmarkName = "-VelocityProcessorCaptureAllServerRequestFailedWithErrorMessage:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityLibrary/Server/VelocityProcessorAuthWithToken.m"
+            timestampString = "450376307.55948"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "271"
+            endingLineNumber = "271"
+            landmarkName = "-authorizeWithTokenAndAppprofileid:andMerchentID:andWorkFlowID:andSessionToken:andIsTestAccount:andIsWithToken:withModalObjectsAddress:authoriseTransaction:andAvsData:andBillingData:and:and:and:and:and:and:and:and:and:and:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityLibrary/Server/VelocityProcessorAuthWithToken.m"
+            timestampString = "450376311.976356"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
+            landmarkName = "-authorizeWithTokenAndAppprofileid:andMerchentID:andWorkFlowID:andSessionToken:andIsTestAccount:andIsWithToken:withModalObjectsAddress:authoriseTransaction:andAvsData:andBillingData:and:and:and:and:and:and:and:and:and:and:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityLibrary/Server/VelocityQueryTransactionDetails.m"
+            timestampString = "450797770.133731"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
+            landmarkName = "-queryTransactionDetailsAppprofileid:andMerchentID:andWorkFlowID:andSessionToken:andIsTestAccount:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityCardSampleViewController.m"
+            timestampString = "450883758.506728"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "630"
+            endingLineNumber = "630"
+            landmarkName = "-processPaymentBtn:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityLibrary/Server/VelocityProcessorReturnUnlinked.m"
+            timestampString = "450727474.603651"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
+            landmarkName = "-returnUnLinkedAppprofileid:andMerchentID:andWorkFlowID:andSessionToken:andIsWithToken:andIsTestAccount:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/ResponseViewViewController.m"
+            timestampString = "450727780.998795"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityLibrary/Server/VelocityProcessorAuthorizeTransaction.m"
+            timestampString = "450727884.586612"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "-verifySessionTokenInXML:forAppProfileId:forMerchantProfileId:forWorkflowId:andType:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityLibrary/VelocityProcessor.m"
+            timestampString = "450728453.60322"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "328"
+            endingLineNumber = "328"
+            landmarkName = "-VelocityProcessorAuthAuthWTokenServerRequestFailedWithErrorMessage:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityLibrary/VelocityProcessor.m"
+            timestampString = "450728453.60322"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "323"
+            endingLineNumber = "323"
+            landmarkName = "-VelocityProcessorAuthWTokenServerRequestFinishedWithSuccess:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityLibrary/Server/VelocityProcessorAuthorizeTransaction.m"
+            timestampString = "450728134.675753"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "-verifySessionTokenInXML:forAppProfileId:forMerchantProfileId:forWorkflowId:andType:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityLibrary/Server/VelocityProcessorAuthorizeTransaction.m"
+            timestampString = "450728222.991938"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "-verifySessionTokenInXML:forAppProfileId:forMerchantProfileId:forWorkflowId:andType:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityLibrary/Server/VelocityProcessorAuthorizeTransaction.m"
+            timestampString = "450728184.853826"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "-verifySessionTokenInXML:forAppProfileId:forMerchantProfileId:forWorkflowId:andType:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityLibrary/Server/VelocityProcessorAuthorizeTransaction.m"
+            timestampString = "450728217.446568"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "-verifySessionTokenInXML:forAppProfileId:forMerchantProfileId:forWorkflowId:andType:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityLibrary/Server/VelocityProcessorAuthorizeTransaction.m"
+            timestampString = "450728220.743289"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "-verifySessionTokenInXML:forAppProfileId:forMerchantProfileId:forWorkflowId:andType:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityLibrary/VelocityProcessor.m"
+            timestampString = "450728336.936172"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
+            landmarkName = "-VelocityProcessorAuthTXServerRequestFailedWithErrorMessage:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityLibrary/Server/VelocityQueryTransactionDetails.m"
+            timestampString = "450797770.133731"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "-queryTransactionDetailsAppprofileid:andMerchentID:andWorkFlowID:andSessionToken:andIsTestAccount:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityLibrary/Server/VelocityQueryTransactionDetails.m"
+            timestampString = "450797770.133731"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
+            landmarkName = "-queryTransactionDetailsAppprofileid:andMerchentID:andWorkFlowID:andSessionToken:andIsTestAccount:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityLibrary/Server/VelocityQueryTransactionDetails.m"
+            timestampString = "450796832.193959"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "-queryTransactionDetailsAppprofileid:andMerchentID:andWorkFlowID:andSessionToken:andIsTestAccount:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityLibrary/Server/VelocityQueryTransactionDetails.m"
+            timestampString = "450796832.193959"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "-queryTransactionDetailsAppprofileid:andMerchentID:andWorkFlowID:andSessionToken:andIsTestAccount:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityLibrary/Server/VelocityQueryTransactionDetails.m"
+            timestampString = "450796832.193959"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "-queryTransactionDetailsAppprofileid:andMerchentID:andWorkFlowID:andSessionToken:andIsTestAccount:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VelocityCardSample/VelocityLibrary/Server/VelocityQueryTransactionDetails.m"
+            timestampString = "450795584.392133"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "-queryTransactionDetailsAppprofileid:andMerchentID:andWorkFlowID:andSessionToken:andIsTestAccount:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

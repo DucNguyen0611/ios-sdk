@@ -16,6 +16,9 @@
 #import "BankcardTransactionResponsePro.h"
 #import "VelocityResponse.h"
 #import "BancardCaptureResponse.h"
+#import "VelocityQueryTransactionDetails.h"
+#import "TransactionDetailModalClass.h"
+#import "CaptureAllArrayOfResponse.h"
 
 
 @implementation VelocityProcessor{
@@ -49,6 +52,9 @@
     Transaction *transactionObj;
     TransactionData *transactiondataObj;
     NSInteger switchcaseInput;
+
+    TransactionDetailModalClass * transectionDetailsObject;
+    CaptureAllArrayOfResponse *captureAllArrayResponseObject;
     
 }
 @synthesize vPIdentityToken;//stores identity token
@@ -95,20 +101,19 @@
  *  @brief  service for sign on method called here with bool value =1
             and verify will be called for bool value =0
  */
--(void)createCardTokenIsOnlySignOn:(BOOL)isSignOn{
-    if (isSignOn)
-        switchcaseInput =0;
-    else
-        switchcaseInput =1;
-    
-    checkSignON=isSignOn;
+-(void)signON{
+    switchcaseInput = 0;
+    [self signOnWithIdentityToken];
+}
+-(void)createCardToken{
+    switchcaseInput = 1;
     [self signOnWithIdentityToken];
 }
 
 -(void)signOnWithIdentityToken{
     
-    obj=[[VelocityProcessorSignOn alloc]init];
-    obj.delegate=self;
+    obj = [[VelocityProcessorSignOn alloc]init];
+    obj.delegate = self;
     [obj signOnWithIdentityToken:vPIdentityToken:vPIsTestAccount];
     
 }
@@ -124,7 +129,7 @@
  */
 -(void)VelocityProcessorSignOnServerRequestFinishedWithSuccess:(NSString *)successSessionToken{
     
-    vPSessionToken=successSessionToken;
+    vPSessionToken = successSessionToken;
     NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:vPSessionToken,@"SessionToken", nil];
          switch (switchcaseInput ) {
         case 0:
@@ -140,83 +145,94 @@
             /**
              *  Calling creat card token method for verify
              */
-            [self verifyWithSessionToken];
+            [self verifyXML];
             
             break;
         case 2:
             /**
              *  Calling Authwith token method
              */
-            [self authorizeWithPaymentAccountDataToken];
+            [self authorizeXML];
             break;
         case 3:
             /**
              *  calling authwithout token method
              */
-           [self authorizeWithPaymentAccountDataToken];
+           [self authorizeXML];
             break;
         case 4:
             /**
              *  calling auth and capture method with token
              */
-            [self authAndCapture];
+            [self authorizeAndCaptureXML];
             
             break;
         case 5:
             /**
              *  calling auth and capture method with out token
              */
-                 [self authAndCapture];
+                 [self authorizeAndCaptureXML];
             
             break;
         case 6:
             /**
              *  calling capture method
              */
-                 [self captureWithTransactionId];
+                 [self captureXML];
             break;
         case 7:
             /**
              *  calling void method
              */
-                 [self voidOrundotransaction];
+                 [self undoXML];
             break;
         case 8:
             /**
              *  calling adjust method
              */
-                 [self adjust];
+                 [self adjustXML];
             break;
         case 9:
             /**
              *  calling return by id method
              */
-                 [self returnAmountByID];
+                 [self returnByIdXML];
             break;
         case 10:
             /**
              *  calling returned unlinked method
              */
-                 [self returnUNLINKEDisWithToken:YES];
+                 [self returnUnlinkedXML:YES];
             break;
         case 11:
             /**
              *  calling returned unlinked method without token
              */
-           [self returnUNLINKEDisWithToken:NO];
+           [self returnUnlinkedXML:NO];
             break;
-            
+        case 12:
+                 /**
+                  *  calling queryTransactionDetails Method
+                  */
+                 [self queryTransactionDetails];
+                 break;
+        case 13:
+                 /**
+                  *  calling queryTransactionDetails Method
+                  */
+                 [self captureAllXML];
+                 break;
         default:
             break;
             
     }
-     //[self verifyWithSessionToken];
+     //[self verifyXML];
     
     
 }
 
 -(void)VelocityProcessorSignOnServerRequestFailedWithErrorMessage:(NSString *)failed{
-    errResobj= [ErrorObjecthandler getmainObj];
+    errResobj = [ErrorObjecthandler getmainObj];
     if ([errResobj.errorId isEqualToString:@"5000"]) {
         [self signOnWithIdentityToken];
         
@@ -234,31 +250,40 @@
  */
 #pragma  mark-Verify session token
 //method to verify session token
--(void)verifyWithSessionToken{
+-(void)verifyXML{
     
-    VelocityProcessorAuthorizeTransaction *authTxObj=[[VelocityProcessorAuthorizeTransaction alloc] init];
-    authTxObj.delegate=self;
+    VelocityProcessorAuthorizeTransaction *authTxObj =[[VelocityProcessorAuthorizeTransaction alloc] init];
+    authTxObj.delegate = self;
     [authTxObj verifySessionTokenInXML:vPSessionToken forAppProfileId:vPAppProfileId forMerchantProfileId:vPMerchantProfileId forWorkflowId:vPWorkflowId andType:vPIsTestAccount];
 }
 
 #pragma mark-verify/AuthTransecion delegate
 -(void)VelocityProcessorAuthTXServerRequestFailedWithErrorMessage:(id)failResponse{
-    errResobj= [ErrorObjecthandler getmainObj];
-    vRObj =[VelocityResponseObjectHandlers setModelObject:errResobj];
+    errResobj = [ErrorObjecthandler getmainObj];
+    vRObj = [VelocityResponseObjectHandlers setModelObject:errResobj];
     if ([errResobj.errorId isEqualToString:@"5000"]) {
         [self signOnWithIdentityToken];
         
        
     }
-    else
+    else{
+       
+        if (errResobj.errorId!=nil && ![failResponse isKindOfClass:[NSError class]]) {
+            
+            vRObj = [VelocityResponseObjectHandlers setModelObject:errResobj];
+            [self.delegate performSelector:@selector(VelocityProcessorFinishedWithSuccess:) withObject:bancardResp.status];
+        }
+        else
+            [self.delegate performSelector:@selector(VelocityProcessorFailedWithErrorMessage:) withObject:@"Not Verified or server error"];
+    }
         
-            [self.delegate performSelector:@selector(VelocityProcessorFailedWithErrorMessage:) withObject:failResponse];
+    
     
     
 }
 -(void)VelocityProcessorAuthTXServerRequestFinishedWithSuccess:(id)successResponse{
     
-    bancardResp=[ResponseObjecthandler getmainObj];
+    bancardResp = [ResponseObjecthandler getmainObj];
     vRObj = [VelocityResponseObjectHandlers setModelObject:bancardResp];
     [self.delegate performSelector:@selector(VelocityProcessorFinishedWithSuccess:) withObject:bancardResp.status];
 }
@@ -270,36 +295,41 @@
  *  @return Authorization of transaction
  */
 #pragma mark-authwithToken
--(void)authoriseWToken:(BOOL)isWithToken{
-    if (isWithToken)
-        switchcaseInput = 2;
-    else
+-(void)authorise{
+   paymentObj = [PaymentObjecthandler getModelObject];
+    if (paymentObj.paymentAccountDataToken .length>0)
+    { switchcaseInput = 2;
+    
+        vPIsAuthWithPaymentDataToken= YES;
+    }
+    else{
         switchcaseInput = 3;
-    isAuthWWOPaymentDataTokken=YES;
-    isAuthNCaptureWTokenCall=NO;
-    vPIsAuthWithPaymentDataToken =isWithToken;
+     
+        vPIsAuthWithPaymentDataToken = NO;
+    }
+   
     [self signOnWithIdentityToken];
 }
 
--(void)authorizeWithPaymentAccountDataToken{
+-(void)authorizeXML{
     
-    VelocityProcessorAuthWithToken * authObj=[[VelocityProcessorAuthWithToken alloc]init];
-    authObj.delegate=self;
+    VelocityProcessorAuthWithToken * authObj =[[VelocityProcessorAuthWithToken alloc]init];
+    authObj.delegate = self;
    [authObj authorizeWithTokenAndAppprofileid:vPAppProfileId andMerchentID:vPMerchantProfileId andWorkFlowID:vPWorkflowId andSessionToken:vPSessionToken andIsTestAccount:vPIsTestAccount andIsWithToken:vPIsAuthWithPaymentDataToken withModalObjectsAddress:addressObj authoriseTransaction:authTransactionObj andAvsData:avsdataObj andBillingData:billingObj and:carddataObj and:cardholderObj and:cardsecurityObj and:customerObj and:ecommerceObj and:reportingdataObj and:tenderdataObj and:track1dataObj and:transactionObj and:transactiondataObj];
    
 }
 
 #pragma authW/WithoutToken Delegate
 -(void)VelocityProcessorAuthWTokenServerRequestFinishedWithSuccess:(id)successResponse{
-    bancardResp=[ResponseObjecthandler getmainObj];
-     vRObj =[VelocityResponseObjectHandlers setModelObject:bancardResp];
+    bancardResp = [ResponseObjecthandler getmainObj];
+     vRObj = [VelocityResponseObjectHandlers setModelObject:bancardResp];
     [self.delegate performSelector:@selector(VelocityProcessorFinishedWithSuccess:) withObject:bancardResp.status];
 }
 -(void)VelocityProcessorAuthAuthWTokenServerRequestFailedWithErrorMessage:(id)failResponse{
      errResobj = [ErrorObjecthandler getmainObj];
-    if (errResobj.errorId!=nil) {
+    if (errResobj.errorId!=nil && ![failResponse isKindOfClass:[NSError class]]) {
         
-        vRObj =[VelocityResponseObjectHandlers setModelObject:errResobj];
+        vRObj = [VelocityResponseObjectHandlers setModelObject:errResobj];
         [self.delegate performSelector:@selector(VelocityProcessorFinishedWithSuccess:) withObject:bancardResp.status];
     }
     else
@@ -312,37 +342,40 @@
  *  @return capture states
  */
 #pragma mark Auth&Caputre With/Without Token
--(void)authAndCapture{
+-(void)authorizeAndCaptureXML{
    
     VelocityProcessorAuthWAndWOCapture *authNCaptureObj=[[VelocityProcessorAuthWAndWOCapture alloc]init];
-    authNCaptureObj.delegate=self;
+    authNCaptureObj.delegate = self;
     [authNCaptureObj authorizeAndCaptureWithTokenAndAppprofileid:vPAppProfileId andMerchentID:vPMerchantProfileId andWorkFlowID:vPWorkflowId andSessionToken:vPSessionToken andIsTestAccount:vPIsTestAccount andIsWithToken:vPIsAuthWithPaymentDataToken withModalObjectsAddress:addressObj authoriseTransaction:authTransactionObj andAvsData:avsdataObj andBillingData:billingObj and:carddataObj and:cardholderObj and:cardsecurityObj and:customerObj and:ecommerceObj and:reportingdataObj and:tenderdataObj and:track1dataObj and:transactionObj and:transactiondataObj];
     
 }
 
--(void)authNCaptureWithToken:(BOOL)isAuthNCaptureWithToken{
-    if (isAuthNCaptureWithToken)
-        switchcaseInput=4;
-    else
-        switchcaseInput=5;
+-(void)authorizeAndCapture{
+    paymentObj = [PaymentObjecthandler getModelObject];
+    if (paymentObj.paymentAccountDataToken .length>0)
+    { switchcaseInput = 4;
         
-    isAuthNCaptureWTokenCall=YES;
-    isAuthWWOPaymentDataTokken=NO;
-    vPIsAuthWithPaymentDataToken =isAuthNCaptureWithToken;
+        vPIsAuthWithPaymentDataToken = YES;
+    }
+    else{
+        switchcaseInput = 5;
+        
+        vPIsAuthWithPaymentDataToken = NO;
+    }
    [self signOnWithIdentityToken];
    
 }
 #pragma mark-AuthNCapture delegates
 -(void)VelocityProcessorAuthNCaptureWTokenServerRequestFinishedWithSuccess:(id)successResponse{
-    bancardResp=[ResponseObjecthandler getmainObj];
-    vRObj =[VelocityResponseObjectHandlers setModelObject:bancardResp];
+    bancardResp = [ResponseObjecthandler getmainObj];
+    vRObj = [VelocityResponseObjectHandlers setModelObject:bancardResp];
     [self.delegate performSelector:@selector(VelocityProcessorFinishedWithSuccess:) withObject:vRObj.status];
 }
 -(void)VelocityProcessorAuthNCaptureWTokenServerRequestFailedWithErrorMessage:(id)failResponse{
     errResobj = [ErrorObjecthandler getmainObj];
-    if (errResobj.errorId!=nil) {
+    if (errResobj.errorId!=nil && ![failResponse isKindOfClass:[NSError class]]) {
         
-        vRObj =[VelocityResponseObjectHandlers setModelObject:errResobj];
+        vRObj = [VelocityResponseObjectHandlers setModelObject:errResobj];
         [self.delegate performSelector:@selector(VelocityProcessorFinishedWithSuccess:) withObject:bancardResp.status];
     }
     else
@@ -354,36 +387,33 @@
  *  This method is used for capturing any autrorised value and stores its response into BancardCaptureResponse
  */
 #pragma mark-Capture method and its delegate
--(void)captureTransaction{
-    switchcaseInput=6;
-    isAuthNCaptureWTokenCall=NO;
-    isAuthWWOPaymentDataTokken=YES;
-    isCapture =YES;
+-(void)capture{
+    switchcaseInput = 6;
      [self signOnWithIdentityToken];
     
 
 }
--(void)captureWithTransactionId{
-    isAuthWWOPaymentDataTokken=YES;
-    VelocityProcessorCapture *captureObj=[[VelocityProcessorCapture alloc]init];
-    captureObj.delegate=self;
+-(void)captureXML{
+    
+    VelocityProcessorCapture *captureObj = [[VelocityProcessorCapture alloc]init];
+    captureObj.delegate = self;
     [captureObj captureAndAppprofileid:vPAppProfileId andMerchentID:vPMerchantProfileId andWorkFlowID:vPWorkflowId andSessionToken:vPSessionToken andIsTestAccount:vPIsTestAccount];
 }
 -(void)VelocityProcessorCaptureServerRequestFinishedWithSuccess:(id)successResponse{
-    captureResponseObj=[BancardCaptureObjecthandler getmainObj];
-    vRObj =[VelocityResponseObjectHandlers setModelObject:captureResponseObj];
-    vRObj=[VelocityResponseObjectHandlers getModelObject];
+    captureResponseObj = [BancardCaptureObjecthandler getmainObj];
+    vRObj = [VelocityResponseObjectHandlers setModelObject:captureResponseObj];
+    vRObj = [VelocityResponseObjectHandlers getModelObject];
     [self.delegate performSelector:@selector(VelocityProcessorFinishedWithSuccess:) withObject:vRObj.status];
     
 
 }
 -(void)VelocityProcessorCaptureServerRequestFailedWithErrorMessage:(id)failResponse{
-    captureResponseObj=[BancardCaptureObjecthandler getmainObj];
-    vRObj =[VelocityResponseObjectHandlers setModelObject:errResobj];
+    captureResponseObj = [BancardCaptureObjecthandler getmainObj];
+    vRObj = [VelocityResponseObjectHandlers setModelObject:errResobj];
     errResobj = [ErrorObjecthandler getmainObj];
-    if (errResobj.errorId!=nil) {
+    if (errResobj.errorId!=nil && ![failResponse isKindOfClass:[NSError class]]) {
         
-        vRObj =[VelocityResponseObjectHandlers setModelObject:errResobj];
+        vRObj = [VelocityResponseObjectHandlers setModelObject:errResobj];
         [self.delegate performSelector:@selector(VelocityProcessorFinishedWithSuccess:) withObject:bancardResp.status];
     }
     else
@@ -395,31 +425,27 @@
  *   This method is callled for Undo any captured transection
  */
 #pragma mark- void or undo transaction and its delegate
--(void)voidORundoTransaction{
+-(void)undo{
     switchcaseInput = 7;
-    isAuthNCaptureWTokenCall=NO;
-    isAuthWWOPaymentDataTokken=YES;
-    isCapture =NO;
-    isVoid=YES;
     [self signOnWithIdentityToken];
     
 }
--(void)voidOrundotransaction{
+-(void)undoXML{
     VelocityProcessorVoid *voidObj=[[VelocityProcessorVoid alloc]init ];
-    voidObj.delegate=self;
+    voidObj.delegate = self;
     [voidObj voidAppprofileid:vPAppProfileId andMerchentID:vPMerchantProfileId andWorkFlowID:vPWorkflowId andSessionToken:vPSessionToken andIsTestAccount:vPIsTestAccount];
 }
 -(void)VelocityProcessorVoidServerRequestFinishedWithSuccess:(id)successResponse{
-    bancardResp=[ResponseObjecthandler getmainObj];
-    vRObj =[VelocityResponseObjectHandlers setModelObject:bancardResp];
+    bancardResp = [ResponseObjecthandler getmainObj];
+    vRObj = [VelocityResponseObjectHandlers setModelObject:bancardResp];
     [self.delegate performSelector:@selector(VelocityProcessorFinishedWithSuccess:) withObject:bancardResp.status];
 }
 -(void)VelocityProcessorVoidServerRequestFailedWithErrorMessage:(id)failResponse{
     errResobj = [ErrorObjecthandler getmainObj];
     
-    if (errResobj.errorId!=nil) {
+    if (errResobj.errorId!=nil&& ![failResponse isKindOfClass:[NSError class]]) {
         
-        vRObj =[VelocityResponseObjectHandlers setModelObject:errResobj];
+        vRObj = [VelocityResponseObjectHandlers setModelObject:errResobj];
         [self.delegate performSelector:@selector(VelocityProcessorFinishedWithSuccess:) withObject:bancardResp.status];
     }
     else
@@ -433,20 +459,20 @@
 #pragma mark-Adjust Transaction method
 
 
--(void)adjustAmount{
-    switchcaseInput=8;
+-(void)adjust{
+    switchcaseInput = 8;
     [self signOnWithIdentityToken];
     
 }
 
--(void)adjust{
-    VelocityProcessorAdjust *adjustObj=[[VelocityProcessorAdjust alloc]init ];
-    adjustObj.delegate=self;
+-(void)adjustXML{
+    VelocityProcessorAdjust *adjustObj = [[VelocityProcessorAdjust alloc]init ];
+    adjustObj.delegate = self;
     [adjustObj adjustAppprofileid:vPAppProfileId andMerchentID:vPMerchantProfileId andWorkFlowID:vPWorkflowId andSessionToken:vPSessionToken andIsTestAccount:vPIsTestAccount];
 }
 -(void)VelocityProcessorAdjustServerRequestFinishedWithSuccess:(id)successResponse{
-    bancardResp=[ResponseObjecthandler getmainObj];
-    vRObj =[VelocityResponseObjectHandlers setModelObject:bancardResp];
+    bancardResp = [ResponseObjecthandler getmainObj];
+    vRObj = [VelocityResponseObjectHandlers setModelObject:bancardResp];
     [self.delegate performSelector:@selector(VelocityProcessorFinishedWithSuccess:) withObject:bancardResp.status];
 
 }
@@ -467,19 +493,19 @@
     
     
 }
--(void)returnAmountByID{
-    VelocityProcessorReturnByID *returnByidObj=[[VelocityProcessorReturnByID alloc] init];
-    returnByidObj.delegate=self;
+-(void)returnByIdXML{
+    VelocityProcessorReturnByID *returnByidObj = [[VelocityProcessorReturnByID alloc] init];
+    returnByidObj.delegate = self;
     [returnByidObj returnByIdAppprofileid:vPAppProfileId andMerchentID:vPMerchantProfileId andWorkFlowID:vPWorkflowId andSessionToken:vPSessionToken andIsTestAccount:vPIsTestAccount];
 }
 -(void)VelocityProcessorReturnByIdServerRequestFinishedWithSuccess:(id)successResponse{
-    bancardResp=[ResponseObjecthandler getmainObj];
-    vRObj =[VelocityResponseObjectHandlers setModelObject:bancardResp];
+    bancardResp = [ResponseObjecthandler getmainObj];
+    vRObj = [VelocityResponseObjectHandlers setModelObject:bancardResp];
     [self.delegate performSelector:@selector(VelocityProcessorFinishedWithSuccess:) withObject:bancardResp.status];
 }
 -(void)VelocityProcessorReturnByIdServerRequestFailedWithErrorMessage:(id)failResponse{
     errResobj = [ErrorObjecthandler getmainObj];
-    vRObj =[VelocityResponseObjectHandlers setModelObject:errResobj];
+    vRObj = [VelocityResponseObjectHandlers setModelObject:errResobj];
     [self.delegate performSelector:@selector(VelocityProcessorFinishedWithSuccess:) withObject:bancardResp.status];
 }
 /**
@@ -489,27 +515,86 @@
     ReturnedUnlinked Method without payment account datatoken method is used for return any authorised transection without any transection id,it uses user information like card holder name ,cvc etc. PaymentAccount Datatoken is not required
  */
 #pragma mark-ReturUnLinked  method
--(void)returnUnlinkedisWithToken:(BOOL)isWithToken{
-    if (isWithToken)
-     switchcaseInput = 10;
+-(void)returnUnlinked{
+    paymentObj = [PaymentObjecthandler getModelObject];
+    if (paymentObj.paymentAccountDataToken .length>0){
+       switchcaseInput = 10;
+        }
     else
     switchcaseInput = 11;
+    
     [self signOnWithIdentityToken];
     
 }
--(void)returnUNLINKEDisWithToken:(BOOL)isWithtoken{
+-(void)returnUnlinkedXML:(BOOL)isWithtoken{
     VelocityProcessorReturnUnlinked *returnUnlinkedObj=[[VelocityProcessorReturnUnlinked alloc]init];
-    returnUnlinkedObj.delegate=self;
+    returnUnlinkedObj.delegate = self;
     [returnUnlinkedObj returnUnLinkedAppprofileid:vPAppProfileId andMerchentID:vPMerchantProfileId andWorkFlowID:vPWorkflowId andSessionToken:vPSessionToken andIsWithToken:isWithtoken andIsTestAccount:vPIsTestAccount];
 }
 -(void)VelocityProcessorReturnUnLinkedServerRequestFinishedWithSuccess:(id)successResponse{
-    bancardResp=[ResponseObjecthandler getmainObj];
-    vRObj =[VelocityResponseObjectHandlers setModelObject:bancardResp];
+    bancardResp = [ResponseObjecthandler getmainObj];
+    vRObj = [VelocityResponseObjectHandlers setModelObject:bancardResp];
     [self.delegate performSelector:@selector(VelocityProcessorFinishedWithSuccess:) withObject:bancardResp.status];
 }
 -(void)VelocityProcessorReturnUnLinkedServerRequestFailedWithErrorMessage:(id)failResponse{
     errResobj = [ErrorObjecthandler getmainObj];
-    vRObj =[VelocityResponseObjectHandlers setModelObject:errResobj];
+    vRObj = [VelocityResponseObjectHandlers setModelObject:errResobj];
     [self.delegate performSelector:@selector(VelocityProcessorFinishedWithSuccess:) withObject:bancardResp.status];
 }
+#pragma mark-QueryTransactionDetails  method
+-(void)queryTransactionsDetail{
+    switchcaseInput = 12;
+    [self signOnWithIdentityToken];
+}
+-(void)queryTransactionDetails{
+    VelocityQueryTransactionDetails *queryObject = [[VelocityQueryTransactionDetails alloc] init];
+    queryObject.delegate = self;
+    [queryObject queryTransactionDetailsAppprofileid:vPAppProfileId andMerchentID:vPMerchantProfileId andWorkFlowID:vPWorkflowId andSessionToken:vPSessionToken andIsTestAccount:vPIsTestAccount
+     
+     ];
+    
+}
+-(void)VelocityProcessorQueryTransactionDetailServerRequestFinishedWithSuccess:(id)successResponse{
+    transectionDetailsObject = [TransactionDetailObjecthandler getModelObject];
+    vRObj = [VelocityResponseObjectHandlers setModelObject:transectionDetailsObject];
+    [self.delegate performSelector:@selector(VelocityProcessorFinishedWithSuccess:) withObject:bancardResp.status];
+}
+-(void)VelocityProcessorQueryTransactionDetailServerRequestFailedWithErrorMessage:(id)failResponse{
+    errResobj = [ErrorObjecthandler getmainObj];
+    vRObj =[VelocityResponseObjectHandlers setModelObject:errResobj];
+    [self.delegate performSelector:@selector(VelocityProcessorFinishedWithSuccess:) withObject:errResobj.errorId];
+}
+
+#pragma mark-CaptureAll  method
+-(void)captureAll{
+    switchcaseInput = 13;
+    [self signOnWithIdentityToken];
+}
+-(void)captureAllXML{
+    VelocityProcessorCaptureAll * captureAllObject = [[VelocityProcessorCaptureAll alloc]init];
+    captureAllObject.delegate = self;
+    [captureAllObject CaptureAllWithsAppprofileid:vPAppProfileId andMerchentID:vPMerchantProfileId andWorkFlowID:vPWorkflowId andSessionToken:vPSessionToken andIsTestAccount:vPIsTestAccount];
+    
+}
+-(void)VelocityProcessorCaptureAllServerRequestFinishedWithSuccess:(id)successResponse{
+    captureAllArrayResponseObject = [CaptureAllArrayOfResponseObjecthandler getmainObj];
+    vRObj =[VelocityResponseObjectHandlers setModelObject:captureAllArrayResponseObject];
+    vRObj=[VelocityResponseObjectHandlers getModelObject];
+    [self.delegate performSelector:@selector(VelocityProcessorFinishedWithSuccess:) withObject:vRObj.status];
+    
+    
+}
+-(void)VelocityProcessorCaptureAllServerRequestFailedWithErrorMessage:(id)failResponse{
+    
+    vRObj = [VelocityResponseObjectHandlers setModelObject:errResobj];
+    errResobj = [ErrorObjecthandler getmainObj];
+    if (errResobj.errorId!=nil && ![failResponse isKindOfClass:[NSError class]]) {
+        
+        vRObj = [VelocityResponseObjectHandlers setModelObject:errResobj];
+        [self.delegate performSelector:@selector(VelocityProcessorFinishedWithSuccess:) withObject:bancardResp.status];
+    }
+    else
+        [self.delegate performSelector:@selector(VelocityProcessorFailedWithErrorMessage:) withObject:@"Not Verified or server error"];
+}
 @end
+

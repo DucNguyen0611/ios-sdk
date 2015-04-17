@@ -20,7 +20,6 @@
 @property (strong,nonatomic) NSString *transactionId;
 @property (strong,nonatomic) NSString *originatorTransactionId;
 @property (strong,nonatomic) NSString *serviceTransactionId;
-//@property (strong,nonatomic) NSString *serviceTransactionDateTime;
 @property (strong,nonatomic) NSString *captureState;
 @property (strong,nonatomic) NSString *transactionState;
 @property (nonatomic, assign)  BOOL acknowledged;
@@ -56,9 +55,23 @@
 @property (strong,nonatomic) NSString *reason;
 @property (strong,nonatomic) NSString *ruleMessage;
 @property (strong,nonatomic) NSString *netAmount;
-
 @property (strong,nonatomic) NSString *count;
 @property (strong,nonatomic) NSString *httpCode;
+@property (strong,nonatomic) NSArray * transactionDetailArray;
+@property (strong,nonatomic) NSString *serviceTransactionDateTime;
+@property (strong,nonatomic) NSString *addendum;
+@property (strong,nonatomic) NSString *industryType;
+@property (strong,nonatomic) NSString *PrepaidCard;
+@property (strong,nonatomic) NSDictionary *cashBackTotals;
+@property (strong,nonatomic) NSDictionary *netTotals;
+@property (strong,nonatomic) NSDictionary *pINDebitReturnTotals;
+@property (strong,nonatomic) NSDictionary *pINDebitSaleTotals;
+@property (strong,nonatomic) NSDictionary *returnTotals;
+@property (strong,nonatomic) NSDictionary *saleTotals;
+@property (strong,nonatomic) NSDictionary *voidTotals;
+@property (strong,nonatomic) NSDictionary *completeResponseDictionary;
+@property BOOL isAcknowledged;
+
 @end
 /**
  *  methods to get values inserted in modal class
