@@ -367,24 +367,28 @@ Set paramets in the modal class <b>velocityPaymentTransaction </b><br/>
     	vPTMCObj.securePaymentAccountData = @"";
     	vPTMCObj.encryptionKeyId = @"";
     	vPTMCObj.swipeStatus = @"";
-    	vPTMCObj.approvalCode = @"";
-    	vPTMCObj.internetTransactionData = @"";
     	vPTMCObj.isPartialShipment = false;
     	vPTMCObj.isSignatureCaptured = false; 
-	    vPTMCObj.terminalID = @"";
     	vPTMCObj.partialApprovalCapable = @"NotSet";
-    	vPTMCObj.scoreThreshold = @"";
-    	vPTMCObj.isQuasiCash=false; 
+      	vPTMCObj.isQuasiCash=false; 
     	[PaymentObjecthandler setModelObject:vPTMCObj]; 
 
      
 1.Request a AuthANdCapture() method from API .<br/>
 
-	[velocityProcessorObj authNCaptureWithToken:YES];   //calling with token 
-	[velocityProcessorObj authNCaptureWithToken:NO];    //calling without token
+	[velocityProcessorObj authorizeAndCapture];   //calling with token 
+	------------------------------------
+	vPTMCObj.paymentAccountDataToken = nil;  //calling authwithout token method
+	[velocityProcessorObj authorizeAndCapture];    //calling without token
+	-------------------------------------
+	vPTMCObj.paymentAccountDataToken = nil;  //calling P2PE  method
+        	vPTMCObj.encryptionKeyId = _encryptionKeyIDTextView.text; //for P2PE only, leave null string in case not P2PE
+		vPTMCObj.swipeStatus = @""; //for P2PE only, leave null string in case not P2PE
+    		vPTMCObj.securePaymentAccountData = _securePaymentAccountDataTextView.text;	//for P2PE only, leave null string in case not P2PE
+	[velocityProcessorObj authorizeAndCapture];    //For P2PE
 	
 if calling with token then have to set value for vPTMCobj.paymentaccountdDatatoken.<br/>
-Other wise have to fill the card data information.
+Other wise have to fill the card data information for without token and secureaccount data token ,encryption key id for P2PE
 2.Get the success or Error response from API.<br/> 
        
 2.1 <b>-(void)VelocityProcessorFailedWithErrorMessage:(id )failedAny;</b><br/>
@@ -409,7 +413,7 @@ Other wise have to fill the card data information.
 
 <h2>1.4 capture(...) </h2><br/>
 The method is responsible for the invocation of capture operation on the Velocity REST server.<br/>
-<b> [velocityProcessorObj captureTransaction];</b><br/>
+<b> [velocityProcessorObj capture];</b><br/>
 
 
   <h2>How to set the Ui value on VelocityPaymentTransaction model </h2><br/>
@@ -424,7 +428,7 @@ The method is responsible for the invocation of capture operation on the Velocit
 
 
        1.Request a capture() method from API .<br/> 
-       [velocityProcessorObj captureTransaction];<br/>
+       [velocityProcessorObj capture];<br/>
        2.Get the success or Error response from API.<br/> 
        
 	2.1 <b>-(void)VelocityProcessorFailedWithErrorMessage:(id )failedAny;</b><br/>
@@ -440,9 +444,9 @@ The method is responsible for the invocation of capture operation on the Velocit
 	 VelocityPaymentTransaction *obj =[PaymentObjecthandler getModelObject];<br/>
 		obj.transectionID=self._txRespons_obj.transactionId;   //set value for TransectionID<br/>//save transection 				id       for void method,return by id and return unlinked method
 					}
-<h2>1.5 undo/Void(...) </h2><br/>
+<h2>1.5 undo(...) </h2><br/>
 The method is responsible for the invocation of undo operation on the Velocity REST server.<br/>
-<b> -(void)voidORundoTransaction; </b><br/>
+<b> -(void)undo; </b><br/>
 
 
 <h2>How to set the Ui value on VelocityPaymentTransaction model </h2><br/>
@@ -450,7 +454,7 @@ The method is responsible for the invocation of undo operation on the Velocity R
   
    <b>Sample code</b><br/> 
        1.Request a undo() method from API .<br/> 
-       [velocityProcessorObj voidORundoTransaction];
+       [velocityProcessorObj undo];
        set the transection id 
        2.Get the success or Error response from API.<br/> 
        
@@ -470,11 +474,11 @@ The method is responsible for the invocation of undo operation on the Velocity R
 
 <h2>1.6 adjust(...) </h2><br/>
 The method is responsible for the invocation of adjust operation on the Velocity REST server.<br/>
-<b> -(void)adjustAmount;</b><br/>
+<b> -(void)adjust;</b><br/>
 
                   1.amountfordjust - String     <br/>
-		              2.transactionId - String      <br/>
-		              
+		  2.transactionId - String      <br/>
+		  
 <h2>How to set the Ui value on VelocityPaymentTransaction model </h2><br/>
  <b>Sample code</b><br/> 
  
@@ -483,7 +487,7 @@ The method is responsible for the invocation of adjust operation on the Velocity
 		    vPTMCObj.amountforadjust = self.testCashAdjustTxtFeild.text;<br/>
 		
  	1.Request a adjust() method from API .<br/> 
-       		[velocityProcessorObj adjustAmount];<br/>
+       		[velocityProcessorObj adjust];<br/>
        2.Get the success or Error response from API.<br/> 
        
 	2.1 <b>-(void)VelocityProcessorFailedWithErrorMessage:(id )failedAny;</b><br/>
@@ -534,11 +538,11 @@ Modal class  <b>velocityPaymentTransaction </b> - holds the values for the retur
 
 <h2>1.8 returnUnLinked(...) </h2><br/>
 The method is responsible for the invocation of returnUnLinked operation on the Velocity REST server.<br/>
-<b> -(void)returnUnlinkedisWithToken:(BOOL)isWithToken;</b><br/>
+<b> -(void)returnUnlinked;</b><br/>
 
 Modal class  <b>velocityPaymentTransaction </b> - holds the values for the returnUnlinked request VelocityPaymentTransaction<br/>
              1. cardType - String     <br/>
-			       2. cardholderName - String     <br/>
+		2. cardholderName - String     <br/>
              3.  panNumber-String   <br/>
              4.   expiryDate - String   <br/>
 		      	 5.   street - String   <br/>
@@ -621,32 +625,27 @@ Modal class  <b>velocityPaymentTransaction </b> - holds the values for the retur
     	vPTMCObj.orderNumber = @"629203";
     	vPTMCObj.FeeAmount = @"1000.05";
     	vPTMCObj.tipAmount = self.tipAmountTxtField.text;//this amount is used for capture<br/>
-    	vPTMCObj.keySerialNumber=@"";
-    	vPTMCObj.identificationInformation=@"";
-    	vPTMCObj.ecommerceSecurityData = @"";
-    	vPTMCObj.track1Data = @"";
-    	vPTMCObj.street2 = @"";
-    	vPTMCObj.fax = @"";
-    	vPTMCObj.customerTaxId = @"";
-    	vPTMCObj.shippingData = @"";
-    	vPTMCObj.securePaymentAccountData = @"";
-    	vPTMCObj.encryptionKeyId = @"";
+    	vPTMCObj.securePaymentAccountData = @""; //ONLY FOR P2PE
+    	vPTMCObj.encryptionKeyId = @"";		//ONLY FOR P2PE
     	vPTMCObj.swipeStatus = @"";
-    	vPTMCObj.approvalCode = @"";
-    	vPTMCObj.internetTransactionData = @"";
-    	vPTMCObj.isPartialShipment = false;
+      	vPTMCObj.isPartialShipment = false;
     	vPTMCObj.isSignatureCaptured = false; 
-    	vPTMCObj.terminalID = @"";
     	vPTMCObj.partialApprovalCapable = @"NotSet";
-    	vPTMCObj.scoreThreshold = @"";
-    	vPTMCObj.isQuasiCash=false; 
+       	vPTMCObj.isQuasiCash=false; 
     	[PaymentObjecthandler setModelObject:vPTMCObj]; 
     	
        1.Request a returnUnLinked() method from API .<br/> 
        
-		[velocityProcessorObj returnUnlinkedisWithToken:YES]; //return unlinked method call
-		[velocityProcessorObj returnUnlinkedisWithToken:NO];  //return unlinked without token method call
-		
+		[velocityProcessorObj returnUnlinked]; //return unlinked method call
+		--------------------------------------
+		vPTMCObj.paymentAccountDataToken = nil;  //calling authwithout token method
+		[velocityProcessorObj returnUnlinked];  //return unlinked without token method call
+		---------------------------------------
+		vPTMCObj.paymentAccountDataToken = nil;  //calling P2PE  method
+        	vPTMCObj.encryptionKeyId = _encryptionKeyIDTextView.text; //for P2PE only, leave null string in case not P2PE
+		vPTMCObj.swipeStatus = @""; //for P2PE only, leave null string in case not P2PE
+    		vPTMCObj.securePaymentAccountData = _securePaymentAccountDataTextView.text;	//for P2PE only, leave null string in case not P2PE
+		[velocityProcessorObj returnUnlinked];  //For P2PE
 	2.Get the success or Error response from API.<br/> 
        
 	2.1 <b>-(void)VelocityProcessorFailedWithErrorMessage:(id )failedAny;</b><br/>
