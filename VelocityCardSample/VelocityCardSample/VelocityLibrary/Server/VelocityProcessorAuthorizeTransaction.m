@@ -79,7 +79,24 @@
         /**
          *  xml for request starts
          */
-    NSString *xmlString=[NSString stringWithFormat:@"<AuthorizeTransaction xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.ipcommerce.com/CWS/v2.0/Transactions/Rest\" i:type=\"AuthorizeTransaction\">\n<ApplicationProfileId>%@</ApplicationProfileId>\n<MerchantProfileId>%@</MerchantProfileId>\n<Transaction\nxmlns:ns1=\"http://schemas.ipcommerce.com/CWS/v2.0/Transactions/Bankcard\"\ni:type=\"ns1:BankcardTransaction\">\n<ns1:TenderData>\n<ns1:CardData>\n<ns1:CardType>%@</ns1:CardType>\n<ns1:CardholderName>%@</ns1:CardholderName>\n<ns1:PAN>%@</ns1:PAN>\n<ns1:Expire>%@</ns1:Expire>\n<ns1:Track1Data i:nil=\"true\">%@</ns1:Track1Data>\n</ns1:CardData>\n<ns1:CardSecurityData>\n<ns1:AVSData>\n",appProfileId,merchantProfileId,obj.cardType,obj.cardholderName,obj.panNumber,obj.expiryDate,obj.track1Data ];
+    NSString *xmlString=[NSString stringWithFormat:@"<AuthorizeTransaction xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.ipcommerce.com/CWS/v2.0/Transactions/Rest\" i:type=\"AuthorizeTransaction\">\n<ApplicationProfileId>%@</ApplicationProfileId>\n<MerchantProfileId>%@</MerchantProfileId>\n<Transaction\nxmlns:ns1=\"http://schemas.ipcommerce.com/CWS/v2.0/Transactions/Bankcard\"\ni:type=\"ns1:BankcardTransaction\">\n<ns1:TenderData>\n",appProfileId,merchantProfileId];
+        
+        if ([obj.entryMode isEqualToString:@"Keyed"]) {
+           xmlString = [xmlString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CardData>\n<ns1:CardType>%@</ns1:CardType>\n<ns1:CardholderName>%@</ns1:CardholderName>\n<ns1:PAN>%@</ns1:PAN>\n<ns1:Expire>%@</ns1:Expire>\n<ns1:Track1Data i:nil=\"true\"/>\n</ns1:CardData>\n<ns1:CardSecurityData>\n<ns1:AVSData>\n",obj.cardType,obj.cardholderName,obj.panNumber,obj.expiryDate ]];
+            
+        }
+        else
+        {
+            if ([obj.track1Data isEqualToString:@"Null"]||[obj.track1Data isEqualToString:@" "]) {
+                
+                xmlString = [xmlString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CardData>\n<ns1:CardType>%@</ns1:CardType>\n<ns1:CardholderName i:nil=\"true\"/>\n<ns1:PAN i:nil=\"true\"/>\n<ns1:Expire i:nil=\"true\"/>\n<ns1:Track1Data i:nil=\"true\"/>\n<ns1:Track2Data>%@</ns1:Track2Data>\n</ns1:CardData>\n<ns1:CardSecurityData>\n<ns1:AVSData>\n",obj.cardType,obj.track2Data ]];
+                
+
+            }
+            else if ([obj.track2Data isEqualToString:@"Null"]||[obj.track2Data isEqualToString:@" "]){
+               xmlString= [xmlString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CardData>\n<ns1:CardType>%@</ns1:CardType>\n<ns1:CardholderName i:nil=\"true\"/>\n<ns1:PAN i:nil=\"true\"/>\n<ns1:Expire i:nil=\"true\"/>\n<ns1:Track1Data >%@</ns1:Track1Data>\n<ns1:Track2Data i:nil=\"true\"/>\n</ns1:CardData>\n<ns1:CardSecurityData>\n<ns1:AVSData>\n",obj.cardType,obj.track1Data ]];
+            }
+        }
         /**
          *  checking postal code available or not
          */

@@ -661,7 +661,136 @@ Modal class  <b>velocityPaymentTransaction </b> - holds the values for the retur
 	       VelocityPaymentTransaction *obj =[PaymentObjecthandler getModelObject];<br/>
 	    	obj.transectionID=self._txRespons_obj.transactionId;   //set value for TransectionID<br/>//save transection 				id for void method,return by id and return unlinked method
 					}
+<h2>1.9 QueryTransactionDetail()</h2><br/>
+The method is responsible for the invocation of queryTransaction operation on the Velocity REST server.<br/>
 
+<b> -(void)queryTransactionsDetail;</b><br/>
+
+Modal class  <b>velocityPaymentTransaction </b> - holds the values for the returnUnlinked request VelocityPaymentTransaction<br/>
+	     1. cardType - String     <br/>
+		2. cardholderName - String     <br/>
+	     3.  panNumber-String   <br/>
+	     4.   expiryDate - String   <br/>
+		      	 5.   street - String   <br/>
+	     6.   stateProvince - String     <br/>
+	     7.   postalCode - String   <br/>
+	     8.   phone - String    <br/>
+			       9.    reportingDataReference String <br/>
+	    10.   transactionDataReference  String<br/>
+			      11.   state - String     <br/>
+	    12.   cvDataProvided - String    <br/>
+			      13.   amount - String       <br/>
+	    14.   currencyCode - String       <br/> 
+	    15.   customerPresent - String     <br/>
+	    16.   employeeId - String     <br/>
+	    17.   entryMode - String      <br/>
+	          18.   industryType - String   <br/>
+	    19.   email - String   <br/>
+			      20.   transactionDateTime - String   <br/>
+			      21.   city -String <br/>
+			      22.   quasiCash - boolean    <br/>
+	    23.  country - String     <br/>
+	    24. transactionId- String <br/>
+	    25.  signatureCaptured - boolean    <br/>
+	    26.  partialShipment - boolean   <br/>
+	    27.  countryCode - String     <br/>
+	    28.  businnessName - String   <br/>
+	    29. comment - String    <br/>
+	    30. description - String    <br/>
+	    31. paymentAccountDataToken - String   <br/>
+	    32. cashBackAmount - String       <br/> 
+	    33. goodsType - String     <br/>
+	    34.invoiceNumber - String     <br/>
+	    35.orderNumber - String      <br/>
+	          36. FeeAmount - String   <br/>
+	    37. tipAmount - String   <br/>
+	    38. partialApprovalCapable - String   <br/>
+            
+<h2>How to set the Ui value on VelocityPaymentTransaction model </h2><br/>
+
+ 
+<b>Sample code</b><br/> 
+
+	    VelocityPaymentTransaction *vPTMCObj;//velocityProcessorTransactionModelClass Object
+    	vPTMCObj=[PaymentObjecthandler getModelObject];//method to initialize the modal class object
+    	vPTMCObj.transactionName = [self.transactionTypebtn titleForState:UIControlStateNormal];
+    	vPTMCObj.state = [self.stateBtn titleForState:UIControlStateNormal]; 
+    	vPTMCObj.country = self.countryTxtField.text; 
+    	vPTMCObj.amountforadjust = self.testCashAdjustTxtFeild.text; 
+    	vPTMCObj.cardType = [self.cardTypeBtn titleForState:UIControlStateNormal]; 
+    	vPTMCObj.cardholderName = self.nameTxtField.text; 
+    	vPTMCObj.panNumber=self.creditCardNotxtField.text; 
+    	vPTMCObj.expiryDate = [self.monthTextField.text stringByAppendingString:self.yearTextField.text]; 
+    	vPTMCObj.isNullable = false; 
+    	vPTMCObj.street = self.streetTxtField.text; 
+    	vPTMCObj.city = self.cityTxtField.text; 
+    	vPTMCObj.stateProvince = [self.stateBtn titleForState:UIControlStateNormal];
+    	vPTMCObj.accountType=@"NotSet";
+	    vPTMCObj.postalCode = self.zipTxtField.text;
+    	vPTMCObj.phone= self.phoneTxtField.text;
+    	vPTMCObj.cvDataProvided = @"Provided";
+    	vPTMCObj.cVData = self.cVCtxtField.text; 
+    	vPTMCObj.amount = self.testCashTxtField.text; 
+	    vPTMCObj.currencyCode = self.currencyCodeTxtField.text; 
+    	vPTMCObj.customerPresent = @"Present";
+    	vPTMCObj.employeeId = self.customerIDtxtField.text;
+    	vPTMCObj.entryMode = @"Keyed";
+    	vPTMCObj.industryType = @"Ecommerce";
+    	vPTMCObj.email = self.emailTxtField.text;
+    	vPTMCObj.countryCode = @"USA";
+    	vPTMCObj.businnessName = @"MomCorp";
+    	vPTMCObj.CustomerId = @"11";
+    	vPTMCObj.comment = @"a test comment";
+	    vPTMCObj.discription = @"a test description";
+    	vPTMCObj.reportingDataReference = @"001";
+    	vPTMCObj.transactionDataReference = @"xyt";
+    	vPTMCObj.transactionDateTime=@"2013-04-03T13:50:16";
+    	vPTMCObj.cashBackAmount = @"0.0";
+    	vPTMCObj.goodsType = @"NotSet";
+    	vPTMCObj.invoiceNumber = @"808";
+    	vPTMCObj.orderNumber = @"629203";
+    	vPTMCObj.FeeAmount = @"1000.05";
+    	vPTMCObj.tipAmount = self.tipAmountTxtField.text;//this amount is used for capture<br/>
+    	vPTMCObj.securePaymentAccountData = @""; //ONLY FOR P2PE
+    	vPTMCObj.encryptionKeyId = @"";		//ONLY FOR P2PE
+    	vPTMCObj.swipeStatus = @"";
+      	vPTMCObj.isPartialShipment = false;
+    	vPTMCObj.isSignatureCaptured = false; 
+    	vPTMCObj.partialApprovalCapable = @"NotSet";
+       	vPTMCObj.isQuasiCash=false; 
+    	[PaymentObjecthandler setModelObject:vPTMCObj]; 
+    	
+       1.Request a queryTransactionDetail() method from API .<br/> 
+       
+		[velocityProcessorObj queryTransactionsDetail]; //return unlinked method call
+		      queryTransactionRequestModalObject.page = @"0";
+            queryTransactionRequestModalObject.pageSize = @"10";
+            queryTransactionRequestModalObject.transactionStartDateTime = @"";
+            queryTransactionRequestModalObject.transactionEndDateTime = @"";
+            queryTransactionRequestModalObject.includeRelated = @"true";
+            queryTransactionRequestModalObject.isAcknowledged = @"NotSet";
+            queryTransactionRequestModalObject.transactionIds = @[_queryTransactionIDTextField.text];
+            queryTransactionRequestModalObject.batchIds = @[_queryBatchID.text];
+    	
+	
+	2.Get the success or Error response from API.<br/> 
+       
+	2.1 <b>-(void)VelocityProcessorFailedWithErrorMessage:(id )failedAny;</b><br/>
+      
+	2.2 <b>-(void)VelocityProcessorFinishedWithSuccess:(id )successAny; </b><br/>
+ <h2>1.10 CaptureAll()</h2><br/>
+The method is responsible for the invocation of CaptureAll on the Velocity REST server.<br/>
+
+<b> -(void)captureAll;</b><br/>	
+ 2.Get the success or Error response from API.<br/> 
+       
+	2.1 <b>-(void)VelocityProcessorFailedWithErrorMessage:(id )failedAny;</b><br/>
+	 
+      
+	2.2 <b>-(void)VelocityProcessorFinishedWithSuccess:(id )successAny; </b><br/>
+	else if (__txRespons_obj!=nil && [self._txRespons_obj isKindOfClass:[CaptureAllArrayOfResponse class]]&&__txRespons_obj!=nil){
+	 }
+ 
 <h2>2. VelocityResponse </h2><br/>
 
 This Modal class implements the responses coming from the Velocity server for a payment transaction request. <br/>

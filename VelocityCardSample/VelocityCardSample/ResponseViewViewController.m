@@ -13,8 +13,8 @@
 #import "VelocityResponse.h"//import this header
 #import "MBProgressHUD.h"
 #import "VelocityPaymentTransaction.h"//import this header
-#import "TransactionDetailModalClass.h"
-#import "CaptureAllArrayOfResponse.h"
+#import "TransactionDetailModalClass.h"//import this header
+#import "CaptureAllArrayOfResponse.h"//import this header
 @interface ResponseViewViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *httpCodeLbl;

@@ -16,8 +16,8 @@
 #import "ErrorPaymentResponse.h"//import this header
 #import "ResponseViewViewController.h"
 #import "MBProgressHUD.h"
-#import "QueryTransectionRequestModalClass.h"
-#import "VelocityPaymentTransaction.h"
+#import "QueryTransectionRequestModalClass.h"//import this header
+#import "VelocityPaymentTransaction.h"//import this header
 @interface VelocityCardSampleViewController ()<UIPickerViewDataSource,UIPickerViewDelegate,UIGestureRecognizerDelegate,UITextFieldDelegate,VelocityProcessorDelegate>//Velocity processor delegate
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -69,6 +69,15 @@
 - (IBAction)ButtonWorkFlowIDClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *queryTransactionIDTextField;
 @property (weak, nonatomic) IBOutlet UITextField *queryBatchID;
+@property (weak, nonatomic) IBOutlet UIButton *entryModeButton;
+- (IBAction)entryModeButton:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIButton *track1databutton;
+- (IBAction)track1DataButton:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIButton *track2DataButton;
+- (IBAction)track2DataButton:(id)sender;
+
 
 @end
 @implementation VelocityCardSampleViewController
@@ -77,8 +86,11 @@
     NSArray *cardTypearr;
     NSArray *currencyCodeArr;
     NSArray *stateArr;
-     NSArray *workflowIDArray;
-     NSArray *appProfileIDArray;
+    NSArray *workflowIDArray;
+    NSArray *appProfileIDArray;
+    NSArray *entryModeArray;
+    NSArray *track1DataArray;
+    NSArray *track2dataArray;
     VelocityProcessor *velocityProcessorObj;//velocity processor object
     UIButton *btntag;
     UIView *chiledView;
@@ -97,7 +109,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.scrollView.contentSize  = CGSizeMake(self.view.frame.size.width, 3800);
+    self.scrollView.contentSize  = CGSizeMake(self.view.frame.size.width, 4100);
     self.pickerView.hidden = YES;
     self.transactionTypebtn.layer.cornerRadius = 5;
     self.transactionTypebtn.layer.masksToBounds = YES;
@@ -123,6 +135,12 @@
     self.securePaymentAccountDataTextView.layer.masksToBounds = YES;
     self.encryptionKeyIDTextView.layer.cornerRadius = 5;
     self.encryptionKeyIDTextView.layer.masksToBounds = YES;
+    self.entryModeButton.layer.cornerRadius = 5;
+    self.entryModeButton.layer.masksToBounds = YES;
+    self.track1databutton.layer.cornerRadius = 5;
+    self.track1databutton.layer.masksToBounds = YES;
+    self.track2DataButton.layer.cornerRadius = 5;
+    self.track2DataButton.layer.masksToBounds = YES;
     _checkbox = kisTestAccountBOOL;
     if (_checkbox) {
         [_buttonIsTestMode setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
@@ -153,7 +171,9 @@
      */
     cardTypearr = [[NSArray alloc]initWithObjects:@"Visa",@"Master",@"Discover",@"American Express", nil];
     stateArr=[[NSArray alloc]initWithObjects:@"CO",@"NK", nil];
-    
+    entryModeArray=[[NSArray alloc]initWithObjects:@"Keyed",@"TrackDataFromMSR", nil];
+    track1DataArray=[[NSArray alloc]initWithObjects:@"Null",@"%B4012000033330026^NAJEER/SHAIK ^0904101100001100000000123456780?", nil];
+    track2dataArray=[[NSArray alloc]initWithObjects:@"Null",@"4012000033330026=09041011000012345678", nil];
     [self.transactionTypebtn setTitle:[NSString stringWithFormat:@"%@",[tranxTypearr objectAtIndex:0]] forState:UIControlStateNormal];
     
     [self.stateBtn setTitle:[NSString stringWithFormat:@"%@",[stateArr objectAtIndex:0]] forState:UIControlStateNormal];
@@ -161,8 +181,9 @@
     [self.cardTypeBtn setTitle:[NSString stringWithFormat:@"%@",[cardTypearr objectAtIndex:0]] forState:UIControlStateNormal];
     [self.buttonWorkFlowID setTitle:[NSString stringWithFormat:@"%@",[workflowIDArray objectAtIndex:0]] forState:UIControlStateNormal];
     [self.buttonAppProfileID setTitle:[NSString stringWithFormat:@"%@",[appProfileIDArray objectAtIndex:0]] forState:UIControlStateNormal];
-    
-    
+    [self.entryModeButton setTitle:[NSString stringWithFormat:@"%@",[entryModeArray objectAtIndex:0]] forState:UIControlStateNormal];
+    [self.track1databutton setTitle:[NSString stringWithFormat:@"%@",[track1DataArray objectAtIndex:0]] forState:UIControlStateNormal];
+    [self.track2DataButton setTitle:[NSString stringWithFormat:@"%@",[track2dataArray objectAtIndex:0]] forState:UIControlStateNormal];
     toolBar= [[UIToolbar alloc] initWithFrame:CGRectMake(0,self.view.frame.size.height-_pickerView.frame.size.height-42,_pickerView.frame.size.width,44)];
    
     vPTMCObj = [PaymentObjecthandler getModelObject];
@@ -261,6 +282,12 @@ numberOfRowsInComponent:(NSInteger)component{
         return [appProfileIDArray count];
     else if (btntag.tag == 4000)
         return [workflowIDArray count];
+    else if (btntag.tag == 5000)
+        return [entryModeArray count];
+    else if (btntag.tag == 6000)
+        return [track1DataArray count];
+    else if (btntag.tag == 7000)
+        return [track2dataArray count];
     else
         return [cardTypearr count];
    }
@@ -283,7 +310,13 @@ numberOfRowsInComponent:(NSInteger)component{
         
     else if (btntag.tag==4000)
         [self.buttonWorkFlowID setTitle:[NSString stringWithFormat:@"%@",[workflowIDArray objectAtIndex:row]] forState:UIControlStateNormal];
-        
+    
+    else if (btntag.tag==5000)
+        [self.entryModeButton setTitle:[NSString stringWithFormat:@"%@",[entryModeArray objectAtIndex:row]] forState:UIControlStateNormal];
+    else if (btntag.tag==6000)
+        [self.track1databutton setTitle:[NSString stringWithFormat:@"%@",[track1DataArray objectAtIndex:row]] forState:UIControlStateNormal];
+    else if (btntag.tag==7000)
+        [self.track2DataButton setTitle:[NSString stringWithFormat:@"%@",[track2dataArray objectAtIndex:row]] forState:UIControlStateNormal];
     else
         [self.cardTypeBtn setTitle:[NSString stringWithFormat:@"%@",[cardTypearr objectAtIndex:row]] forState:UIControlStateNormal];
 }
@@ -298,6 +331,12 @@ numberOfRowsInComponent:(NSInteger)component{
         return [appProfileIDArray objectAtIndex:row];
     else if (btntag.tag==4000)
         return [workflowIDArray objectAtIndex:row];
+    else if (btntag.tag==5000)
+        return [entryModeArray objectAtIndex:row];
+    else if (btntag.tag==6000)
+        return [track1DataArray objectAtIndex:row];
+    else if (btntag.tag==7000)
+        return [track2dataArray objectAtIndex:row];
     else
      return [cardTypearr objectAtIndex:row];
 }
@@ -322,6 +361,19 @@ numberOfRowsInComponent:(NSInteger)component{
 
     else if (btntag.tag==4000){
         attString = [[NSAttributedString alloc] initWithString:[workflowIDArray objectAtIndex:row] attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+        return attString;
+    }
+    
+    else if (btntag.tag==5000){
+        attString = [[NSAttributedString alloc] initWithString:[entryModeArray objectAtIndex:row] attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+        return attString;
+    }
+    else if (btntag.tag==6000){
+        attString = [[NSAttributedString alloc] initWithString:[track1DataArray objectAtIndex:row] attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+        return attString;
+    }
+    else if (btntag.tag==7000){
+        attString = [[NSAttributedString alloc] initWithString:[track2dataArray objectAtIndex:row] attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
         return attString;
     }
 
@@ -507,7 +559,7 @@ numberOfRowsInComponent:(NSInteger)component{
     vPTMCObj.currencyCode = self.currencyCodeTxtField.text;
     vPTMCObj.customerPresent = @"Present";
     vPTMCObj.employeeId = self.customerIDtxtField.text;
-    vPTMCObj.entryMode = @"Keyed";
+    vPTMCObj.entryMode = [self.entryModeButton titleForState:UIControlStateNormal];
     vPTMCObj.industryType = @"Ecommerce";
     vPTMCObj.email = self.emailTxtField.text;
     vPTMCObj.countryCode = @"USA";
@@ -528,6 +580,8 @@ numberOfRowsInComponent:(NSInteger)component{
     vPTMCObj.isSignatureCaptured = false;
     vPTMCObj.partialApprovalCapable = @"NotSet";
     vPTMCObj.isQuasiCash = false;
+    vPTMCObj.track1Data = [self.track1databutton titleForState:UIControlStateNormal];
+    vPTMCObj.track2Data = [self.track2DataButton titleForState:UIControlStateNormal];
     self.pickerView.hidden = YES;
     [PaymentObjecthandler setModelObject:vPTMCObj];
     switch (switchcaseInput ) {
@@ -699,4 +753,16 @@ numberOfRowsInComponent:(NSInteger)component{
 }
 
 
+- (IBAction)entryModeButton:(id)sender {
+    btntag=(UIButton*)sender;
+    [self labelTapped];
+}
+- (IBAction)track1DataButton:(id)sender {
+    btntag=(UIButton*)sender;
+    [self labelTapped];
+}
+- (IBAction)track2DataButton:(id)sender {
+    btntag=(UIButton*)sender;
+    [self labelTapped];
+}
 @end
