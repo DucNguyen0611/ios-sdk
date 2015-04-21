@@ -162,6 +162,27 @@
         else if(PaymentObj.securePaymentAccountData.length>0 && PaymentObj.encryptionKeyId.length>0){
             
         }
+        else if([PaymentObj.entryMode isEqualToString:@"TrackDataFromMSR"]){
+            if ([PaymentObj.track1Data isEqualToString:@""]||[PaymentObj.track1Data isEqualToString:@"null"]) {
+                xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CardData>\n"]];
+                xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CardType>%@</ns1:CardType>\n",PaymentObj.cardType]];
+                xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:PAN i:nil=\"true\"/>\n"]];
+                xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:Expire i:nil=\"true\"/>\n"]];
+                xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:Track1Data i:nil=\"true\"/>\n"]];
+                xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:Track2Data>%@</ns1:Track2Data>\n",PaymentObj.track2Data]];
+                xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@" </ns1:CardData>\n"]];
+                
+            }
+            else{
+                xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CardData>\n"]];
+                xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CardType>%@</ns1:CardType>\n",PaymentObj.cardType]];
+                xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:PAN i:nil=\"true\"/>\n"]];
+                xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:Expire i:nil=\"true\"/>\n"]];
+                xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:Track1Data>%@</ns1:Track1Data>\n",PaymentObj.track1Data]];
+                xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:Track2Data i:nil=\"true\"/>\n"]];
+                xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@" </ns1:CardData>\n"]];
+            }
+        }
         else{
             xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CardData>\n"]];
             xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CardType>%@</ns1:CardType>\n",PaymentObj.cardType]];

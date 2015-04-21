@@ -55,6 +55,7 @@
 @property (strong,nonatomic) NSString *identificationInformation;
 @property (strong,nonatomic) NSString *ecommerceSecurityData;
 @property (strong,nonatomic) NSString *track1Data;
+@property (strong,nonatomic) NSString *track2Data;
 @property (strong,nonatomic) NSString *street2;
 @property (strong,nonatomic) NSString *fax;
 @property (strong,nonatomic) NSString *customerTaxId;
