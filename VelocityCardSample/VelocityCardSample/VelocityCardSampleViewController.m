@@ -77,6 +77,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *track2DataButton;
 - (IBAction)track2DataButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *virsonDetailLabel;
 
 
 @end
@@ -157,11 +158,11 @@
     /**
      workflowIDArray
      */
-    workflowIDArray = [[NSArray alloc]initWithObjects:@"14644  (Normal)",@" 15464  (capturerall)",@"14560  (P2PE)", nil];
+    workflowIDArray = [[NSArray alloc]initWithObjects:@"2317000001  (Normal)",@"BBBAAA0001  (P2PE)",@" A39DF00001  (capturerall)", nil];
     /**
      appProfileIDArray
      */
-    appProfileIDArray = [[NSArray alloc]initWithObjects:@"2317000001  (Normal)",@" A39DF00001  (capturerall)",@"BBBAAA0001  (P2PE)", nil];
+    appProfileIDArray = [[NSArray alloc]initWithObjects:@"14644  (Normal)",@"14560  (P2PE)",@" 15464  (capturerall)", nil];
     /**
      transaction types
      */
@@ -169,7 +170,7 @@
     /**
      card type
      */
-    cardTypearr = [[NSArray alloc]initWithObjects:@"Visa",@"Master",@"Discover",@"American Express", nil];
+    cardTypearr = [[NSArray alloc]initWithObjects:@"Visa",@"MasterCard",@"Discover",@"AmericanExpress", nil];
     stateArr=[[NSArray alloc]initWithObjects:@"CO",@"NK", nil];
     entryModeArray=[[NSArray alloc]initWithObjects:@"Keyed",@"TrackDataFromMSR", nil];
     track1DataArray=[[NSArray alloc]initWithObjects:@"Null",@"%B4012000033330026^NAJEER/SHAIK ^0904101100001100000000123456780?", nil];
@@ -208,6 +209,7 @@
     
     respViewObj = [[ResponseViewViewController alloc]init];
     queryTransactionRequestModalObject = [QueryTransectionRequestObjecthandler getModelObject];
+    _virsonDetailLabel.text = [self getAppVersion ];
 }
 
 #pragma mark-VelocityProcessorDelegate
@@ -765,4 +767,14 @@ numberOfRowsInComponent:(NSInteger)component{
     btntag=(UIButton*)sender;
     [self labelTapped];
 }
+
+//crashlytics virson detail
+-(NSString*)getAppVersion
+{
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSString *majorVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    NSString *minorVersion = [infoDictionary objectForKey:@"CFBundleVersion"];
+    return [NSString stringWithFormat:@"V %@(%@)", majorVersion, minorVersion];
+}
+
 @end

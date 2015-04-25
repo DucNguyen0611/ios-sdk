@@ -77,7 +77,7 @@
     xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<BatchIds xmlns:d2p1=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\">%@</BatchIds>\n",PaymentObj.batchID]];
         xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<DifferenceData xmlns:ns1=\"http://schemas.ipcommerce.com/CWS/v2.0/Transactions/Bankcard\" i:type=\"ns1:BankcardReturn\">\n"]];
     xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns2:TransactionId xmlns:ns2=\"http://schemas.ipcommerce.com/CWS/v2.0/Transactions\">%@</ns2:TransactionId>\n",PaymentObj.transectionID]];
-    xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:Amount >%@</ns1:Amount>\n",PaymentObj.amountforadjust]];
+    xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:Amount >%@</ns1:Amount>\n",PaymentObj.amount]];
     xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"</DifferenceData>\n"]];
     xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<MerchantProfileId>%@</MerchantProfileId>\n",merchantID]];
     xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"</ReturnById>\n"]];
