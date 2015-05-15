@@ -241,7 +241,7 @@
     xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:FeeAmount>0.0</ns1:FeeAmount>\n"]];
     xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:TerminalId i:nil=\"true\"/>\n"]];
     xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:LaneId i:nil=\"true\"/>\n"]];
-    xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:TipAmount>0.0</ns1:TipAmount>\n"]];
+    xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:TipAmount>%@</ns1:TipAmount>\n",PaymentObj.tipAmount]];
     xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:BatchAssignment i:nil=\"true\"/>\n"]];
     xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:PartialApprovalCapable>NotSet</ns1:PartialApprovalCapable>\n"]];
     xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:ScoreThreshold i:nil=\"true\"/>\n"]];

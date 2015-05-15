@@ -71,7 +71,7 @@
     NSData *tokenData = [appendedString dataUsingEncoding:NSUTF8StringEncoding];
     NSString * stringBase64 = [tokenData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithCarriageReturn];
         PaymentObj = [PaymentObjecthandler getModelObject];
-        
+        float sumOfTipAndAmount =[PaymentObj.tipAmount floatValue]+[PaymentObj.amount floatValue];
         NSString *xmlMainString =kHeadr_Xml;
      xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"\n<ChangeTransaction xmlns=\"%@/Rest\"\n",kXml_Base_Url]];
     xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"xmlns:i=\"%@\" i:type=\"Capture\">\n",kW3Org_url]];
@@ -85,7 +85,7 @@
     //this field transection id is assigned in verify method server request
     xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<d2p1:TransactionId>%@</d2p1:TransactionId>\n",PaymentObj.transectionID]];
     
-    xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<d2p2:Amount>%@</d2p2:Amount>\n",PaymentObj.amount]];
+    xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<d2p2:Amount>%.02f</d2p2:Amount>\n",sumOfTipAndAmount]];
     
     xmlMainString =[xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<d2p2:TipAmount>%@</d2p2:TipAmount>\n",PaymentObj.tipAmount]];
     
