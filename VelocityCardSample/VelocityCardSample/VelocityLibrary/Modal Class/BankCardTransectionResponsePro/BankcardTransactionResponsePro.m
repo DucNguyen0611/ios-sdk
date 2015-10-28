@@ -80,6 +80,7 @@ static BankcardTransactionResponsePro *responseObj;
     responseObj.settlementDate = [[dict objectForKey:@"BankcardTransactionResponsePro"] objectForKey:@"SettlementDate"];
     responseObj.finalBalance = [[dict objectForKey:@"BankcardTransactionResponsePro"] objectForKey:@"FinalBalance"];
     responseObj.cashBackAmount = [[dict objectForKey:@"BankcardTransactionResponsePro"] objectForKey:@"CashBackAmount"];
+	responseObj.emvData = [[dict objectForKey:@"BankcardTransactionResponsePro"] objectForKey:@"EMVData"];
     return responseObj;
 }
 /**

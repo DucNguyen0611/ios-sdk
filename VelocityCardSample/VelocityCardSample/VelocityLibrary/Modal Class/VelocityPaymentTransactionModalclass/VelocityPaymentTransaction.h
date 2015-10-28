@@ -74,6 +74,9 @@
 @property (strong,nonatomic) NSString *scoreThreshold;
 @property BOOL isQuasiCash;
 @property (strong,nonatomic) NSString *differenceData;
+
+@property (strong,nonatomic) NSString *emvCondition;
+@property (strong,nonatomic) NSString *emvData;
 @end
 
 
