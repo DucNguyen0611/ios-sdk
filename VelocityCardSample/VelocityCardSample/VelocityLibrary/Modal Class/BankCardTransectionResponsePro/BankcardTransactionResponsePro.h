@@ -42,6 +42,7 @@
 @property (strong,nonatomic) NSString *settlementDate;
 @property (strong,nonatomic) NSString *finalBalance;
 @property (strong,nonatomic) NSString *cashBackAmount;
+@property (strong,nonatomic) NSString *emvData;
 //- (id)initWithResponseDict:(NSDictionary *)dict ;
 @end
 

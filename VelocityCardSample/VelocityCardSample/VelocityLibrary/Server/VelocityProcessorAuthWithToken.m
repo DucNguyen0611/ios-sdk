@@ -222,6 +222,12 @@ if ([self CheckNetworConnectivity] == YES) {
         //card data ends
     }
     
+	if (![PaymentObj.emvCondition isEqualToString:@""] && ![PaymentObj.emvData isEqualToString:@""]) {
+		xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:CardSecurityData>\n"]];
+		xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:EMVChipCondition>%@</ns1:EMVChipCondition>\n",PaymentObj.emvCondition]];
+		xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"<ns1:EMVData>%@</ns1:EMVData>\n",PaymentObj.emvData]];
+		xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@" </ns1:CardSecurityData>\n"]];
+	}
             xmlMainString = [xmlMainString stringByAppendingString:[NSString stringWithFormat:@"</ns1:TenderData>\n"]];
     //tender data ends
     
